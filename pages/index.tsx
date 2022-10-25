@@ -7,7 +7,23 @@ import Image from 'next/image'
 import TestPage from '../components/testPage'
 
 // helper imports
-import type { ExpandedExample } from '../typings' // this is a custom type created in typings that is set to match test class instance
+import type { ExpandedExample, BrandonExample } from '../typings' // this is a custom type created in typings that is set to match test class instance
+import type { BrandonGame } from '../typingBrandon' // separate types for each person to limit git issues. 
+
+// console.log('fuck you brandon')
+
+
+// class fuckYou {
+//   public static void main (String[] args) {
+//     insult()
+  
+//   }
+//   pubic static void insult {
+//     System.out.print('fuck you brandon')
+//   }
+
+// }
+
 
 // for props we are passing into components
 type Props = {}
@@ -21,6 +37,19 @@ let propTest : ExpandedExample = {
   
 }
 
+// redudant way, infer is fine unless exporting. 
+let newObject : {
+  name: string,
+  bestRubberDuck: boolean
+} = {
+  name: 'brandon',
+  bestRubberDuck: true
+
+}
+
+// if you know something is there but ts is throwing a fit hit it with !
+// if you need to use types that interfere with a different import use "as ---- " when calling it. 
+
 // NextPage is a typing for pages in ts next deleting it cause its not needed currently
 // pass prop down here
 const Home = ({} : Props) => {
@@ -33,7 +62,7 @@ const Home = ({} : Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <p>Parent Page</p>
-      
+
       {/* testPage */}
       <TestPage test={propTest} />
 

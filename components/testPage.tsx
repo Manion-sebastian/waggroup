@@ -1,6 +1,7 @@
 import React from 'react'
 import { ExpandedExample } from '../typings'
 
+
 type Props = {
     test : ExpandedExample // the type must be passed here
 }

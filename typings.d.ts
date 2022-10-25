@@ -14,3 +14,7 @@ export interface ExpandedExample extends Example {
     title: string
     complete: boolean
 }
+
+export interface BrandonExample extends ExpandedExample {
+    brandon: boolean
+}
