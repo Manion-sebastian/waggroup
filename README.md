@@ -150,6 +150,8 @@ Hopefully none
 
 ## Daily Work Process
 
+![Week outline for project](https://i.imgur.com/Iln2wZ6.png)
+
 ### Tuesday
 - Learn TypeScript (ez no-brainer one-hour max), begin routing, create homepage
 
