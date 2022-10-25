@@ -46,7 +46,7 @@ if needed, will be added here.
 ## ERDs
 
 
-[Schema of MongoDB](https://i.imgur.com/SxLtIaW.png)
+![Schema of MongoDB](https://i.imgur.com/SxLtIaW.png)
 
 
 ## RESTful Routing Chart
