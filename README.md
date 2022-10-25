@@ -192,7 +192,7 @@ what did we learn about this type of project
 
 <img src="https://media-exp1.licdn.com/dms/image/C5603AQHXoXWm6qRDzA/profile-displayphoto-shrink_400_400/0/1540778212297?e=1671667200&v=beta&t=LKaEh0LfxnGptOBTbmC1BLM_qcCadIThICC_z07iqoQ" width=200 height=200 alt=''>
 
-Smol Bean, Absolute Mad Lad, Amazing Programmer - Sebastian 
+Full-Stack Developer that enjoys a freshly-brewed cup of coffee in the morning. I'm always looking to connect with others and love making humorous/unique programs with great teams. Message me at my links below and other places on the internet :)
 
 [Github](https://github.com/brandon-w1205) |
 [Linkedin](https://www.linkedin.com/in/brandonjwu/) |
