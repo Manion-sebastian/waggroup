@@ -131,7 +131,7 @@ Hopefully none
 
 ## MVP
 
-- [ ] a mobile first application, allowing us to play at minimum 3 games (Minesweeper, Sudoku, Golf)
+- [ ] a mobile first application, allowing us to play at minimum 3 games (Minesweeper, Sudoku, Tetris)
 - [ ] the games having solved versions if applicable -- the user can be informed of the answer
 - [ ] the user is able to make an account that tracks their scores
 - [ ] the user is able to delete their account if wanted
