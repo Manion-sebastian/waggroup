@@ -1,7 +1,7 @@
-# p4 name-goes-here
-## What is p4? 
+# WAG
+## Wag is a MERN stack app, utilizing Typescript
 
-p4 is a site boasting several games we all love, Minesweeper, Sudoku, Golf. Create an account to have easy access to your daily streaks, or simply play anon, it's up to you! 
+Wag is a site boasting several games we all love, Minesweeper, Sudoku, and Tetris. Create an account to have easy access to your scores, or don't, it's up to you! 
 
 
 ## image of our main page. (mobile, desktop)
@@ -12,30 +12,29 @@ p4 is a site boasting several games we all love, Minesweeper, Sudoku, Golf. Crea
 
 1. Fork on GitHub and clone down this repository
 1. Run npm install to ensure dependancies are installed
-1. Touch a .env.local file
-1. ~~add REACT_APP_SERVER_URL=http://localhost:3001 to .env.local~~
-1. In your terminal, run the command npm run start to start the client
+1. Touch a .env.local file see .env.example to orient your secrets
+1. In your terminal, run the command npm run dev to start the client
 1. Navigate to http://localhost:3000/ to interact with the web app
 
 ## Server Installation Instructions
 
-1. Fork our p4 Server repository on GitHub and clone it down
+1. Fork our Server repository on GitHub and clone it down
 1. Run npm install to ensure dependancies are installed
-1. Touch a .env file
-1. ~~add JWT_SECRET="[SECRET_KEY_HERE]" in the .env~~
+1. Touch a .env file following .env.example
 1. Run nodemon to start server
 
 
 ## API, and API key instructions.
 
 
-wip
+if needed, will be added here.
 
 
 ## Tech Stack Used
 
 
-* Javascript
+* Javascript 
+* Typescript
 * Express
 * Ant Design Css Framework
 * MongoDb, Mongoose
@@ -116,7 +115,7 @@ As a group we all enjoy playing puzzle games from time to time, especially on ou
 
 we used Figma primarily for our scheduling and workflow tracker. The provided tools worked much better than our previous interactions with miro, and it lead to easy collaboration, and implementation. We wanted to test ourselves with this project which is why we decided to go with Typescript, and Next.js as new technologies ( update on how this worked out )
 
-Our Git Managers were Sebastian, and Ian. Github issues were not really a problem as we kept eachother updated on changes and with figma seeing who was working where was quite easy. ( please let this be true. )
+Our Git Managers were Ian, and Sebastian. Github issues were not really a problem as we kept eachother updated on changes and with figma seeing who was working where was quite easy. ( please let this be true. )
 
 For vocal and visual collaboration we used Discord primarily, our main focus during this project was to help eachother learn and grow, as well as making sure we meet our deadlines and push out an exceptional project. 
 
@@ -189,4 +188,4 @@ I am a web developer from Seattle Washington, I love rainy days, and puzzles. if
 
 [Github](https://github.com/Manion-sebastian) | 
 [Linkedin](https://www.linkedin.com/in/sebastianmanion/) |
-[Portfolio]()
+[Portfolio](https://sebastian-manion.vercel.app/)
