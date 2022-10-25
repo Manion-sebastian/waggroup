@@ -46,9 +46,7 @@ if needed, will be added here.
 ## ERDs
 
 
-## image of erd
-we should have user data with scores linked, as well as times for games.
-if we want to do a high score we will have it be a shared table that shows the top 10 times per game.
+[Schema of MongoDB](https://i.imgur.com/SxLtIaW.png)
 
 
 ## RESTful Routing Chart
