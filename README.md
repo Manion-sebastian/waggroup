@@ -82,7 +82,7 @@ Mobile pages
 ![mobile first homepages](https://i.imgur.com/fSx2BvX.png)
 
 Mobile games
-![mobile first standard game mockups](https://i.imgur.com/hqSIwjz.png)
+![mobile first standard game mockups](https://i.imgur.com/7C1TeFf.png)
 
 Desktop mapping
 ![desktop standard mapping](https://i.imgur.com/wStNWrS.png)
