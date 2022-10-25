@@ -2,6 +2,7 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { Button } from 'antd' //component
 
 // component imports
 import TestPage from '../components/testPage'
@@ -13,6 +14,7 @@ import HomePage from '../components/homePage'
 import MinesweeperGame from '../components/minesweeperGame'
 import SudokuGame from '../components/sudokuGame'
 import TetrisGame from '../components/tetrisGame'
+
 
 // console.log('fuck you brandon')
 
@@ -68,6 +70,8 @@ const Home = ({} : Props) => {
 
       <section id='content'>
         <p>Parent Page</p>
+        <Button type='primary'>Deez Nuts</Button>
+        {/* type here refers to version from antd */}
 
         {/* testPage */}
         <TestPage test={propTest} />
