@@ -3,6 +3,8 @@
 
 Wag is a site boasting several games we all love, Minesweeper, Sudoku, and Tetris. Create an account to have easy access to your scores, or don't, it's up to you! 
 
+[Server Repo](https://github.com/IanDab47/WAG-Server)
+
 
 ## image of our main page. (mobile, desktop)
 
