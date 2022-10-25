@@ -147,6 +147,36 @@ Hopefully none
 - [ ] a share option for games much like wordle
 - [ ] a daily challenge for the game
 
+
+## Daily Work Process
+
+### Tuesday
+- Learn TypeScript (ez no-brainer one-hour max), begin routing, create homepage
+
+### Wednesday
+- Begin working on game functionality (if not started yet)
+- Ian: Minesweeper (possibly snake as well)
+- Sebastian: Git commit sudoku (possibly tic-tac-toe)
+- Brandon: Tetris (maybe golf as well)
+
+### Thursday
+- Continue working with TypeScript/React on game functionality and ideally finish
+- Ian: Minesweeper (possibly snake as well)
+- Sebastian: Git commit sudoku (possibly tic-tac-toe)
+- Brandon: Tetris (maybe golf as well)
+
+### Friday
+- Finish Game Mechanics/Functionality (if any left), Begin Learning Ant Design and start css mobile
+
+### Saturday
+- CSS Design towards Mobile functionality
+- Possibly get started on desktop view
+
+### Sunday
+- Finish any mobile viewings
+- Finish desktop view
+
+
 ## Takeaways
 
 what did we learn about this type of project
@@ -166,7 +196,7 @@ Smol Bean, Absolute Mad Lad, Amazing Programmer - Sebastian
 
 [Github](https://github.com/brandon-w1205) |
 [Linkedin](https://www.linkedin.com/in/brandonjwu/) |
-[Portfolio]()
+[Portfolio](https://brandonw.vercel.app)
 
 ### Ian Dabinett
 
