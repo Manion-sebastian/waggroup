@@ -44,7 +44,7 @@ let propTest : ExpandedExample = {
 // redudant way, infer is fine unless exporting. 
 let newObject : {
   name: string,
-  bestRubberDuck: boolean
+  bestRubberDuck: boolean 
 } = {
   name: 'brandon',
   bestRubberDuck: true

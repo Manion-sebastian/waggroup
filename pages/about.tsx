@@ -58,6 +58,7 @@ const About = (props: Props) => {
                     <a href={person.linkedin}>Linkedin</a>
                     <a href={person.portfolio}>Portfolio</a>
 
+
                 </div>
 
             </div>
