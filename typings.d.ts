@@ -18,3 +18,12 @@ export interface ExpandedExample extends Example {
 export interface BrandonExample extends ExpandedExample {
     brandon: boolean
 }
+
+export interface AboutUs {
+    name: string
+    url: string
+    blurb: string
+    github: string
+    linkedin: string
+    portfolio: string
+}
