@@ -12,8 +12,9 @@ import type { ExpandedExample, BrandonExample } from '../typings' // this is a c
 import type { BrandonGame } from '../typingBrandon' // separate types for each person to limit git issues. 
 import HomePage from '../components/homePage'
 import MinesweeperGame from '../components/minesweeperGame'
-import SudokuGame from '../components/sudokuGame'
+import SudokuGame from '../components/Sudoku/sudokuGame'
 import TetrisGame from '../components/tetris/tetrisGame'
+
 
 
 // console.log('fuck you brandon')
