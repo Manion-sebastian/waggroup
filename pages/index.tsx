@@ -12,7 +12,7 @@ import type { ExpandedExample, BrandonExample } from '../typings' // this is a c
 import type { BrandonGame } from '../typingBrandon' // separate types for each person to limit git issues. 
 import HomePage from '../components/homePage'
 import MinesweeperGame from '../components/minesweeperGame'
-import SudokuGame from '../components/Sudoku/sudokuGame'
+import SudokuGame from '../components/sudoku/sudokuGame'
 import TetrisGame from '../components/tetris/tetrisGame'
 
 
@@ -75,14 +75,14 @@ const Home = ({} : Props) => {
         {/* type here refers to version from antd */}
 
         {/* testPage */}
-        <TestPage test={propTest} />
+        {/* <TestPage test={propTest} /> */}
 
         {/* games  */}
         <HomePage />
 
         <MinesweeperGame />
 
-        <SudokuGame />
+        {/* <SudokuGame /> */}
 
         <TetrisGame />      
 
@@ -91,6 +91,7 @@ const Home = ({} : Props) => {
       <section id='linksToContent'>
         {/* this will show what games are not currently there */}
         <div>
+          
           <p>Sudoku</p>
           <p>Minesweeper</p>
           <p>Tetris</p>

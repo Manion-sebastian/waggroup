@@ -1,0 +1,11 @@
+
+.size {
+    height: 35px;
+    width: 35px;
+    border: solid black 2px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: larger;
+}
