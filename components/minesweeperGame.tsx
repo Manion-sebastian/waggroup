@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Components
-import MineSweeperBoard from './minesweeper/mineSweeperBoard'
+import MineSweeperBoard from './minesweeper/gameBoard'
 
 type Props = {}
 
