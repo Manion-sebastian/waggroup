@@ -7,9 +7,12 @@ import React from "react";
 
 // Components
 import MSTile from './tile'
-import { Row } from "antd";
 
 type Props = {}
+
+if(typeof window === 'object') {
+  window.oncontextmenu = (e) => e.preventDefault()
+}
 
 export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
   const makeBoard = () => {
@@ -17,8 +20,9 @@ export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
     for(let row = 0; row < height; row++) {
       gameboard.push([])
       for(let col = 0; col < width; col++) {
-        gameboard[row].push (
+        gameboard[row].push(
           <MSTile
+            key={`tile_${row}_${col}`}
             row={row}
             col={col}
             isHidden={true}
@@ -35,7 +39,7 @@ export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
   const CSS_SIZE = { '--width': width, '--height': height } as React.CSSProperties
 
   return (
-    <div style={CSS_SIZE} className={styles.gameBoard}>
+    <div className={`GAMEBOARD ${styles.gameBoard}`} style={CSS_SIZE}>
       {makeBoard()}
     </div>
   )

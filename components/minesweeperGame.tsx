@@ -1,3 +1,6 @@
+// Next
+import styles from '../styles/minesweeper/minesweeper.module.css'
+
 // React
 import React from 'react'
 
@@ -12,7 +15,7 @@ type Props = {}
 
 const MinesweeperGame = (props: Props) => {
   return (
-    <div className=''>
+    <div className={styles.gameboardContainer}>
       <div>
         <MSModal />
       </div>
@@ -26,8 +29,8 @@ const MinesweeperGame = (props: Props) => {
       </div>
 
       <MSBoard 
-        width={11} 
-        height={11}
+        width={9} 
+        height={9}
         mines={10}
       />
 
