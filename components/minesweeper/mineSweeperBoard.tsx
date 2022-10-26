@@ -6,7 +6,7 @@ import React from "react";
 
 type Props = {}
 
-export default function MineSweeperBoard({ row, col }: MSBoard) {
+export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
   return (
     <>
       <h1>Hiya</h1>

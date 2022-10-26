@@ -10,8 +10,9 @@ const MinesweeperGame = (props: Props) => {
   return (
     <div className={''}>
       <MineSweeperBoard 
-        row={0} 
-        col={0} 
+        width={0} 
+        height={0}
+        mines={0}
       />
     </div>
   )
