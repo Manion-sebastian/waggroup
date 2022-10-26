@@ -13,7 +13,7 @@ import type { BrandonGame } from '../typingBrandon' // separate types for each p
 import HomePage from '../components/homePage'
 import MinesweeperGame from '../components/minesweeperGame'
 import SudokuGame from '../components/sudoku/sudokuGame'
-import TetrisGame from '../components/tetris/tetrisGame'
+import TetrisGame from '../components/tetris/tetrisBoard'
 
 
 
