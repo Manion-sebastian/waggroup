@@ -80,11 +80,11 @@ const Home = ({} : Props) => {
         {/* games  */}
         <HomePage />
 
-        <MinesweeperGame />
+        {/* <MinesweeperGame /> */}
 
         {/* <SudokuGame /> */}
 
-        <TetrisGame />      
+        {/* <TetrisGame />       */}
 
       </section>
 
