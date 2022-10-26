@@ -19,8 +19,10 @@ export interface Difficulty extends MSBoard {
 }
 
 export interface MSTile {
+  row: number
+  col: number
   isHidden: boolean
   isFlagged: boolean
   isMine: boolean
-  adjMines: boolean
+  adjMines: number
 }

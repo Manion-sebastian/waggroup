@@ -26,9 +26,9 @@ const MinesweeperGame = (props: Props) => {
       </div>
 
       <MSBoard 
-        width={0} 
-        height={0}
-        mines={0}
+        width={9} 
+        height={9}
+        mines={10}
       />
 
     </div>
