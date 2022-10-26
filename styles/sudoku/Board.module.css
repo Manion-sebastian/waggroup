@@ -5,6 +5,27 @@
     grid-gap: 0;
 
     padding: 10px;
+    border: solid blue 4px;
     
     
+}
+
+
+.controlConstraints {
+
+    border: solid yellow 4px;
+    margin: 0, auto;
+    width: 252px;
+}
+
+.controlButton {
+    margin: 4px;
+}
+
+.gameConstraints {
+    height: 100vh;
+    /* display: flex; */
+    /* justify-content: center; */
+    margin: 0 auto;
+
 }
