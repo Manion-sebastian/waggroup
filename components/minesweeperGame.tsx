@@ -3,19 +3,26 @@ import React from 'react'
 
 // Components
 import MSBoard from './minesweeper/gameBoard'
-import Timer from './minesweeper/timerDisplay'
-import Modal from './minesweeper/modal'
-import GameButtons from './minesweeper/gameBoardButton'
+import MSGameButtons from './minesweeper/gameBoardButton'
+import MSMineDisplay from './minesweeper/mineDisplay'
+import MSModal from './minesweeper/modal'
+import MSTimer from './minesweeper/timerDisplay'
 
 type Props = {}
 
 const MinesweeperGame = (props: Props) => {
   return (
-    <div className={''}>
+    <div className=''>
       <div>
-        <Timer />
+        <MSModal />
+      </div>
 
+      <div className=''>
+        <MSTimer />
 
+        <MSGameButtons />
+
+        <MSMineDisplay />
       </div>
 
       <MSBoard 
