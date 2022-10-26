@@ -10,6 +10,10 @@ import MSTile from './tile'
 
 type Props = {}
 
+if(typeof window === 'object') {
+  window.oncontextmenu = (e) => e.preventDefault()
+}
+
 export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
   const makeBoard = () => {
     let gameboard: any = []
@@ -35,7 +39,7 @@ export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
   const CSS_SIZE = { '--width': width, '--height': height } as React.CSSProperties
 
   return (
-    <div style={CSS_SIZE} className={styles.gameBoard}>
+    <div className={`GAMEBOARD ${styles.gameBoard}`} style={CSS_SIZE}>
       {makeBoard()}
     </div>
   )

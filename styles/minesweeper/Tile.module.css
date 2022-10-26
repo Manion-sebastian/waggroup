@@ -1,10 +1,43 @@
 .tile {
   aspect-ratio: 1;
-  background: #ccc;
-  border: 2px solid white;
+  position: relative;
+  background: #eee;
+  /* border: 2px solid white; */
   user-select: none;
 }
 
+.tile::after {
+  aspect-ratio: 1;
+  content: '';
+  position: absolute;
+  background-color: #ccc;
+  width: 100%;
+  /* z-index: -1; */
+  transition: all 80ms cubic-bezier(.2,.8,.1,1);
+}
+
+.tile:is(:hover, :focus)::after {
+  /* box-shadow: inset 0 0 2vw -.25rem rgb(50 120 220); */
+  z-index: 0
+}
+
+.tile:active::after{
+  transform: scale(90%);
+}
+
 .reveal {
-  background: #888;
+  aspect-ratio: 1;
+  background: #777;
+  user-select: none;
+}
+
+.flag {
+  aspect-ratio: 1;
+  position: relative;
+  background: #c22;
+  width: 100%;
+}
+
+.flag::after {
+  background: red;
 }

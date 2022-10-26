@@ -11,20 +11,25 @@ type Props = {}
 const Tile = (props: MSTile) => {
   // States
   const [isHidden, setIsHidden] = useState(props.isHidden)
+  const [isFlagged, setIsFlagged] = useState(props.isFlagged)
 
   // Hooks
-  const revealTile = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setIsHidden(false)
+  const setTile = (e: React.MouseEvent<HTMLElement>) => {
+    // Reveal Tile
+    if(e.type === 'click' && !isFlagged) setIsHidden(false)
+    if(e.type === 'contextmenu' && isHidden) setIsFlagged(!isFlagged)
+    console.log(`Pos: [${props.row},${props.col}]\nHidden: ${isHidden}\nFlagged: ${isFlagged}`)
   }
 
   // Output
   return (
     <div 
       className={`
-        ${styles.tile}
-        ${isHidden ? null : styles.reveal}
+        ${isHidden ? styles.tile : styles.reveal}
+        ${isFlagged ? styles.flag : null}
       `}
-      onClick={revealTile}
+      onClick={setTile}
+      onContextMenu={setTile}
     >
       {/* <p>Fill</p> */}
     </div>
