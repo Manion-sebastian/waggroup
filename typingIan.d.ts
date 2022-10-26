@@ -1,3 +1,5 @@
+import React from "react"
+
 export interface AboutUs {
   name: string
   url: string

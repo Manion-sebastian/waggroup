@@ -1,6 +1,10 @@
 .tile {
   aspect-ratio: 1;
-  /* width: 2rem; */
   background: #ccc;
   border: 2px solid white;
+  user-select: none;
+}
+
+.reveal {
+  background: #888;
 }

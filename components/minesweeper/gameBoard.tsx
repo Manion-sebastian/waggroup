@@ -7,7 +7,6 @@ import React from "react";
 
 // Components
 import MSTile from './tile'
-import { Row } from "antd";
 
 type Props = {}
 
@@ -17,8 +16,9 @@ export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
     for(let row = 0; row < height; row++) {
       gameboard.push([])
       for(let col = 0; col < width; col++) {
-        gameboard[row].push (
+        gameboard[row].push(
           <MSTile
+            key={`tile_${row}_${col}`}
             row={row}
             col={col}
             isHidden={true}
