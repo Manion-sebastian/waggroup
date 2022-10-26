@@ -4,7 +4,10 @@
   grid-template-rows: repeat(var(--height), 1fr);
   grid-template-columns: repeat(var(--width), 1fr);
   grid-gap: 2px;
-  /* grid-area: 0 / 0 / var(--width) / var(--height); */
-  /* width: 90%; */
-  background: #444;
+  width: 95%;
+  max-width: 60rem;
+  background: #333;
+  border: 2px solid #333;
+  border-radius: 1vw;
+  overflow: hidden;
 }
