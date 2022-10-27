@@ -3,12 +3,15 @@ import { Button } from 'antd'
 
 type Props = {
     handleStartGame: any
+    gameStarted : string
 }
 
-const StartSection = ({handleStartGame}: Props) => {
+const StartSection = ({handleStartGame, gameStarted}: Props) => {
+
   return (
+    
     <div>
-        <Button type='primary' onClick={handleStartGame}>Start Game</Button>
+        <Button type='primary' onClick={handleStartGame}>{gameStarted}</Button>
     </div>
   )
 }

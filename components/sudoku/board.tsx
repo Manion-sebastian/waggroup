@@ -14,17 +14,22 @@ import styles from '../../styles/sudoku/Board.module.css'
 
 type Props = {
   game: number[] | null[]
+  selectedCell : any // find better type
 }
 
-const Board = ({ game, }: Props) => {
+const Board = ({ game, selectedCell }: Props) => {
+
+  
 
   return (
     <div className={styles.boardConstraints}>
       {game.map((num: number | null, i:number) => (
-            <Cell
-              key={`cell-id-${i}`}
-              num={num}
-            />
+          <Cell
+            key={`cell-id-${i}`}  
+            selectedCell={selectedCell}
+            num={num}
+            cellNo={i}
+          />
         ))}
     </div>
   )
