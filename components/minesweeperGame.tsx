@@ -3,6 +3,7 @@ import styles from '../styles/minesweeper/minesweeper.module.css'
 
 // React
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 // Components
 import MSBoard from './minesweeper/gameBoard'
@@ -14,18 +15,30 @@ import MSTimer from './minesweeper/timerDisplay'
 type Props = {}
 
 const MinesweeperGame = (props: Props) => {
+  const [gameRunning, setGameRunning] = useState(false)
+  const [isHidden, setIsHidden] = useState(0)
+  const [isFlagged, setIsFlagged] = useState(0)
+  const [mines, setMines] = useState(10)
+
   return (
     <div className={styles.gameboardContainer}>
       <div>
         <MSModal />
       </div>
 
-      <div className=''>
-        <MSTimer />
+      <div className={styles.topDisplay}>
+        <MSTimer 
+          gameRunning={gameRunning}
+        />
 
-        <MSGameButtons />
+        <MSGameButtons
+        />
 
-        <MSMineDisplay />
+        <MSMineDisplay 
+          isFlagged={isFlagged}
+          mines={mines}
+        />
+
       </div>
 
       <MSBoard 

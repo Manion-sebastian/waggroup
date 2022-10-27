@@ -6,7 +6,7 @@
   grid-gap: 2px;
   width: 95%;
   max-width: 60rem;
-  background: #333;
+  background: var(--bg-main);
   border: 2px solid #333;
   border-radius: 1vw;
   overflow: hidden;

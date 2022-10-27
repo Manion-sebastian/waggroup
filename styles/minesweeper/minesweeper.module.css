@@ -1,5 +1,27 @@
 .gameboardContainer {
+  --bg-main: #101010;
+  --bg-game-1: #666;
+  --bg-game-2: #777;
+  --tile-flag-1: #e32;
+  --tile-flag-2: #c22;
+  --bg-act: #69b;
+  --ctnr-w: 95%;
+  --ctnr-max-w: 60rem;
+}
+
+.gameboardContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: var(--bg-main);
+  width: var(--ctnr-w); 
+  max-width: var(--ctnr-max-w);
+  margin-inline: auto;
+}
+
+.topDisplay {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Poiret One', sans-serif;
+  height: 5rem;
 }

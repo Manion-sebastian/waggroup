@@ -1,7 +1,7 @@
 .tile {
   aspect-ratio: 1;
   position: relative;
-  background: #eee;
+  background: var(--bg-game-2);
   /* border: 2px solid white; */
   user-select: none;
 }
@@ -10,7 +10,7 @@
   aspect-ratio: 1;
   content: '';
   position: absolute;
-  background-color: #ccc;
+  background-color: var(--bg-game-1);
   width: 100%;
   /* z-index: -1; */
   transition: all 80ms cubic-bezier(.2,.8,.1,1);
@@ -21,23 +21,23 @@
   z-index: 0
 }
 
-.tile:active::after{
+.tile:active::after {
   transform: scale(90%);
 }
 
 .reveal {
   aspect-ratio: 1;
-  background: #777;
+  background: #444;
   user-select: none;
 }
 
 .flag {
   aspect-ratio: 1;
   position: relative;
-  background: #c22;
+  background: var(--tile-flag-2);
   width: 100%;
 }
 
 .flag::after {
-  background: red;
+  background: var(--tile-flag-1);
 }
