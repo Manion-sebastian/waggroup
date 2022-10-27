@@ -15,10 +15,6 @@ export default function TestPage({ test }: Props) {
         <p>{test?.complete}</p>
         <p>{test?.id}</p>
         <p>{test?.createdAt}</p>
-        
-        
-        
-        
     </div>
   )
 }

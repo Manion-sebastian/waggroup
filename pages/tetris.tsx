@@ -1,12 +1,15 @@
-import React from 'react'
-import TetrisGame from '../components/tetris/tetrisGame'
+import * as React from 'react'
+import App from '../components/tetris/App'
 
 type Props = {}
 
-const Tetris = (props: Props) => {
+const tetris = (props: Props) => {
   return (
-    <div><TetrisGame /></div>
+    <>
+      <App />
+    </>
+
   )
 }
 
-export default Tetris
+export default tetris
