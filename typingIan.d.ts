@@ -1,5 +1,3 @@
-import React from "react"
-
 export interface AboutUs {
   name: string
   url: string
@@ -27,4 +25,13 @@ export interface MSTile {
   isFlagged: boolean
   isMine: boolean
   adjMines: number
+}
+
+export interface MSTimer {
+  gameRunning: boolean
+}
+
+export interface MSMines {
+  isFlagged: number
+  mines: number
 }

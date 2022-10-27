@@ -1,0 +1,17 @@
+.timerContainer {
+  display: flex;
+  flex: 0 1 auto;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 20%;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.title {
+  font-size: 1.8rem;
+}
+
+.timer {
+  font-size: 4rem;
+}
