@@ -8,7 +8,7 @@ export type player = {
         x: number;
         y: number;
     }
-    tetromino: ( string | number )[][]
+    tetromino: (string | number)[][]
     collided: boolean;
 }
 
@@ -43,7 +43,7 @@ export const usePlayer = () => {
         setPlayer(clonedPlayer)
     }
 
-    const updatePlayerPos = ({ x, y, collided }: { x: number, y: number; collided: boolean }): void => {
+    const updatePlayerPos = ({ x, y, collided }: { x: number; y: number; collided: boolean }): void => {
         setPlayer(prev => ({
             ...prev, 
             pos: { x: (prev.pos.x += x), y: (prev.pos.y += y) },
