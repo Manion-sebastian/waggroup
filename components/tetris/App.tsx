@@ -37,7 +37,7 @@ const App: React.FC = () => {
       }
       setDropTime(30)
     } else if (keyCode === 38) {
-      // Will implement rotation function here
+      // Will implement rotation function here later
     }
   }
 
