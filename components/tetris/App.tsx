@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStage } from './gameHelpers'
+import { createStage, isColliding } from './gameHelpers'
 
 // Custom hooks
 import { useInterval } from './hooks/useInterval'
@@ -25,7 +25,9 @@ const App: React.FC = () => {
   const { stage, setStage } = useStage(player, resetPlayer)
 
   const movePlayer = (dir: number) => {
-    updatePlayerPos({ x: dir, y: 0, collided: false})
+    if (!isColliding(player, stage, { x: dir, y: 0 })) {
+      updatePlayerPos({ x: dir, y: 0, collided: false})
+    }
   }
 
   const keyUp = ({ keyCode }: { keyCode: number}): void => {
@@ -60,7 +62,13 @@ const App: React.FC = () => {
     }
   }
 
-  
+  const drop = (): void => {
+    updatePlayerPos({x: 0, y: 1, collided: false})
+  }
+
+  useInterval(() => {
+    drop()
+  }, dropTime)
 
   return (
     <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp} ref={gameArea}>
@@ -82,7 +90,7 @@ const App: React.FC = () => {
 
             )}
         </div>
-        <Stage stage={createStage()} />
+        <Stage stage={stage} />
         </StyledTetris>
     </StyledTetrisWrapper>
   );
