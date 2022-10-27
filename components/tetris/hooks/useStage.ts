@@ -31,6 +31,7 @@ export const useStage = (player: player, resetPlayer: () => void) => {
                     }
                 })
             })
+            
 
             return newStage
         }
