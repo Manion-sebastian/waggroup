@@ -8,9 +8,12 @@ import React from 'react'
 type Props = {}
 
 const MineDisplay = ({isFlagged, mines}: MSMines) => {
+  let currMines = mines - isFlagged
+  if(currMines < 0) currMines = 0
   return (
-    <div>
-      {mines - isFlagged}
+    <div className={styles.minesContainer}>
+      <p className={styles.title}>MINES</p>
+      <p className={styles.mines}>{currMines}</p>
     </div>
   )
 }

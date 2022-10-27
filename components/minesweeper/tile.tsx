@@ -18,7 +18,7 @@ const Tile = (props: MSTile) => {
     // Reveal Tile
     if(e.type === 'click' && !isFlagged) setIsHidden(false)
     if(e.type === 'contextmenu' && isHidden) setIsFlagged(!isFlagged)
-    console.log(`Pos: [${props.row},${props.col}]\nHidden: ${isHidden}\nFlagged: ${isFlagged}`)
+    // console.log(`Pos: [${props.row},${props.col}]\nHidden: ${isHidden}\nFlagged: ${isFlagged}`)
   }
 
   // Output
