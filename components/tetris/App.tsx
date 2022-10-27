@@ -19,6 +19,8 @@ const App: React.FC = () => {
   const [dropTime, setDropTime] = React.useState<null | number>(null);
   const [gameOver, setGameOver] = React.useState(true)
 
+  const gameArea = React.useRef<HTMLDivElement>(null)
+
   const { player, updatePlayerPos, resetPlayer } = usePlayer()
   const { stage, setStage } = useStage(player, resetPlayer)
 
@@ -26,7 +28,24 @@ const App: React.FC = () => {
     updatePlayerPos({ x: dir, y: 0, collided: false})
   }
 
-  const move = ({ keyCode, repeat }: { keyCode: number, repeat: boolean}): void => {
+  const keyUp = ({ keyCode }: { keyCode: number}): void => {
+    // Change the droptime speed when user releases down arrow
+    if (keyCode === 40) {
+      setDropTime(1000);
+    }
+  }
+
+  const handleStartGame = (): void => {
+    // Need to focus the window with the key events on start
+    if (gameArea.current) gameArea.current.focus()
+    // Reset everything
+    setStage(createStage())
+    setDropTime(1000)
+    resetPlayer()
+    setGameOver(false)
+  }
+
+  const move = ({ keyCode, repeat }: { keyCode: number; repeat: boolean}): void => {
     if (keyCode === 37) {
       movePlayer(-1);
     } else if (keyCode === 39) {
@@ -41,14 +60,16 @@ const App: React.FC = () => {
     }
   }
 
+  
+
   return (
-    <StyledTetrisWrapper role='button' tabIndex={0}>
+    <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp} ref={gameArea}>
       <StyledTetris>
         <div className='display'>
             {gameOver ? (
                 <>
                     <Display gameOver={gameOver} text='Game Over!' />
-                    <StartButton callback={() => null} />
+                    <StartButton callback={handleStartGame} />
                 </>
             ) : (
                 <>
