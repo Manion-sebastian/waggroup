@@ -2,9 +2,15 @@ import React from 'react'
 import { Button } from 'antd'
 import styles from '../../styles/sudoku/Board.module.css'
 
-type Props = {}
+type Props = {
+  // starting: boolean
+  // handleGame: any
+}
 
-const ControlBar = (props: Props) => {
+const ControlBar = ({}: Props) => {
+
+
+
   return (
     <div className={styles.controlConstraints}>
       <Button className={styles.controlButton} type='primary'>0</Button>
@@ -17,8 +23,8 @@ const ControlBar = (props: Props) => {
       <Button className={styles.controlButton} type='primary'>7</Button>
       <Button className={styles.controlButton} type='primary'>8</Button>
       <Button className={styles.controlButton} type='primary'>9</Button>
-      
     </div>
+    
   )
 }
 
