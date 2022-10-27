@@ -22,6 +22,14 @@ const Cell = ({cellNo, num, selectedCell}: Props) => {
     console.log(currentCell)
     // console.log(e.target.value)
   }
+
+  const cellObj = {
+    index: cellNo,
+    value: null
+  }
+
+  cellObj.index
+
   return (
     <div
       onClick={selectedCell}
