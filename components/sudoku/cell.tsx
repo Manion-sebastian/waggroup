@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../../styles/sudoku/Cell.module.css'
 
 type Props = {
-    num: number
+    num: number | null
 }
 
 const Cell = ({num}: Props) => {
