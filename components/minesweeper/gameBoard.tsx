@@ -33,7 +33,14 @@ export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
         )
       }
     }
-    return gameboard.map((row: Array<typeof MSTile>) => row.map((tile: typeof MSTile) => tile))
+    
+    let hiddenCount = 0
+    let flaggedCount = 0
+    return gameboard.map((row: Array<any>) => row.map((tile: any) => {
+      if(tile.props.isHidden) hiddenCount++
+      if(tile.props.isflagged) flaggedCount++
+      return tile
+    }))
   }
   
   const CSS_SIZE = { '--width': width, '--height': height } as React.CSSProperties

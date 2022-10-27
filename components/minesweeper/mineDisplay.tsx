@@ -1,5 +1,6 @@
 // Next
 import type { MSMines } from '../../typingIan'
+import styles from '../../styles/minesweeper/Mines.module.css'
 
 // React
 import React from 'react'

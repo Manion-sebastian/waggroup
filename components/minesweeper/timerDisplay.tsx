@@ -1,5 +1,6 @@
 // Next
 import type { MSTimer } from '../../typingIan'
+import styles from '../../styles/minesweeper/Timer.module.css'
 
 // React
 import React from 'react'
@@ -12,7 +13,6 @@ const TimerDisplay = ({gameRunning}: MSTimer) => {
     
   if(gameRunning) {
     useEffect(() => {
-      
       const timerStart = setInterval(() => {
         setTime(time + 1)
       }, 1000)
@@ -22,8 +22,9 @@ const TimerDisplay = ({gameRunning}: MSTimer) => {
   }
 
   return (
-    <div>
-      {time}
+    <div className={styles.timerContainer}>
+      <p className={styles.title}>TIME</p>
+      <p className={styles.timer}>{time.toString().padStart(3, '0')}</p>
     </div>
   )
 }

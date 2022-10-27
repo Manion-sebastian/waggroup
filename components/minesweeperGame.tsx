@@ -15,7 +15,7 @@ import MSTimer from './minesweeper/timerDisplay'
 type Props = {}
 
 const MinesweeperGame = (props: Props) => {
-  const [gameRunning, setGameRunning] = useState(false)
+  const [gameRunning, setGameRunning] = useState(true)
   const [isHidden, setIsHidden] = useState(0)
   const [isFlagged, setIsFlagged] = useState(0)
   const [mines, setMines] = useState(10)

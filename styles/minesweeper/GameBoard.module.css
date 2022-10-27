@@ -4,10 +4,10 @@
   grid-template-rows: repeat(var(--height), 1fr);
   grid-template-columns: repeat(var(--width), 1fr);
   grid-gap: 2px;
-  width: 95%;
+  width: 100%;
   max-width: 60rem;
   background: var(--bg-main);
   border: 2px solid #333;
-  border-radius: 1vw;
+  /* border-radius: 1vw; */
   overflow: hidden;
 }
