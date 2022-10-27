@@ -1,0 +1,19 @@
+.minesContainer {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 15%;
+  color: white;
+  border-bottom: 1px solid white;
+  user-select: none;
+}
+
+.title {
+  font-size: 1.8rem;
+}
+
+.mines {
+  font-size: 4rem;
+}
