@@ -5,6 +5,7 @@ import { createStage, isColliding } from './gameHelpers'
 import { useInterval } from './hooks/useInterval'
 import { usePlayer } from './hooks/usePlayer'
 import { useStage } from './hooks/useStage'
+import { useGameStatus } from './hooks/useGameStatus';
 
 
 import Stage from './stage/Stage'
@@ -22,7 +23,8 @@ const App: React.FC = () => {
   const gameArea = React.useRef<HTMLDivElement>(null)
 
   const { player, updatePlayerPos, resetPlayer, playerRotate } = usePlayer()
-  const { stage, setStage } = useStage(player, resetPlayer)
+  const { stage, setStage, rowsCleared } = useStage(player, resetPlayer)
+  const { score, setScore, rows, setRows, level, setLevel } = useGameStatus(rowsCleared)
 
   const movePlayer = (dir: number) => {
     if (!isColliding(player, stage, { x: dir, y: 0 })) {
@@ -31,9 +33,11 @@ const App: React.FC = () => {
   }
 
   const keyUp = ({ keyCode }: { keyCode: number}): void => {
-    // Change the droptime speed when user releases down arrow
-    if (keyCode === 40) {
-      setDropTime(1000);
+    if (!gameOver) {
+      // Change the droptime speed when user releases down arrow
+      if (keyCode === 40) {
+        setDropTime(1000 / level + 200);
+      }
     }
   }
 
@@ -44,25 +48,38 @@ const App: React.FC = () => {
     setStage(createStage())
     setDropTime(1000)
     resetPlayer()
+    setScore(0)
+    setLevel(1)
+    setRows(0)
     setGameOver(false)
   }
 
   const move = ({ keyCode, repeat }: { keyCode: number; repeat: boolean}): void => {
-    if (keyCode === 37) {
-      movePlayer(-1);
-    } else if (keyCode === 39) {
-      movePlayer(1);
-    } else if (keyCode === 40) {
-      if(repeat) {
-        return
+    if (!gameOver) {
+      if (keyCode === 37) {
+        movePlayer(-1);
+      } else if (keyCode === 39) {
+        movePlayer(1);
+      } else if (keyCode === 40) {
+        if(repeat) {
+          return
+        }
+        setDropTime(30)
+      } else if (keyCode === 38) {
+        playerRotate(stage)
       }
-      setDropTime(30)
-    } else if (keyCode === 38) {
-      playerRotate(stage)
     }
   }
 
   const drop = (): void => {
+    // Increase level when player has cleared 10 rows
+    if (rows > level * 10) {
+      setLevel(prev => prev + 1)
+      // increase speed
+      setDropTime(1000 / level + 200)
+    }
+
+
     if (!isColliding(player, stage, { x: 0, y: 1 })) {
       updatePlayerPos({x: 0, y: 1, collided: false})
     } else {
@@ -92,9 +109,9 @@ const App: React.FC = () => {
                 </>
             ) : (
                 <>
-                    <Display text={`Score: `} />
-                    <Display text={`Rows: `} />
-                    <Display text={`Level: `} />
+                    <Display text={`Score: ${score}`} />
+                    <Display text={`Rows: ${rows}`} />
+                    <Display text={`Level: ${level}`} />
                 </>
 
 
