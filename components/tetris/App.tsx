@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
   const gameArea = React.useRef<HTMLDivElement>(null)
 
-  const { player, updatePlayerPos, resetPlayer } = usePlayer()
+  const { player, updatePlayerPos, resetPlayer, playerRotate } = usePlayer()
   const { stage, setStage } = useStage(player, resetPlayer)
 
   const movePlayer = (dir: number) => {
@@ -58,12 +58,23 @@ const App: React.FC = () => {
       }
       setDropTime(30)
     } else if (keyCode === 38) {
-      // Will implement rotation function here later
+      playerRotate(stage)
     }
   }
 
   const drop = (): void => {
-    updatePlayerPos({x: 0, y: 1, collided: false})
+    if (!isColliding(player, stage, { x: 0, y: 1 })) {
+      updatePlayerPos({x: 0, y: 1, collided: false})
+    } else {
+      // The game over sequence
+      if (player.pos.y < 1) {
+        console.log("Game Over")
+        setGameOver(true)
+        setDropTime(null)
+      }
+      updatePlayerPos({ x: 0, y: 0, collided: true})
+    }
+    
   }
 
   useInterval(() => {
