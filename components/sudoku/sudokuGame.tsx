@@ -33,7 +33,8 @@ const handleSelectedCell = (e : any) => {
   setCurrentCell(e.target.innerText)
   console.log('handlesecledcell')
   console.log(currentCell)
-  // console.log(e)
+  // console.log(e.target.innerText)
+  console.log(e)
   
 }
 
