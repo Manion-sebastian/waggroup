@@ -1,13 +1,20 @@
 .minesContainer {
+  position: absolute;
+  right: 0;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row-reverse;
   justify-content: space-between;
   gap: 1rem;
-  width: 15%;
+  width: 22%;
+  height: 100%;
   color: white;
   border-bottom: 1px solid white;
   user-select: none;
+}
+
+.minesContainer p {
+  margin: 0;
 }
 
 .title {

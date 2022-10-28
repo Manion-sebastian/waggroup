@@ -1,15 +1,24 @@
 // Next
-import styles from '../../styles/minesweeper/GameButtons.module.css'
+import { MSGameButton } from '../../typingIan'
+import styles from '../../styles/minesweeper/GameBoardButtons.module.css'
 
 // React
 import React from 'react'
 
+// export enum Button {
+//   newGame = 'New Game',
+//   running = 'running',
+//   listening = '...',
+//   gameOver = 'Game Over',
+//   winner = 'Winner'
+// }
+
 type Props = {}
 
-const GameBoardButton = (props: Props) => {
+const GameBoardButton = ({gameState, handleClick}: MSGameButton) => {
   return (
-    <div>
-
+    <div className={styles.buttonsWrapper}>
+      <div onClick={handleClick} className={styles.newGame}>{gameState}</div>
     </div>
   )
 }

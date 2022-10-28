@@ -1,3 +1,5 @@
+import React from "react"
+
 export interface AboutUs {
   name: string
   url: string
@@ -8,9 +10,11 @@ export interface AboutUs {
 }
 
 export interface MSBoard {
+  tiles: MSTile[][]
   width: number
   height: number
   mines: number
+  handleClick(row: number, col: number): (...args: any[]) => void
 }
 
 export interface Difficulty extends MSBoard {
@@ -26,13 +30,18 @@ export interface MSTile {
 export interface MSTileButton extends MSTile {
   row: number
   col: number
+  handleClick(row: number, col: number): (...args: any[]) => void
 }
 
 export interface MSTimer {
-  gameRunning: boolean
+  time: number
 }
 
 export interface MSMines {
-  isFlagged: number
   mines: number
+}
+
+export interface MSGameButton {
+  gameState: string
+  handleClick(): void
 }

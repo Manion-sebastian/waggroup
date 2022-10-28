@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react'
 
 // Components
 import MSTile from './tile'
-import { makeBoard } from "./makeBoard";
 
 type Props = {}
 
@@ -35,9 +34,8 @@ if(typeof window === 'object') {
   window.oncontextmenu = (e) => e.preventDefault()
 }
 
-export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
+export default function MineSweeperBoard({ tiles, width, height, mines, handleClick }: MSBoard) {
   const [gameRunning, setGameRunning] = useState(true)
-  const [tiles, setTiles] = useState(makeBoard())
 
   const renderGameBoard = (): React.ReactNode => {
     return tiles.map((row, iRow) => 
@@ -49,16 +47,13 @@ export default function MineSweeperBoard({ width, height, mines }: MSBoard) {
           col={iCol}
           value={tile.value}
           state={tile.state}
+          handleClick={handleClick}
         />
       )
     }))
   }
 
   // console.log('tiles:', tiles)
-
-  // useEffect(() => {
-
-  // }, [])
   
   const CSS_SIZE = { '--width': width, '--height': height } as React.CSSProperties
 

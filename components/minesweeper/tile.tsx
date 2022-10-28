@@ -27,8 +27,19 @@ const enum TileState {
   flagged = 2
 }
 
-const Tile: React.FC<MSTileButton> = ({ row, col, value, state }) => {
+const CSS_ZERO  = { '--tile' : 'transparent' } as React.CSSProperties
+const CSS_ONE   = { '--tile' : 'blue'        } as React.CSSProperties
+const CSS_TWO   = { '--tile' : 'green'       } as React.CSSProperties
+const CSS_THREE = { '--tile' : 'red'         } as React.CSSProperties
+const CSS_FOUR  = { '--tile' : 'purple'      } as React.CSSProperties
+const CSS_FIVE  = { '--tile' : 'maroon'      } as React.CSSProperties
+const CSS_SIX   = { '--tile' : 'turquoise'   } as React.CSSProperties
+const CSS_SEVEN = { '--tile' : 'black'       } as React.CSSProperties
+const CSS_EIGHT = { '--tile' : 'gray'        } as React.CSSProperties
+
+const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) => {
   // States
+  
 
   // Hooks
 
@@ -48,7 +59,6 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state }) => {
 
       return value
     } else if (state === TileState.flagged) {
-      console.log('🚩')
       return (
         <span>
           🚩
@@ -57,16 +67,29 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state }) => {
     }
   }
 
-  console.log('value', value, 'state', state)
+  const color = 
+    value === 0 ? CSS_ZERO  :
+    value === 1 ? CSS_ONE   :
+    value === 2 ? CSS_TWO   :
+    value === 3 ? CSS_THREE :
+    value === 4 ? CSS_FOUR  :
+    value === 5 ? CSS_FIVE  :
+    value === 6 ? CSS_SIX   :
+    value === 7 ? CSS_SEVEN :
+    value === 8 ? CSS_EIGHT : undefined
 
   return (
     <div className={`
       ${state === TileState.hidden ? styles.tile : null}
       ${state === TileState.visible ? styles.reveal : null}
+      ${state === TileState.flagged ? styles.flag : null}
     `}
-      // onClick={setTile}
-      // onContextMenu={setTile}
+      style={color}
+      onClick={handleClick(row, col)}
+      onContextMenu={handleClick(row, col)}
+      // value={value}
     >
+      {console.log(value, color)}
       {renderContent()}
     </div>
   )
