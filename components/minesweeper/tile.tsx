@@ -27,23 +27,21 @@ const enum TileState {
   flagged = 2
 }
 
-const CSS_ONE   = { '--one'  : 'blue'       } as React.CSSProperties
-const CSS_TWO   = { '--two'  : 'green'      } as React.CSSProperties
-const CSS_THREE = { '--three': 'red'        } as React.CSSProperties
-const CSS_FOUR  = { '--four' : 'purple'     } as React.CSSProperties
-const CSS_FIVE  = { '--five' : 'maroon'     } as React.CSSProperties
-const CSS_SIX   = { '--six'  : 'turquoise'  } as React.CSSProperties
-const CSS_SEVEN = { '--seven': 'black'      } as React.CSSProperties
-const CSS_EIGHT = { '--eight': 'gray'       } as React.CSSProperties
+const CSS_ZERO  = { '--tile' : 'transparent' } as React.CSSProperties
+const CSS_ONE   = { '--tile' : 'blue'        } as React.CSSProperties
+const CSS_TWO   = { '--tile' : 'green'       } as React.CSSProperties
+const CSS_THREE = { '--tile' : 'red'         } as React.CSSProperties
+const CSS_FOUR  = { '--tile' : 'purple'      } as React.CSSProperties
+const CSS_FIVE  = { '--tile' : 'maroon'      } as React.CSSProperties
+const CSS_SIX   = { '--tile' : 'turquoise'   } as React.CSSProperties
+const CSS_SEVEN = { '--tile' : 'black'       } as React.CSSProperties
+const CSS_EIGHT = { '--tile' : 'gray'        } as React.CSSProperties
 
 const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) => {
   // States
+  
 
   // Hooks
-  useEffect(() => {
-
-    
-  }, [])
 
   // Output
   const renderContent = (): React.ReactNode => {
@@ -61,7 +59,6 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) =
 
       return value
     } else if (state === TileState.flagged) {
-      console.log('🚩')
       return (
         <span>
           🚩
@@ -71,6 +68,7 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) =
   }
 
   const color = 
+    value === 0 ? CSS_ZERO  :
     value === 1 ? CSS_ONE   :
     value === 2 ? CSS_TWO   :
     value === 3 ? CSS_THREE :
@@ -78,17 +76,20 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) =
     value === 5 ? CSS_FIVE  :
     value === 6 ? CSS_SIX   :
     value === 7 ? CSS_SEVEN :
-    value === 8 ? CSS_EIGHT : null
+    value === 8 ? CSS_EIGHT : undefined
 
   return (
     <div className={`
       ${state === TileState.hidden ? styles.tile : null}
       ${state === TileState.visible ? styles.reveal : null}
-      ${color}
+      ${state === TileState.flagged ? styles.flag : null}
     `}
-      onClick={(e: React.MouseEvent) => handleClick(e, row, col)}
-      onContextMenu={(e: React.MouseEvent) => handleClick(e, row, col)}
+      style={color}
+      onClick={handleClick(row, col)}
+      onContextMenu={handleClick(row, col)}
+      // value={value}
     >
+      {console.log(value, color)}
       {renderContent()}
     </div>
   )

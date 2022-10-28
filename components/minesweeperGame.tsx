@@ -1,5 +1,7 @@
 // Next
+import type { MSTile } from '../typingIan'
 import { BOARD_HEIGHT, BOARD_WIDTH, BOARD_MINES } from './minesweeper/constants'
+import { openEmptyTiles } from './minesweeper/makeBoard'
 import styles from '../styles/minesweeper/minesweeper.module.css'
 
 // React
@@ -16,7 +18,7 @@ import { makeBoard } from './minesweeper/makeBoard'
 
 type Props = {}
 
-export enum Button {
+const enum Button {
   newGame = 'New Game',
   running = 'running',
   listening = '...',
@@ -24,13 +26,32 @@ export enum Button {
   winner = 'Winner'
 }
 
+const enum TileValue {
+  none = 0,
+  one = 1,
+  two = 2,
+  three = 3,
+  four = 4,
+  five = 5, 
+  six = 6, 
+  seven = 7,
+  eight = 8,
+  mine = -1
+}
+
+const enum TileState {
+  hidden = 0,
+  visible = 1,
+  flagged = 2
+}
+
 const MinesweeperGame = (props: Props) => {
   // States
-  const [time, setTime] = useState(0)
-  const [tiles, setTiles] = useState(makeBoard())
-  const [mines, setMines] = useState(BOARD_MINES)
-  const [gameState, setGameState] = useState(Button.newGame)
-  const [gameRunning, setGameRunning] = useState(false)
+  const [time, setTime] = useState<number>(0)
+  const [tiles, setTiles] = useState<MSTile[][]>(makeBoard())
+  const [mines, setMines] = useState<number>(BOARD_MINES)
+  const [gameState, setGameState] = useState<Button>(Button.newGame)
+  const [gameRunning, setGameRunning] = useState<boolean>(false)
 
   // Hooks
   useEffect(() => {
@@ -59,12 +80,37 @@ const MinesweeperGame = (props: Props) => {
 
       return () => clearInterval(timerStart)
     }
-  }, [gameRunning, time])
+  }, [gameRunning])
 
   // Handlers
-  const handleTileClick = (e: React.MouseEvent, row: number, col: number) => (): void => {
-    console.log(e, row, col)
-    // if(!gameRunning && e.type === 'onclick') setGameRunning(true)
+  const handleTileClick = (row: number, col: number) => (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    e.preventDefault()
+
+    if(!gameRunning && e.type === 'click') setGameRunning(true)
+
+    let tempTiles = tiles.slice()
+    const currTile = tiles[row][col]
+    
+    if(currTile.state === TileState.visible || currTile.state === TileState.flagged && e.type === 'click') {
+      return
+    } else if(currTile.state === TileState.hidden && e.type === 'contextmenu') {
+      tempTiles[row][col].state = TileState.flagged
+      setTiles(tempTiles)
+      setMines(mines - 1)
+    } else if(currTile.state === TileState.flagged && e.type === 'contextmenu') {
+      tempTiles[row][col].state = TileState.hidden
+      setTiles(tempTiles)
+      setMines(mines + 1)
+    } else if(currTile.value === TileValue.mine) {
+      // gameOver()
+    } else if(currTile.value === TileValue.none) {
+      tempTiles = openEmptyTiles(tempTiles, row, col)
+    } else {
+      tempTiles[row][col].state = TileState.visible
+      setTiles(tempTiles)
+    }
   }
 
   const handleGameButtonClick = (): void => {
@@ -89,6 +135,7 @@ const MinesweeperGame = (props: Props) => {
 
         <MSGameButtons
           gameState={gameState}
+          handleClick={handleGameButtonClick}
         />
 
         <MSMineDisplay 

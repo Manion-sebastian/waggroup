@@ -14,7 +14,7 @@ export interface MSBoard {
   width: number
   height: number
   mines: number
-  handleClick(e: React.MouseEvent, row: number, col: number): (...args: any[]) => void
+  handleClick(row: number, col: number): (...args: any[]) => void
 }
 
 export interface Difficulty extends MSBoard {
@@ -30,7 +30,7 @@ export interface MSTile {
 export interface MSTileButton extends MSTile {
   row: number
   col: number
-  handleClick(e: React.MouseEvent, row: number, col: number): (...args: any[]) => void
+  handleClick(row: number, col: number): (...args: any[]) => void
 }
 
 export interface MSTimer {
@@ -43,4 +43,5 @@ export interface MSMines {
 
 export interface MSGameButton {
   gameState: string
+  handleClick(): void
 }

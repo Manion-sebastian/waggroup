@@ -15,10 +15,10 @@ import React from 'react'
 
 type Props = {}
 
-const GameBoardButton = ({gameState}: MSGameButton) => {
+const GameBoardButton = ({gameState, handleClick}: MSGameButton) => {
   return (
     <div className={styles.buttonsWrapper}>
-      <div onClick={(e: React.MouseEvent) => {}} className={styles.newGame}>{gameState}</div>
+      <div onClick={handleClick} className={styles.newGame}>{gameState}</div>
     </div>
   )
 }

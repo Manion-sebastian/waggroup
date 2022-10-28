@@ -159,7 +159,7 @@ export const makeBoard = (): MSTile[][] => {
   return tiles
 }
 
-export const hiddenMultipleTiles = (
+export const openEmptyTiles = (
   tiles: MSTile[][],
   rowParam: number,
   colParam: number
@@ -192,7 +192,7 @@ export const hiddenMultipleTiles = (
     topLeftTile.value !== TileValue.mine
   ) {
     if (topLeftTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam - 1, colParam - 1)
+      newTiles = openEmptyTiles(newTiles, rowParam - 1, colParam - 1)
     } else {
       newTiles[rowParam - 1][colParam - 1].state = TileState.visible
     }
@@ -200,7 +200,7 @@ export const hiddenMultipleTiles = (
 
   if (topTile?.state === TileState.hidden && topTile.value !== TileValue.mine) {
     if (topTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam - 1, colParam)
+      newTiles = openEmptyTiles(newTiles, rowParam - 1, colParam)
     } else {
       newTiles[rowParam - 1][colParam].state = TileState.visible
     }
@@ -211,7 +211,7 @@ export const hiddenMultipleTiles = (
     topRightTile.value !== TileValue.mine
   ) {
     if (topRightTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam - 1, colParam + 1)
+      newTiles = openEmptyTiles(newTiles, rowParam - 1, colParam + 1)
     } else {
       newTiles[rowParam - 1][colParam + 1].state = TileState.visible
     }
@@ -219,7 +219,7 @@ export const hiddenMultipleTiles = (
 
   if (leftTile?.state === TileState.hidden && leftTile.value !== TileValue.mine) {
     if (leftTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam, colParam - 1)
+      newTiles = openEmptyTiles(newTiles, rowParam, colParam - 1)
     } else {
       newTiles[rowParam][colParam - 1].state = TileState.visible
     }
@@ -230,7 +230,7 @@ export const hiddenMultipleTiles = (
     rightTile.value !== TileValue.mine
   ) {
     if (rightTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam, colParam + 1)
+      newTiles = openEmptyTiles(newTiles, rowParam, colParam + 1)
     } else {
       newTiles[rowParam][colParam + 1].state = TileState.visible
     }
@@ -241,7 +241,7 @@ export const hiddenMultipleTiles = (
     bottomLeftTile.value !== TileValue.mine
   ) {
     if (bottomLeftTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam + 1, colParam - 1)
+      newTiles = openEmptyTiles(newTiles, rowParam + 1, colParam - 1)
     } else {
       newTiles[rowParam + 1][colParam - 1].state = TileState.visible
     }
@@ -252,7 +252,7 @@ export const hiddenMultipleTiles = (
     bottomTile.value !== TileValue.mine
   ) {
     if (bottomTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam + 1, colParam)
+      newTiles = openEmptyTiles(newTiles, rowParam + 1, colParam)
     } else {
       newTiles[rowParam + 1][colParam].state = TileState.visible
     }
@@ -263,7 +263,7 @@ export const hiddenMultipleTiles = (
     bottomRightTile.value !== TileValue.mine
   ) {
     if (bottomRightTile.value === TileValue.none) {
-      newTiles = hiddenMultipleTiles(newTiles, rowParam + 1, colParam + 1)
+      newTiles = openEmptyTiles(newTiles, rowParam + 1, colParam + 1)
     } else {
       newTiles[rowParam + 1][colParam + 1].state = TileState.visible
     }

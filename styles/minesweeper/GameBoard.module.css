@@ -9,6 +9,7 @@
   max-width: 60rem;
   max-height: 87vh;
   background: var(--bg-main);
+  font-size: 1.5rem;
   border: 2px solid #333;
   /* border-radius: 1vw; */
   overflow-y: auto;

@@ -18,7 +18,7 @@
 
 .tile:is(:hover, :focus)::after {
   /* box-shadow: inset 0 0 2vw -.25rem rgb(50 120 220); */
-  z-index: 0
+  z-index: 0;
 }
 
 .tile:active::after {
@@ -27,15 +27,25 @@
 
 .reveal {
   aspect-ratio: 1;
-  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-game-3);
+  font-family: 'press start 2p';
+  color: var(--tile);
+  font-size: 100%;
   user-select: none;
 }
 
 .flag {
   aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   background: var(--tile-flag-2);
   width: 100%;
+  user-select: none;
 }
 
 .flag::after {
