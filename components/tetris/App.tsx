@@ -104,7 +104,10 @@ const App: React.FC = () => {
         <div className='display'>
             {gameOver ? (
                 <>
-                    <Display gameOver={gameOver} text='Game Over!' />
+                    {/* <Display gameOver={gameOver} text='Game Over!' /> */}
+                    <Display text={`Score: ${score}`} />
+                    <Display text={`Rows: ${rows}`} />
+                    <Display text={`Level: ${level}`} />
                     <StartButton callback={handleStartGame} />
                 </>
             ) : (
@@ -113,9 +116,6 @@ const App: React.FC = () => {
                     <Display text={`Rows: ${rows}`} />
                     <Display text={`Level: ${level}`} />
                 </>
-
-
-
             )}
         </div>
         <Stage stage={stage} />
