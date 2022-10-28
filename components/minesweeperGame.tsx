@@ -1,4 +1,5 @@
 // Next
+import { BOARD_HEIGHT, BOARD_WIDTH, BOARD_MINES } from './minesweeper/constants'
 import styles from '../styles/minesweeper/minesweeper.module.css'
 
 // React
@@ -18,7 +19,7 @@ const MinesweeperGame = (props: Props) => {
   const [gameRunning, setGameRunning] = useState(true)
   const [isHidden, setIsHidden] = useState(0)
   const [isFlagged, setIsFlagged] = useState(0)
-  const [mines, setMines] = useState(10)
+  const [mines, setMines] = useState(40)
 
   return (
     <div className={styles.gameboardContainer}>
@@ -42,9 +43,9 @@ const MinesweeperGame = (props: Props) => {
       </div>
 
       <MSBoard 
-        width={9} 
-        height={9}
-        mines={mines}
+        width={BOARD_WIDTH} 
+        height={BOARD_HEIGHT}
+        mines={BOARD_MINES}
       />
 
     </div>
