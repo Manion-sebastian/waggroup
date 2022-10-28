@@ -12,13 +12,19 @@ type Props = {}
 
 const SudokuGame = (props: Props) => {
   const tempBoard = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
+
+  const tempBoardTwo = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',]
   
-  const [currentPuzzle, setCurrentPuzzle] = useState<number[] | null[]>(tempBoard)
+  const [currentPuzzle, setCurrentPuzzle] = useState<number[] | string[]>(tempBoardTwo)
   const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
   const [hasGame, setHasGame] = useState<boolean>(false)
   const [currentCell, setCurrentCell] = useState()
+  const [currentShown, setCurrentShown] = useState()
   
   useEffect(() => {
+    // return(
+      
+    // )
     
   }, [currentPuzzle])
 
@@ -51,9 +57,7 @@ const handleInput = (e:any) => {
     temp[currentCell] = inp
   }
   setCurrentPuzzle(temp)
-  // e.target.innerText = inp
-  // console.log('temp', temp)
-  // console.log('input', inp)
+  setCurrentShown(inp)
 }
 
 const handleStartButton = () => {
@@ -67,10 +71,12 @@ const handleStartButton = () => {
 }
 
 
+
+
   return (
     <div className={styles.gameConstraints}>
       <StatusBar />
-      <Board game={currentPuzzle} grabInfo={handleGrabObj} />
+      <Board game={currentPuzzle}  grabInfo={handleGrabObj} />
       <ControlBar handleInput={handleInput}  />
       <StartSection gameStarted={handleStartButton()} handleStartGame={handleStartGame} /> 
     </div>

@@ -8,7 +8,7 @@ import styles from '../../styles/sudoku/Board.module.css'
 
 
 type Props = {
-  game: number[] | null[]
+  game: number[] | null[] | string[]
   grabInfo: any
 }
 
@@ -18,7 +18,7 @@ const Board = ({ game,  grabInfo }: Props) => {
 
   return (
     <div className={styles.boardConstraints}>
-      {game.map((num: number | null, i:number) => (
+      {game.map((num: number | null | string, i:number) => (
           <Cell
             key={`cell-id-${i}`}  
             num={num}

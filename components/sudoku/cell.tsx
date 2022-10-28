@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import styles from '../../styles/sudoku/Cell.module.css'
 
 type Props = {
-    num: number | null
+    num: number | null | string
     cellNo: number
     grabInfo: any
 }
 
 const Cell = ({cellNo, num, grabInfo}: Props) => {
+
 
   // const closedInput = <input readOnly type="number" value={e.target.value} /> 
   // const openInput = <input type='number' />
