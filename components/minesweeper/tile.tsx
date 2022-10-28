@@ -89,7 +89,7 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) =
       onContextMenu={handleClick(row, col)}
       // value={value}
     >
-      {console.log(value, color)}
+      {/* {console.log(value, color)} */}
       {renderContent()}
     </div>
   )

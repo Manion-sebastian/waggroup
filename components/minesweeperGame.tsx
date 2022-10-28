@@ -80,7 +80,7 @@ const MinesweeperGame = (props: Props) => {
 
       return () => clearInterval(timerStart)
     }
-  }, [gameRunning])
+  }, [gameRunning, time])
 
   // Handlers
   const handleTileClick = (row: number, col: number) => (
@@ -115,9 +115,10 @@ const MinesweeperGame = (props: Props) => {
 
   const handleGameButtonClick = (): void => {
     if(gameRunning) {
-      setGameRunning(false)
       setTime(0)
+      setGameRunning(false)
       setTiles(makeBoard())
+      setGameState(Button.newGame)
     }
   }
 
