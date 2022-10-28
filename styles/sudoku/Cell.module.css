@@ -2,10 +2,116 @@
 .size {
     height: 35px;
     width: 35px;
-    border: solid black 2px;
+    border: dashed rgba(25,25,25,0.1) 2px;
     background-color: antiquewhite;
     display: flex;
     justify-content: center;
     font-weight: bold;
     font-size: larger;
 }
+
+/* vertical lines */
+.size:nth-child(3) {
+    border-right: solid black 4px;
+}
+.size:nth-child(6) {
+    border-right: solid black 4px;
+}
+.size:nth-child(12) {
+    border-right: solid black 4px;
+}
+.size:nth-child(15) {
+    border-right: solid black 4px;
+}
+.size:nth-child(21) {
+    border-right: solid black 4px;
+    border-bottom: solid black 4px;
+}
+.size:nth-child(24) {
+    border-right: solid black 4px;
+    border-bottom: solid black 4px;
+}
+.size:nth-child(30) {
+    border-right: solid black 4px;
+}
+.size:nth-child(33) {
+    border-right: solid black 4px;
+}
+.size:nth-child(39) {
+    border-right: solid black 4px;
+}
+.size:nth-child(42) {
+    border-right: solid black 4px;
+}
+.size:nth-child(48) {
+    border-right: solid black 4px;
+    border-bottom: solid black 4px;
+}
+.size:nth-child(51) {
+    border-right: solid black 4px;
+    border-bottom: solid black 4px;
+}
+.size:nth-child(57) {
+    border-right: solid black 4px;
+}
+.size:nth-child(60) {
+    border-right: solid black 4px;
+}
+.size:nth-child(66) {
+    border-right: solid black 4px;
+}
+.size:nth-child(69) {
+    border-right: solid black 4px;
+}
+.size:nth-child(75) {
+    border-right: solid black 4px;
+    
+}
+.size:nth-child(78) {
+    border-right: solid black 4px;
+}
+
+/* :horizontal lines */
+
+.size:nth-child(19) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(20) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(22) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(23) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(25) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(26) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(27) {
+    border-bottom: solid black 4px;
+}
+
+.size:nth-child(46) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(47) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(49) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(50) {
+    border-bottom: solid black 4px;
+}
+.size:nth-child(52) {
+    border-bottom: solid black 4px;
+}.size:nth-child(53) {
+    border-bottom: solid black 4px;
+}.size:nth-child(54) {
+    border-bottom: solid black 4px;
+}
+

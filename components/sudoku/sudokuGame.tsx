@@ -11,20 +11,31 @@ import StartSection from './startSection'
 type Props = {}
 
 const SudokuGame = (props: Props) => {
-  const tempBoard = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
+  // const tempBoard = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
 
   const tempBoardTwo = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',]
   
   const [currentPuzzle, setCurrentPuzzle] = useState<number[] | string[]>(tempBoardTwo)
-  const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
   const [hasGame, setHasGame] = useState<boolean>(false)
   const [currentCell, setCurrentCell] = useState()
+  const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
   const [currentShown, setCurrentShown] = useState()
   
   useEffect(() => {
-    // return(
-      
-    // )
+    const handleValidate = () => {
+      for(let i = 0; i < 81; i++) {
+        if (!currentPuzzle[i] === null) {
+          if (currentPuzzle[i] === solvedPuzzle[i].toString()) {
+            console.log(true)
+          } else {
+            console.log(false)
+          }
+
+        }
+      }
+    }
+    
+    handleValidate()
     
   }, [currentPuzzle])
 
@@ -38,6 +49,16 @@ const handleStartGame = () => {
   setCurrentPuzzle( makepuzzle() )
   setSolvedPuzzle(solvepuzzle(currentPuzzle))
   setHasGame(true)
+}
+
+const handleValidate = () => {
+  for(let i = 0; i < 81; i++) {
+    if (currentPuzzle[i] === solvedPuzzle[i]) {
+      console.log(true)
+    } else {
+      console.log(false)
+    }
+  }
 }
 
 
@@ -58,6 +79,10 @@ const handleInput = (e:any) => {
   }
   setCurrentPuzzle(temp)
   setCurrentShown(inp)
+}
+
+const handleInputKeypress = (e : KeyboardEvent) => {
+  console.log(e)
 }
 
 const handleStartButton = () => {
