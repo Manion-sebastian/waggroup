@@ -4,38 +4,29 @@ import styles from '../../styles/sudoku/Cell.module.css'
 type Props = {
     num: number | null
     cellNo: number
-    selectedCell : any
+    grabInfo: any
 }
 
-const Cell = ({cellNo, num, selectedCell}: Props) => {
+const Cell = ({cellNo, num, grabInfo}: Props) => {
 
-  const [currentCell, setCurrentCell] = useState(null)
-
-  // const closedInput = <input readOnly type="number" value={num || 0} /> 
+  // const closedInput = <input readOnly type="number" value={e.target.value} /> 
   // const openInput = <input type='number' />
 
   const closedButton = <button disabled >{num}</button>
   const openButton = <button >{cellNo}</button>
-
-  const handleCell = (e:any) => {
-    setCurrentCell(e.target.value)
-    console.log(currentCell)
-    // console.log(e.target.value)
-  }
-
-  const cellObj = {
+  const cellObj : any = {
     index: cellNo,
-    value: null
+    value: num || ''
   }
 
-  cellObj.index
+  // cellObj.index
 
   return (
     <div
-      onClick={selectedCell}
+      onClick={() => grabInfo(cellObj)}
       className={styles.size}
     >
-     {num? closedButton: openButton }
+     {cellObj.value}
      
       
      </div>

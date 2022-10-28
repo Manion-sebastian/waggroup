@@ -1,4 +1,4 @@
-import React, { SetStateAction, SyntheticEvent, useState } from 'react'
+import React, { SetStateAction, SyntheticEvent, useEffect, useState } from 'react'
 import Board from './board'
 import ControlBar from './controlBar'
 import StatusBar from './statusBar'
@@ -7,15 +7,20 @@ import { makepuzzle, solvepuzzle, ratepuzzle } from 'sudoku'
 import StartSection from './startSection'
 
 
+
 type Props = {}
 
 const SudokuGame = (props: Props) => {
   const tempBoard = [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
-
+  
   const [currentPuzzle, setCurrentPuzzle] = useState<number[] | null[]>(tempBoard)
   const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
   const [hasGame, setHasGame] = useState<boolean>(false)
   const [currentCell, setCurrentCell] = useState()
+  
+  useEffect(() => {
+    
+  }, [currentPuzzle])
 
  // handle selected cell will grab the index of the cell and until another cell is checked it will be acted on.
 
@@ -29,13 +34,26 @@ const handleStartGame = () => {
   setHasGame(true)
 }
 
-const handleSelectedCell = (e : any) => {
-  setCurrentCell(e.target.innerText)
-  console.log('handlesecledcell')
-  console.log(currentCell)
-  // console.log(e.target.innerText)
-  console.log(e)
-  
+
+const handleGrabObj = (obj : any) => {
+  console.log(obj)
+  setCurrentCell(obj.index)
+}
+
+
+const handleInput = (e:any) => {
+  let inp = e.target.innerText
+  let temp = currentPuzzle
+  if (currentCell === 0) {
+    temp[0] = inp
+  }
+  else if (currentCell) {
+    temp[currentCell] = inp
+  }
+  setCurrentPuzzle(temp)
+  // e.target.innerText = inp
+  // console.log('temp', temp)
+  // console.log('input', inp)
 }
 
 const handleStartButton = () => {
@@ -52,8 +70,8 @@ const handleStartButton = () => {
   return (
     <div className={styles.gameConstraints}>
       <StatusBar />
-      <Board game={currentPuzzle} selectedCell={handleSelectedCell} />
-      <ControlBar  />
+      <Board game={currentPuzzle} grabInfo={handleGrabObj} />
+      <ControlBar handleInput={handleInput}  />
       <StartSection gameStarted={handleStartButton()} handleStartGame={handleStartGame} /> 
     </div>
   )
