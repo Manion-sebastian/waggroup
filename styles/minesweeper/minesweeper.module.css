@@ -2,6 +2,7 @@
   --bg-main: #101010;
   --bg-game-1: #666;
   --bg-game-2: #777;
+  --bg-game-3: #444;
   --tile-flag-1: #e32;
   --tile-flag-2: #c22;
   --bg-act: #69b;
@@ -20,6 +21,7 @@
 }
 
 .topDisplay {
+  position: relative;
   display: flex;
   justify-content: space-between;
   font-family: 'Poiret One', sans-serif;

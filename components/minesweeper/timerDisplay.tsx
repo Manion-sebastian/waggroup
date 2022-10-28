@@ -8,19 +8,7 @@ import { useState, useEffect } from 'react'
 
 type Props = {}
 
-const TimerDisplay = ({gameRunning}: MSTimer) => {
-  const [time, setTime] = useState(0)
-    
-  if(gameRunning) {
-    useEffect(() => {
-      const timerStart = setInterval(() => {
-        setTime(time + 1)
-      }, 1000)
-  
-      return () => clearInterval(timerStart)
-    }, [time])
-  }
-
+const TimerDisplay = ({time}: MSTimer) => {
   return (
     <div className={styles.timerContainer}>
       <p className={styles.title}>TIME</p>
