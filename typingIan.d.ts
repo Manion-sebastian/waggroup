@@ -19,12 +19,13 @@ export interface Difficulty extends MSBoard {
 }
 
 export interface MSTile {
+  value: TileValue
+  state: TileState
+}
+
+export interface MSTileButton extends MSTile {
   row: number
   col: number
-  isHidden: boolean
-  isFlagged: boolean
-  isMine: boolean
-  adjMines: number
 }
 
 export interface MSTimer {
