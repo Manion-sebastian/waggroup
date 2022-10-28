@@ -5,7 +5,9 @@ import { TETROMINOS } from './setup';
 
 export const createStage = () => Array.from(Array(STAGE_HEIGHT), () => Array(STAGE_WIDTH).fill([0, 'clear']));
 
+// function that randomizes tetrominos
 export const randomTetromino = () => {
+  // tetrominos are assigned to a letter, this refers back to them (uses typescript to grab the key)
   const tetrominos = ['I', 'J', 'L', 'O', 'S', 'T', 'Z'] as (keyof typeof TETROMINOS)[];
   const randTetromino = tetrominos[Math.floor(Math.random() * tetrominos.length)];
   return TETROMINOS[randTetromino];
@@ -16,7 +18,7 @@ export const isColliding = (
   stage: STAGE,
   { x: moveX, y: moveY }: { x: number, y: number }
 ) => {
-  // Using for loops to be able to return (and break). Not possible with forEach
+  // Using for loops to be able to return
   for (let y = 0; y < player.tetromino.length; y += 1) {
     for (let x = 0; x < player.tetromino[y].length; x += 1) {
       // 1. Check that we're on an actual Tetromino cell
