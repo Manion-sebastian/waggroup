@@ -20,6 +20,7 @@
 }
 
 .topDisplay {
+  position: relative;
   display: flex;
   justify-content: space-between;
   font-family: 'Poiret One', sans-serif;
