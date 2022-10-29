@@ -43,5 +43,5 @@ export interface MSMines {
 
 export interface MSGameButton {
   gameState: string
-  handleClick(): void
+  handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>): void
 }

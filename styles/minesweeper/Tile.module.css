@@ -31,7 +31,8 @@
   justify-content: center;
   align-items: center;
   background: var(--bg-game-3);
-  font-family: 'press start 2p';
+  font-family: 'Press Start 2p';
+  font-weight: 100;
   color: var(--tile);
   font-size: 100%;
   user-select: none;
