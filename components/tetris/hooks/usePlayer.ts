@@ -15,16 +15,40 @@ export type player = {
 export const usePlayer = () => {
     const [player, setPlayer] = React.useState({} as player)
 
-    const rotate = (matrix: player['tetromino']) => {
+    const rotateRight = (matrix: player['tetromino']) => {
         // Switch between row and column
         const theMatrix = matrix.map((_, i) => matrix.map(column => column[i]))
         // Reversing the rwo to get rotation
         return theMatrix.map(row => row.reverse())
     }
 
-    const playerRotate = (stage: STAGE): void => {
+    const playerRotateRight = (stage: STAGE): void => {
         const clonedPlayer = JSON.parse(JSON.stringify(player));
-        clonedPlayer.tetromino = rotate(clonedPlayer.tetromino);
+        clonedPlayer.tetromino = rotateRight(clonedPlayer.tetromino);
+        
+
+        // prevents players from rotating into things
+        const posX = clonedPlayer.pos.x;
+        let offset = 1;
+        while (isColliding(clonedPlayer, stage, { x: 0, y: 0})) {
+            clonedPlayer.pos.x += offset
+            offset = -(offset + (offset > 0 ? 1 : -1))
+
+            if (offset > clonedPlayer.tetromino[0].length) {
+                clonedPlayer.pos.x = posX
+                return
+            }
+        }
+
+
+        setPlayer(clonedPlayer)
+    }
+
+    const playerRotateLeft = (stage: STAGE): void => {
+        const clonedPlayer = JSON.parse(JSON.stringify(player));
+        clonedPlayer.tetromino = rotateRight(clonedPlayer.tetromino);
+        clonedPlayer.tetromino = rotateRight(clonedPlayer.tetromino);
+        clonedPlayer.tetromino = rotateRight(clonedPlayer.tetromino);
 
         // prevents players from rotating into things
         const posX = clonedPlayer.pos.x;
@@ -61,5 +85,5 @@ export const usePlayer = () => {
         []
     )
 
-    return { player, updatePlayerPos, resetPlayer, playerRotate };
+    return { player, updatePlayerPos, resetPlayer, playerRotateRight, playerRotateLeft };
 }

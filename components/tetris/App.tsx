@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStage, isColliding } from './gameHelpers'
+import { useSwipeable } from 'react-swipeable';
 
 // Custom hooks
 import { useInterval } from './hooks/useInterval'
@@ -22,7 +23,7 @@ const App: React.FC = () => {
 
   const gameArea = React.useRef<HTMLDivElement>(null)
 
-  const { player, updatePlayerPos, resetPlayer, playerRotate } = usePlayer()
+  const { player, updatePlayerPos, resetPlayer, playerRotateRight, playerRotateLeft } = usePlayer()
   const { stage, setStage, rowsCleared } = useStage(player, resetPlayer)
   const { score, setScore, rows, setRows, level, setLevel } = useGameStatus(rowsCleared)
 
@@ -55,20 +56,34 @@ const App: React.FC = () => {
   }
 
   const move = ({ keyCode, repeat }: { keyCode: number; repeat: boolean}): void => {
-    if (!gameOver) {
-      if (keyCode === 37) {
-        movePlayer(-1);
-      } else if (keyCode === 39) {
-        movePlayer(1);
-      } else if (keyCode === 40) {
-        if(repeat) {
-          return
+      if (!gameOver) {
+        if (keyCode === 37) {
+          movePlayer(-1);
+        } else if (keyCode === 39) {
+          movePlayer(1);
+        } else if (keyCode === 40) {
+          if(repeat) {
+            return
+          }
+          setDropTime(30)
+        } else if (keyCode === 88) {
+          playerRotateRight(stage)
+        } else if (keyCode === 90) {
+          playerRotateLeft(stage)
         }
-        setDropTime(30)
-      } else if (keyCode === 38) {
-        playerRotate(stage)
       }
-    }
+  }
+
+  const moveClick = (e: any) => {
+    let rect = gameArea.current?.getBoundingClientRect()
+    let x = e.clientX - rect?.left!
+    if (!gameOver) {
+      if (x < gameArea.current?.offsetWidth! / 2) {
+        movePlayer(-1);
+      } else {
+        movePlayer(1);
+      }
+  }
   }
 
   const drop = (): void => {
@@ -99,8 +114,8 @@ const App: React.FC = () => {
   }, dropTime)
 
   return (
-    <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp} ref={gameArea}>
-      <StyledTetris>
+    <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp} onMouseDown={moveClick} ref={gameArea}>
+      <StyledTetris >
         <div className='display'>
             {gameOver ? (
                 <>
@@ -118,8 +133,12 @@ const App: React.FC = () => {
                 </>
             )}
         </div>
-        <Stage stage={stage} />
-        </StyledTetris>
+          <Stage stage={stage} />
+        
+        
+        
+      </StyledTetris>
+      
     </StyledTetrisWrapper>
   );
 };
