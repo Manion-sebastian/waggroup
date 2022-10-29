@@ -1,3 +1,8 @@
+@keyframes background-pan {
+  from {background-position: 0% center;}
+  to {background-position: -200% center;}
+}
+
 .gameBoard {
   display: grid;
   justify-self: center;
@@ -8,9 +13,20 @@
   height: 100%;
   max-width: 60rem;
   max-height: 87vh;
-  background: var(--bg-main);
+  background: linear-gradient(
+    95deg,
+    var(--bg-main) 50%,
+    var(--bg-act),
+    var(--bg-main) 60%
+  );
+  background-size: 200%;
   font-size: 1.5rem;
   border: 2px solid #333;
-  /* border-radius: 1vw; */
+  overflow-x: clip;
   overflow-y: auto;
+  animation: background-pan 35s cubic-bezier(.2,.8,.15,1.33) infinite;
+}
+
+.gameBoard::-webkit-scrollbar {
+  display: none;
 }

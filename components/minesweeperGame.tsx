@@ -217,12 +217,12 @@ const MinesweeperGame = (props: Props) => {
 
   // Output
   return (
-    <div className={styles.gameboardContainer}>
+    <div className={`MSWRAPPER ${styles.gameboardContainer}`}>
       <div>
         <MSModal />
       </div>
 
-      <div className={styles.topDisplay}>
+      <div className={`TOP-DISPLAY ${styles.topDisplay}`}>
         <MSTimer 
           time={time}
         />
@@ -238,13 +238,15 @@ const MinesweeperGame = (props: Props) => {
 
       </div>
 
-      <MSBoard 
-        tiles={tiles}
-        width={BOARD_WIDTH} 
-        height={BOARD_HEIGHT}
-        mines={mines}
-        handleClick={handleTileClick}
-      />
+      <div className={`GAME-DISPLAY ${styles.msgame}`}>
+        <MSBoard 
+          tiles={tiles}
+          width={BOARD_WIDTH} 
+          height={BOARD_HEIGHT}
+          mines={mines}
+          handleClick={handleTileClick}
+        />
+      </div>
 
     </div>
   )
