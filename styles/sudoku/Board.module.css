@@ -4,7 +4,7 @@
     grid-template-columns: repeat(9, minmax(0, 1fr));
     width: fit-content;
     height: fit-content;
-    margin: 30px auto;
+    margin: 10px auto;
     
     /* border: solid blue 4px; */
     

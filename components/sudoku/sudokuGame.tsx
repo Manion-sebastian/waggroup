@@ -20,6 +20,7 @@ const SudokuGame = (props: Props) => {
   const [currentCell, setCurrentCell] = useState()
   const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
   const [currentShown, setCurrentShown] = useState()
+  const [currentTimer, setCurrentTimer] = useState<number>(0)
   
   useEffect(() => {
     const handleValidate = () => {
@@ -61,6 +62,15 @@ const handleValidate = () => {
   }
 }
 
+const handleTimer = () => {
+  let seconds  = currentTimer
+  let timer = setInterval(function() {
+    clearInterval(timer)
+    seconds += 1
+    setCurrentTimer(seconds)
+  }, 1000)
+}
+
 
 const handleGrabObj = (obj : any) => {
   console.log(obj)
@@ -89,8 +99,12 @@ const handleStartButton = () => {
   let blurb = ''
   if(hasGame) {
     blurb = 'New Game'
+    handleTimer()
+    
   } else 
    blurb = "Start Game"
+   handleTimer()
+  
 
   return blurb
 }
@@ -100,7 +114,7 @@ const handleStartButton = () => {
 
   return (
     <div className={styles.gameConstraints}>
-      <StatusBar />
+      <StatusBar time={currentTimer} />
       <Board game={currentPuzzle}  grabInfo={handleGrabObj} />
       <ControlBar handleInput={handleInput}  />
       <StartSection gameStarted={handleStartButton()} handleStartGame={handleStartGame} /> 
