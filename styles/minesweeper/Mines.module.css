@@ -5,7 +5,7 @@
   flex: 0 1 auto;
   flex-direction: row-reverse;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1vw;
   width: 22%;
   height: 100%;
   color: white;
@@ -18,9 +18,9 @@
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: clamp(.3rem, 3.5vw, 1.8rem);
 }
 
 .mines {
-  font-size: 4rem;
+  font-size: clamp(.67rem, 8vw, 4rem);
 }
