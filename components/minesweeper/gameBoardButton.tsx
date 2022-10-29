@@ -5,20 +5,40 @@ import styles from '../../styles/minesweeper/GameBoardButtons.module.css'
 // React
 import React from 'react'
 
-// export enum Button {
-//   newGame = 'New Game',
-//   running = 'running',
-//   listening = '...',
-//   gameOver = 'Game Over',
-//   winner = 'Winner'
-// }
+const enum Button {
+  newGame = 'New Game',
+  running = 'Running',
+  listening = '...',
+  pause = 'Paused',
+  gameOver = 'Game Over',
+  winner = 'Winner'
+}
 
 type Props = {}
 
 const GameBoardButton = ({gameState, handleClick}: MSGameButton) => {
+  console.log(gameState)
   return (
     <div className={styles.buttonsWrapper}>
-      <div onClick={handleClick} className={styles.newGame}>{gameState}</div>
+      <div 
+      className={`NEW GAME ${styles.newGame}`}
+      defaultValue='gameButton'
+      onClick={handleClick} 
+      >
+        {
+          gameState === Button.listening ?
+          Button.running + gameState :
+          gameState
+        }
+      </div>
+      
+      <div 
+      className={`PAUSE ${styles.pause}`}
+      defaultValue='pause'
+      onClick={handleClick} 
+      >
+        | |
+      </div>
     </div>
   )
 }
