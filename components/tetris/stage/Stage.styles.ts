@@ -8,4 +8,5 @@ export const StyledStage = styled.div`
   grid-gap: 1px;
   border: 1px solid #777;
   background: #222;
+  user-select: none;
 `;

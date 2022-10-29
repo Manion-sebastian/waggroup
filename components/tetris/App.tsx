@@ -50,7 +50,8 @@ const App: React.FC = () => {
     setDropTime(1000)
     resetPlayer()
     setScore(0)
-    setLevel(1)
+    // RESET TO ZERO
+    setLevel(10)
     setRows(0)
     setGameOver(false)
   }
@@ -83,12 +84,45 @@ const App: React.FC = () => {
       } else {
         movePlayer(1);
       }
+    }
   }
-  }
+
+  const handlerSwipe = useSwipeable({
+    onSwipedRight: ({ event }) => {
+      event.stopPropagation()
+      if (!gameOver) {
+        playerRotateRight(stage)
+      }
+      
+    },
+    onSwipedLeft: ({ event }) => {
+      event.stopPropagation()
+      if (!gameOver) {
+        playerRotateLeft(stage)
+      }
+    },
+    // FIX THIS!!!!!!!!!!!!!!
+    onSwiping: ({ dir, event, first }) => {
+      event.stopPropagation()
+      if (!gameOver) {
+      if(dir === 'Down') {
+          if(first) {
+            return
+          }
+          setDropTime(30)
+        }
+      }
+      
+      // onSwiping: ({ event }) => {
+      //   event.stopPropagation()
+      //   setDropTime(30)
+      // }
+    }
+  })
 
   const drop = (): void => {
     // Increase level when player has cleared 10 rows
-    if (rows > level * 10) {
+    if (rows > level * 5) {
       setLevel(prev => prev + 1)
       // increase speed
       setDropTime(1000 / level + 200)
@@ -114,8 +148,8 @@ const App: React.FC = () => {
   }, dropTime)
 
   return (
-    <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp} onMouseDown={moveClick} ref={gameArea}>
-      <StyledTetris >
+    <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp}  onMouseDown={moveClick}  ref={gameArea}>
+      <StyledTetris {...handlerSwipe}>
         <div className='display'>
             {gameOver ? (
                 <>

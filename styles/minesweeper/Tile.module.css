@@ -1,8 +1,11 @@
 .tile {
   aspect-ratio: 1;
   position: relative;
-  background: var(--bg-game-2);
-  /* border: 2px solid white; */
+  background: linear-gradient(
+    45deg,
+    var(--bg-game-2) 20%,
+    var(--bg-game-1)
+  );
   user-select: none;
 }
 
@@ -10,32 +13,54 @@
   aspect-ratio: 1;
   content: '';
   position: absolute;
-  background-color: var(--bg-game-1);
   width: 100%;
+  background: linear-gradient(
+    -135deg,
+    var(--bg-game-1) 10%,
+    var(--bg-game-3),
+    var(--bg-game-1) 90%
+  );
+  background-position: 0%;
+  background-size: 400%;
+  border: 1px solid transparent;
+  border-radius: 5%;
+  overflow: visible;
   z-index: -1;
-  transition: all 80ms cubic-bezier(.2,.8,.1,1);
+  transform: translateY(0%) scale(100%);
+  transition: all 0ms;
 }
 
 .tile:is(:hover, :focus)::after {
-  /* box-shadow: inset 0 0 2vw -.25rem rgb(50 120 220); */
-  z-index: 0;
+  border: 1px solid var(--bg-main);
+  z-index: 1;
+  transform: translateY(-5%) scale(115%);
+  /* transition: transform 30ms linear, border 30ms linear; */
 }
 
 .tile:active::after {
-  transform: scale(90%);
+  transform: scale(100%);
+  border: 1px solid transparent;
+  background-position: 20%;
+  /* transition: all 30ms linear; */
 }
 
 .reveal {
   aspect-ratio: 1;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-game-3);
-  font-family: 'Press Start 2p';
-  font-weight: 100;
+  width: 100%;
+  background: var(--bg-main);
+  font-family: 'Lato';
+  font-weight: 900;
+  text-shadow: 0 0 .2rem rgb(30 30 30 / .3);
   color: var(--tile);
-  font-size: clamp(.2rem, 3vw, 1.5rem);
+  border: 1px solid var(--sb-bg);
+  border-radius: 3%;
+  font-size: clamp(.2rem, 120%, 2rem);
   user-select: none;
+
 }
 
 .flag {
@@ -45,15 +70,56 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: var(--tile-flag-2);
-  font-size: clamp(.2rem, 3vw, 1.5rem);
+  background: var(--tile-flag-1);
+  font-size: clamp(.2rem, 100%, 2rem);
   user-select: none;
 }
 
 .flag::after {
-  background: var(--tile-flag-1);
+  aspect-ratio: 1;
+  content: '🚩';
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--tile-flag-1) 10%,
+    var(--tile-flag-2),
+    var(--tile-flag-1) 90%
+  );
+  background-position: 0%;
+  background-size: 400%;
+  font-size: clamp(.2rem, 102%, 2rem);
+  border: 1px solid transparent;
+  border-radius: 5%;
+  overflow: visible;
+  z-index: -1;
+  transform: translateY(0%) scale(100%);
+  transition: all 0ms;
+}
+
+.flag:is(:hover, :focus)::after {
+  border: 1px solid var(--bg-main);
+  z-index: 1;
+  transform: translateY(-5%) scale(115%);
+  /* transition: transform 30ms linear, border 30ms linear; */
+}
+
+.flag:active::after {
+  transform: scale(100%);
+  border: 1px solid transparent;
+  background-position: 20%;
+  /* transition: all 30ms linear; */
 }
 
 .flag .bomb::after {
   content: '';
+}
+
+@media (max-width: 840px){
+  .reveal, .flag {
+    font-size: clamp(.2rem, 3vw, 1.5rem);
+  }
 }
