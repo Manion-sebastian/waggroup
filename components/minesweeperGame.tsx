@@ -114,13 +114,15 @@ const MinesweeperGame = (props: Props) => {
     
     let tempTiles = tiles.slice()
 
+    if(gameEnd !== GameCondition.none) return
+
     if(!gameRunning && e.type === 'click') {
       let isEmpty = tempTiles[row][col].value === TileValue.none
       while(!isEmpty) {
-        console.log('hello')
         tempTiles = makeBoard()
         if (tempTiles[row][col].value === TileValue.none) {
           isEmpty = true
+          tempTiles = openEmptyTiles(tempTiles, row, col)
           break
         }
       }
@@ -130,7 +132,7 @@ const MinesweeperGame = (props: Props) => {
     const currTile = tiles[row][col]
     
     // Prevents click on invalid squares
-    if(currTile.state === TileState.visible || 
+    if(currTile.state === TileState.visible && e.type === 'contextmenu'|| 
       currTile.state === TileState.flagged && e.type === 'click') {
       return
     } // Flags a hidden tile
@@ -153,6 +155,7 @@ const MinesweeperGame = (props: Props) => {
     } // Clicks an empty tile
     else if(currTile.value === TileValue.none) {
       tempTiles = openEmptyTiles(tempTiles, row, col)
+      // Clicks an numbered tile
     } else {
       tempTiles[row][col].state = TileState.visible
     }
