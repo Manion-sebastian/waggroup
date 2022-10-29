@@ -5,6 +5,7 @@ export const StyledTetrisWrapper = styled.div`
   height: 95vh;
   overflow: hidden;
   outline: none;
+  user-select: none;
 `;
 
 export const StyledTetris = styled.div`
@@ -20,5 +21,6 @@ export const StyledTetris = styled.div`
     justify-content: space-between;
     width: 380px;
     padding: 0 0 -10px 0;
+    user-select: none;
   }
 `;
