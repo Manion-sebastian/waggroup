@@ -14,6 +14,7 @@
 
 .controlConstraints {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     padding: 15px;
@@ -23,6 +24,7 @@
 }
 
 .controlButton {
+    
     font-weight: bold;
     display: inline-flex;
     border-radius: 10px;
@@ -42,7 +44,21 @@
 }
 
 .controlButtonConstraints {
-    
+    height: 80px;
     display:flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* margin: 10px; */
+}
+
+.boardConstUse {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.controlCont {
+    
 }

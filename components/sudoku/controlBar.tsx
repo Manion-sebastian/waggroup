@@ -14,16 +14,21 @@ const ControlBar = ({ handleInput }: Props) => {
 
   return (
     <div className={styles.controlConstraints}>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>0</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>1</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>2</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>3</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>4</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>5</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>6</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>7</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>8</Button>
-      <Button onClick={handleInput} className={styles.controlButton} type='primary'>9</Button>
+      <div>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>1</Button>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>2</Button>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>3</Button>
+      </div>
+      <div>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>4</Button>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>5</Button>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>6</Button>
+      </div>
+      <div>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>7</Button>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>8</Button>
+        <Button onClick={handleInput} className={styles.controlButton} type='primary'>9</Button>
+      </div>
     </div>
     
   )

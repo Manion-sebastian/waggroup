@@ -120,8 +120,10 @@ const handleStartButton = () => {
     <div className={styles.gameConstraints}>
       <StatusBar time={currentTimer} handlePause={handlePauseGame} paused={paused} />
       <Board game={currentPuzzle}  grabInfo={handleGrabObj} />
-      <ControlBar handleInput={handleInput}  />
-      <StartSection gameStarted={handleStartButton()} newGame={handleNewGame} hasGame={hasGame} handleStartGame={handleStartGame} /> 
+      <div className={styles.boardConstUse}>
+        <StartSection gameStarted={handleStartButton()} newGame={handleNewGame} hasGame={hasGame} handleStartGame={handleStartGame} /> 
+        <ControlBar handleInput={handleInput}  />
+      </div>
     </div>
   )
 }
