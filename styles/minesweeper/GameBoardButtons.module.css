@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 30%;
   height: 100%;
   background: var(--bg-game-1);
   padding-inline: 2em;

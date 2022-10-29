@@ -36,6 +36,7 @@ const enum TileValue {
   six = 6, 
   seven = 7,
   eight = 8,
+  killer = 9,
   mine = -1
 }
 
@@ -45,22 +46,29 @@ const enum TileState {
   flagged = 2
 }
 
+const enum GameCondition {
+  none = -1,
+  lose = 0,
+  win = 1
+}
+
 const MinesweeperGame = (props: Props) => {
   // States
   const [time, setTime] = useState<number>(0)
   const [tiles, setTiles] = useState<MSTile[][]>(makeBoard())
   const [mines, setMines] = useState<number>(BOARD_MINES)
+  const [gameEnd, setGameEnd] = useState<GameCondition>(GameCondition.none)
   const [gameState, setGameState] = useState<Button>(Button.newGame)
   const [gameRunning, setGameRunning] = useState<boolean>(false)
 
   // Hooks
   useEffect(() => {
     const handleMouseDown = (): void => {
-      setGameState(Button.listening)
+      if(gameRunning) setGameState(Button.listening)
     }
 
     const handleMouseUp = (): void => {
-      setGameState(Button.running)
+      if(gameRunning) setGameState(Button.running)
     }
 
     window.addEventListener('mousedown', handleMouseDown) 
@@ -82,44 +90,126 @@ const MinesweeperGame = (props: Props) => {
     }
   }, [gameRunning, time])
 
+  useEffect(() => {
+    if(gameEnd === GameCondition.lose) {
+      setGameState(Button.gameOver)
+    }
+
+    if(gameEnd === GameCondition.win) {
+      setMines(0)
+      setGameState(Button.winner)
+    }
+
+    if(gameEnd !== GameCondition.none) {
+      setGameRunning(false)
+    }
+
+  }, [gameEnd])
+
   // Handlers
   const handleTileClick = (row: number, col: number) => (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
     e.preventDefault()
-
-    if(!gameRunning && e.type === 'click') setGameRunning(true)
-
+    
     let tempTiles = tiles.slice()
+
+    if(!gameRunning && e.type === 'click') {
+      let isEmpty = tempTiles[row][col].value === TileValue.none
+      while(!isEmpty) {
+        console.log('hello')
+        tempTiles = makeBoard()
+        if (tempTiles[row][col].value === TileValue.none) {
+          isEmpty = true
+          break
+        }
+      }
+      setGameRunning(true)
+    }
+    
     const currTile = tiles[row][col]
     
-    if(currTile.state === TileState.visible || currTile.state === TileState.flagged && e.type === 'click') {
+    // Prevents click on invalid squares
+    if(currTile.state === TileState.visible || 
+      currTile.state === TileState.flagged && e.type === 'click') {
       return
-    } else if(currTile.state === TileState.hidden && e.type === 'contextmenu') {
+    } // Flags a hidden tile
+    else if(currTile.state === TileState.hidden && e.type === 'contextmenu') {
       tempTiles[row][col].state = TileState.flagged
       setTiles(tempTiles)
       setMines(mines - 1)
-    } else if(currTile.state === TileState.flagged && e.type === 'contextmenu') {
+    } // Removes flag from tile
+    else if(currTile.state === TileState.flagged && e.type === 'contextmenu') {
       tempTiles[row][col].state = TileState.hidden
       setTiles(tempTiles)
       setMines(mines + 1)
-    } else if(currTile.value === TileValue.mine) {
-      // gameOver()
-    } else if(currTile.value === TileValue.none) {
+    } // Clicks a mine
+    else if(currTile.value === TileValue.mine) {
+      setGameEnd(GameCondition.lose)
+      tempTiles[row][col].value = TileValue.killer
+      tempTiles = revealMines()
+      setTiles(tempTiles)
+      return
+    } // Clicks an empty tile
+    else if(currTile.value === TileValue.none) {
       tempTiles = openEmptyTiles(tempTiles, row, col)
     } else {
       tempTiles[row][col].state = TileState.visible
-      setTiles(tempTiles)
     }
+
+    // // Check Win Conidition
+    let hasHiddenTile = false
+    for(let iRow = 0; iRow < BOARD_HEIGHT; iRow++) {
+      for(let iCol = 0; iCol < BOARD_WIDTH; iCol++) {
+        const currTile = tempTiles[iRow][iCol]
+
+        if(currTile.value !== TileValue.mine && currTile.state === TileState.hidden) {
+          hasHiddenTile = true
+          break
+        }
+      }
+    }
+
+    // Flags all mines
+    if(!hasHiddenTile) {
+      tempTiles = tempTiles.map(row => row. map(cell => {
+        if(cell.value === TileValue.mine) {
+          return {
+            ...cell,
+            state: TileState.flagged
+          }
+        }
+        return cell
+      }))
+      setGameEnd(GameCondition.win)
+    }
+
+    setTiles(tempTiles)
   }
 
-  const handleGameButtonClick = (): void => {
-    if(gameRunning) {
-      setTime(0)
-      setGameRunning(false)
-      setTiles(makeBoard())
-      setGameState(Button.newGame)
-    }
+
+  const handleGameButtonClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+    console.log(e)
+    setTime(0)
+    setMines(BOARD_MINES)
+    setTiles(makeBoard())
+    setGameEnd(GameCondition.none)
+    setGameState(Button.newGame)
+    setGameRunning(false)
+  }
+
+  const revealMines = (): MSTile[][] => {
+    const tempTiles = tiles.slice()
+    return tempTiles.map(row => row.map(tile => {
+      if(tile.value === TileValue.mine) {
+        return {
+          ...tile,
+          state: TileState.visible
+        }
+      }
+
+      return tile
+    }))
   }
 
   // Output
