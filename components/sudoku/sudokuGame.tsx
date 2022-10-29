@@ -22,23 +22,32 @@ const SudokuGame = (props: Props) => {
   const [currentShown, setCurrentShown] = useState()
   const [currentTimer, setCurrentTimer] = useState<number>(0)
   
-  useEffect(() => {
-    const handleValidate = () => {
-      for(let i = 0; i < 81; i++) {
-        if (!currentPuzzle[i] === null) {
-          if (currentPuzzle[i] === solvedPuzzle[i].toString()) {
-            console.log(true)
-          } else {
-            console.log(false)
-          }
+  // useEffect(() => {
+  //   const handleValidate = () => {
+  //     for(let i = 0; i < 81; i++) {
+  //       if (!currentPuzzle[i] === null) {
+  //         if (currentPuzzle[i] === solvedPuzzle[i].toString()) {
+  //           console.log(true)
+  //         } else {
+  //           console.log(false)
+  //         }
 
-        }
-      }
+  //       }
+  //     }
+  //   }
+    
+  //   handleValidate()
+    
+  // }, [currentTimer])
+
+  useEffect(() => {
+    if(hasGame) {
+      const timeStart = setInterval(()=> {
+        setCurrentTimer(currentTimer + 1)
+      }, 1000)
+      return () => clearInterval(timeStart)
     }
-    
-    handleValidate()
-    
-  }, [currentTimer])
+  }, [hasGame, currentTimer])
 
  // handle selected cell will grab the index of the cell and until another cell is checked it will be acted on.
 
@@ -51,7 +60,26 @@ const handleStartGame = () => {
   setSolvedPuzzle(solvepuzzle(currentPuzzle))
   setHasGame(true)
   
- 
+}
+
+const handleNewGame = () => {
+  setCurrentPuzzle( makepuzzle() )
+  setSolvedPuzzle(solvepuzzle(currentPuzzle))
+  setCurrentTimer(0)
+
+}
+
+const handlePauseGame = () => {
+
+  let holder = currentPuzzle
+
+  if(hasGame) {
+    setCurrentPuzzle(tempBoardTwo)
+    setHasGame(false)
+  } else {
+    setCurrentPuzzle(holder)
+    setHasGame(true)
+  }
 }
 
 const handleValidate = () => {
@@ -65,12 +93,7 @@ const handleValidate = () => {
 }
 
 const handleTimer = () => {
-  let seconds  = currentTimer
-  let timer = setInterval(function() {
-    clearInterval(timer)
-    seconds += 1
-    setCurrentTimer(seconds)
-  }, 1000)
+  
 }
 
 
@@ -112,17 +135,13 @@ const handleStartButton = () => {
 }
 
 
-if(hasGame){
-  handleTimer()
-}
-
 
   return (
     <div className={styles.gameConstraints}>
       <StatusBar time={currentTimer} />
       <Board game={currentPuzzle}  grabInfo={handleGrabObj} />
       <ControlBar handleInput={handleInput}  />
-      <StartSection gameStarted={handleStartButton()} handleStartGame={handleStartGame} /> 
+      <StartSection gameStarted={handleStartButton()} newGame={handleNewGame} hasGame={hasGame} handleStartGame={handleStartGame} /> 
     </div>
   )
 }
