@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginPage from '../components/loginPage'
-import RegisterPage from '../components/registerPage'
+import LoginPage from '../components/authentication/loginPage'
+import RegisterPage from '../components/authentication/registerPage'
 
 type Props = {}
 

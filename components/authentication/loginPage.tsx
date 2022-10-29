@@ -1,10 +1,13 @@
 import React from 'react'
+import Login from './login'
 
 type Props = {}
 
 const LoginPage = (props: Props) => {
   return (
-    <div>loginPage</div>
+    <div>
+      <Login />
+    </div>
   )
 }
 
