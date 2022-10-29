@@ -2,15 +2,20 @@
   --bg-main: #101010;
   --bg-game-1: #666;
   --bg-game-2: #777;
-  --bg-game-3: #444;
+  --bg-game-3: #555;
   --tile-flag-1: #e32;
   --tile-flag-2: #c22;
-  --bg-act: #69b;
+  --bg-act: #058;
+  --sb-clr-1: rgb(220 220 220 / .4);
+  --sb-clr-2: rgb(220 220 220 / 1);
+  --sb-bg: rgb(60 60 60 / .9);
   --ctnr-w: 95%;
   --ctnr-max-w: 50rem;
 }
 
 .gameboardContainer {
+  box-sizing: content-box;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +23,7 @@
   width: var(--ctnr-w); 
   max-width: var(--ctnr-max-w);
   margin-inline: auto;
+  padding: 0.8vh 1.8vw 1.8vh;
 }
 
 .topDisplay {
@@ -26,4 +32,10 @@
   justify-content: space-between;
   font-family: 'Poiret One', sans-serif;
   width: 100%; height: clamp(.67rem, 10vw, 5rem);
+}
+
+.msgame {
+  width: 100%;
+  height: 100%;
+  overflow: overlay;
 }

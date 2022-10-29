@@ -29,21 +29,16 @@ const enum TileState {
 }
 
 const CSS_ZERO  = { '--tile' : 'transparent' } as React.CSSProperties
-const CSS_ONE   = { '--tile' : 'blue'        } as React.CSSProperties
-const CSS_TWO   = { '--tile' : 'green'       } as React.CSSProperties
-const CSS_THREE = { '--tile' : 'red'         } as React.CSSProperties
-const CSS_FOUR  = { '--tile' : 'purple'      } as React.CSSProperties
-const CSS_FIVE  = { '--tile' : 'maroon'      } as React.CSSProperties
-const CSS_SIX   = { '--tile' : 'turquoise'   } as React.CSSProperties
-const CSS_SEVEN = { '--tile' : 'black'       } as React.CSSProperties
-const CSS_EIGHT = { '--tile' : 'gray'        } as React.CSSProperties
+const CSS_ONE   = { '--tile' : '#3940ff'        } as React.CSSProperties
+const CSS_TWO   = { '--tile' : '#33cc33'       } as React.CSSProperties
+const CSS_THREE = { '--tile' : '#f30000'         } as React.CSSProperties
+const CSS_FOUR  = { '--tile' : '#b4b'      } as React.CSSProperties
+const CSS_FIVE  = { '--tile' : '#a02'      } as React.CSSProperties
+const CSS_SIX   = { '--tile' : '#6dd'   } as React.CSSProperties
+const CSS_SEVEN = { '--tile' : '#efefeb'        } as React.CSSProperties
+const CSS_EIGHT = { '--tile' : '#5b646f'        } as React.CSSProperties
 
 const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) => {
-  // States
-  
-
-  // Hooks
-
   // Output
   const renderContent = (): React.ReactNode => {
     if(state === TileState.visible) {
