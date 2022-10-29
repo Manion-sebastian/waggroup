@@ -19,26 +19,9 @@ const SudokuGame = (props: Props) => {
   const [hasGame, setHasGame] = useState<boolean>(false)
   const [currentCell, setCurrentCell] = useState()
   const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
-  const [currentShown, setCurrentShown] = useState()
   const [currentTimer, setCurrentTimer] = useState<number>(0)
-  
-  // useEffect(() => {
-  //   const handleValidate = () => {
-  //     for(let i = 0; i < 81; i++) {
-  //       if (!currentPuzzle[i] === null) {
-  //         if (currentPuzzle[i] === solvedPuzzle[i].toString()) {
-  //           console.log(true)
-  //         } else {
-  //           console.log(false)
-  //         }
-
-  //       }
-  //     }
-  //   }
-    
-  //   handleValidate()
-    
-  // }, [currentTimer])
+  const [paused, setPaused] = useState<boolean>(false)
+  let [tranferPuzzle, setTransferPuzzle] = useState<number[] | string[]>([])
 
   useEffect(() => {
     if(hasGame) {
@@ -71,14 +54,16 @@ const handleNewGame = () => {
 
 const handlePauseGame = () => {
 
-  let holder = currentPuzzle
+  setTransferPuzzle(currentPuzzle)
 
   if(hasGame) {
     setCurrentPuzzle(tempBoardTwo)
     setHasGame(false)
-  } else {
-    setCurrentPuzzle(holder)
+    setPaused(true)
+  } else if (!hasGame) {
+    setCurrentPuzzle(tranferPuzzle)
     setHasGame(true)
+    setPaused(false)
   }
 }
 
@@ -90,10 +75,6 @@ const handleValidate = () => {
       console.log(false)
     }
   }
-}
-
-const handleTimer = () => {
-  
 }
 
 
@@ -113,7 +94,6 @@ const handleInput = (e:any) => {
     temp[currentCell] = inp
   }
   setCurrentPuzzle(temp)
-  setCurrentShown(inp)
 }
 
 const handleInputKeypress = (e : KeyboardEvent) => {
@@ -138,7 +118,7 @@ const handleStartButton = () => {
 
   return (
     <div className={styles.gameConstraints}>
-      <StatusBar time={currentTimer} />
+      <StatusBar time={currentTimer} handlePause={handlePauseGame} paused={paused} />
       <Board game={currentPuzzle}  grabInfo={handleGrabObj} />
       <ControlBar handleInput={handleInput}  />
       <StartSection gameStarted={handleStartButton()} newGame={handleNewGame} hasGame={hasGame} handleStartGame={handleStartGame} /> 

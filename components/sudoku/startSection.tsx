@@ -18,7 +18,6 @@ const StartSection = ({handleStartGame, gameStarted, newGame, hasGame}: Props) =
     
     <div className={styles.controlButtonConstraints} >
       {hasGame? cont: start}
-        
         <Button type='primary' >Check Game</Button>
     </div>
   )

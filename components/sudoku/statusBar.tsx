@@ -1,9 +1,20 @@
 import React from 'react'
+import { useState } from 'react'
 import styles from '../../styles/sudoku/StatusBar.module.css'
+import { faPause } from '@fortawesome/free-solid-svg-icons'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 type Props = {
   time : number
+  handlePause : any
+  paused: boolean
 }
+
+const play = <FontAwesomeIcon icon={faPlay} />
+const pause = <FontAwesomeIcon icon={faPause} />
+
 
 const ParseTime = (time: number ) => {
   let stringSeconds;
@@ -30,15 +41,24 @@ const ParseTime = (time: number ) => {
   return `${stringHours}:${stringMinutes}:${stringSeconds}`
 }
 
-const StatusBar = ({time}: Props) => {
+const StatusBar = ({time, handlePause, paused}: Props) => {
+
   return (
     <div className={styles.container}>
       <div>
         SUDOKU
       </div>
-      <div className={styles.time}>
-        {ParseTime(time)}
-      </div>
+
+        <div className={styles.timeCont}>
+          <div className={styles.time} onClick={handlePause}>
+            {paused? play: pause }
+          </div>
+          <div className={styles.time}>
+            {ParseTime(time)}
+          </div>
+        </div>
+
+
     </div>
   )
 }
