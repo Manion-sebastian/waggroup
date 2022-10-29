@@ -38,7 +38,7 @@ const SudokuGame = (props: Props) => {
     
     handleValidate()
     
-  }, [currentPuzzle])
+  }, [currentTimer])
 
  // handle selected cell will grab the index of the cell and until another cell is checked it will be acted on.
 
@@ -50,6 +50,8 @@ const handleStartGame = () => {
   setCurrentPuzzle( makepuzzle() )
   setSolvedPuzzle(solvepuzzle(currentPuzzle))
   setHasGame(true)
+  
+ 
 }
 
 const handleValidate = () => {
@@ -99,17 +101,20 @@ const handleStartButton = () => {
   let blurb = ''
   if(hasGame) {
     blurb = 'New Game'
-    handleTimer()
+    // handleTimer()
     
   } else 
    blurb = "Start Game"
-   handleTimer()
+  //  handleTimer()
   
 
   return blurb
 }
 
 
+if(hasGame){
+  handleTimer()
+}
 
 
   return (
