@@ -14,4 +14,5 @@ export const StyledStartButton = styled.button`
   font-size: .8rem;
   outline: none;
   cursor: pointer;
+  user-select: none;
 `;
