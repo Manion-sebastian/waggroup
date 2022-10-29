@@ -18,6 +18,7 @@ const enum TileValue {
   six = 6, 
   seven = 7,
   eight = 8,
+  killer = 9,
   mine = -1
 }
 
@@ -46,10 +47,9 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) =
   // Output
   const renderContent = (): React.ReactNode => {
     if(state === TileState.visible) {
-      if(value === TileValue.mine) {
-        console.log('💣')
+      if(value === TileValue.mine || value === TileValue.killer) {
         return (
-          <span>
+          <span className={styles.bomb}>
             💣
           </span>
         )
@@ -80,9 +80,10 @@ const Tile: React.FC<MSTileButton> = ({ row, col, value, state, handleClick }) =
 
   return (
     <div className={`
-      ${state === TileState.hidden ? styles.tile : null}
+      ${state === TileState.hidden  ? styles.tile : null}
       ${state === TileState.visible ? styles.reveal : null}
       ${state === TileState.flagged ? styles.flag : null}
+      ${value === TileValue.killer  ? styles.flag : null}
     `}
       style={color}
       onClick={handleClick(row, col)}

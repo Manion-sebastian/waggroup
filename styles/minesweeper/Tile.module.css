@@ -51,3 +51,7 @@
 .flag::after {
   background: var(--tile-flag-1);
 }
+
+.flag .bomb::after {
+  content: '';
+}

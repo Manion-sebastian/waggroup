@@ -12,6 +12,7 @@ const enum TileValue {
   six = 6, 
   seven = 7,
   eight = 8,
+  killer = 9,
   mine = -1
 }
 
