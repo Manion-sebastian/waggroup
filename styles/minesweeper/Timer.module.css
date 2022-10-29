@@ -15,9 +15,9 @@
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: clamp(.3rem, 3.5vw, 1.8rem);
 }
 
 .timer {
-  font-size: 4rem;
+  font-size: clamp(.67rem, 8vw, 4rem);
 }

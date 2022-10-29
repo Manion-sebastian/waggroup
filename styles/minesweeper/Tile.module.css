@@ -34,18 +34,19 @@
   font-family: 'Press Start 2p';
   font-weight: 100;
   color: var(--tile);
-  font-size: 100%;
+  font-size: clamp(.2rem, 3vw, 1.5rem);
   user-select: none;
 }
 
 .flag {
   aspect-ratio: 1;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  background: var(--tile-flag-2);
   width: 100%;
+  background: var(--tile-flag-2);
+  font-size: clamp(.2rem, 3vw, 1.5rem);
   user-select: none;
 }
 
