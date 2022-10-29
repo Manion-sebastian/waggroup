@@ -1,14 +1,4 @@
 
-.size {
-    height: 35px;
-    width: 35px;
-    border: dashed rgba(25,25,25,0.1) 2px;
-    background-color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    font-size: larger;
-}
 
 /* vertical lines */
 .size:nth-child(3) {
@@ -115,3 +105,17 @@
     border-bottom: solid black 4px;
 }
 
+.size {
+    height: 35px;
+    width: 35px;
+    border: dashed rgba(25,25,25,0.1) 2px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.targeted {
+    background-color: gray;
+}

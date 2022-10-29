@@ -20,6 +20,7 @@ const SudokuGame = (props: Props) => {
   const [currentCell, setCurrentCell] = useState()
   const [solvedPuzzle, setSolvedPuzzle] = useState<number[]>([])
   const [currentShown, setCurrentShown] = useState()
+  const [currentTimer, setCurrentTimer] = useState<number>(0)
   
   useEffect(() => {
     const handleValidate = () => {
@@ -37,7 +38,7 @@ const SudokuGame = (props: Props) => {
     
     handleValidate()
     
-  }, [currentPuzzle])
+  }, [currentTimer])
 
  // handle selected cell will grab the index of the cell and until another cell is checked it will be acted on.
 
@@ -49,6 +50,8 @@ const handleStartGame = () => {
   setCurrentPuzzle( makepuzzle() )
   setSolvedPuzzle(solvepuzzle(currentPuzzle))
   setHasGame(true)
+  
+ 
 }
 
 const handleValidate = () => {
@@ -59,6 +62,15 @@ const handleValidate = () => {
       console.log(false)
     }
   }
+}
+
+const handleTimer = () => {
+  let seconds  = currentTimer
+  let timer = setInterval(function() {
+    clearInterval(timer)
+    seconds += 1
+    setCurrentTimer(seconds)
+  }, 1000)
 }
 
 
@@ -89,18 +101,25 @@ const handleStartButton = () => {
   let blurb = ''
   if(hasGame) {
     blurb = 'New Game'
+    // handleTimer()
+    
   } else 
    blurb = "Start Game"
+  //  handleTimer()
+  
 
   return blurb
 }
 
 
+if(hasGame){
+  handleTimer()
+}
 
 
   return (
     <div className={styles.gameConstraints}>
-      <StatusBar />
+      <StatusBar time={currentTimer} />
       <Board game={currentPuzzle}  grabInfo={handleGrabObj} />
       <ControlBar handleInput={handleInput}  />
       <StartSection gameStarted={handleStartButton()} handleStartGame={handleStartGame} /> 
