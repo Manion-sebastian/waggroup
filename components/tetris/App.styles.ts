@@ -13,6 +13,7 @@ export const StyledTetris = styled.div`
   align-items: center;
   padding: 40px;
   margin: 0 auto;
+  user-select: none;
   
   .display {
     display: flex;
