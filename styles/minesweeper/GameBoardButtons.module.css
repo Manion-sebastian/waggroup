@@ -18,6 +18,48 @@
   width: 30%;
   height: 100%;
   min-width: 30%;
-  background: var(--bg-game-1);
+  background: linear-gradient(
+    -12deg,
+    var(--bg-main) 25%,
+    var(--bg-game-1),
+    var(--bg-main) 75%
+  );
+  background-position: -13%;
+  background-size: 400%;
+  border: 1px solid white;
+  border-radius: 1rem 0 0 1rem;
   padding-inline: 2em;
+  transition: all 60ms ease-out;
+}
+
+.pause {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  min-width: max-content;
+  background: linear-gradient(
+    45deg,
+    var(--bg-main) 25%,
+    var(--bg-game-1),
+    var(--bg-main) 75%
+  );
+  background-position: -13%;
+  background-size: 400%;
+  border: 1px solid white;
+  border-radius: 0 1rem 1rem 0;
+  transition: all 60ms ease-out;
+}
+
+.newGame:is(:hover, :focus) {
+  background-position: 80%;
+  font-weight: bold;
+  transition: all 60ms ease-in;
+}
+.pause:is(:hover, :focus) {
+  background-position: -110%;
+  font-weight: bold;
+  transition: all 60ms ease-in;
 }

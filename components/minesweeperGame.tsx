@@ -20,10 +20,11 @@ type Props = {}
 
 const enum Button {
   newGame = 'New Game',
-  running = 'running',
+  running = 'Running',
   listening = '...',
+  pause = 'Paused',
   gameOver = 'Game Over',
-  winner = 'Winner'
+  winner = 'Winner!'
 }
 
 const enum TileValue {
@@ -58,6 +59,7 @@ const MinesweeperGame = (props: Props) => {
   const [tiles, setTiles] = useState<MSTile[][]>(makeBoard())
   const [mines, setMines] = useState<number>(BOARD_MINES)
   const [gameEnd, setGameEnd] = useState<GameCondition>(GameCondition.none)
+  const [gamePause, setGamePause] = useState<boolean>(false)
   const [gameState, setGameState] = useState<Button>(Button.newGame)
   const [gameRunning, setGameRunning] = useState<boolean>(false)
 
@@ -116,7 +118,7 @@ const MinesweeperGame = (props: Props) => {
 
     if(gameEnd !== GameCondition.none) return
 
-    if(!gameRunning && e.type === 'click') {
+    if(!gameRunning && e.type === 'click' && gameEnd !== GameCondition.none) {
       let isEmpty = tempTiles[row][col].value === TileValue.none
       while(!isEmpty) {
         tempTiles = makeBoard()
@@ -126,6 +128,11 @@ const MinesweeperGame = (props: Props) => {
           break
         }
       }
+      setGameRunning(true)
+    }
+
+    if(gamePause) {
+      setGamePause(false)
       setGameRunning(true)
     }
     
@@ -160,7 +167,7 @@ const MinesweeperGame = (props: Props) => {
       tempTiles[row][col].state = TileState.visible
     }
 
-    // // Check Win Conidition
+    // Check Win Conidition
     let hasHiddenTile = false
     for(let iRow = 0; iRow < BOARD_HEIGHT; iRow++) {
       for(let iCol = 0; iCol < BOARD_WIDTH; iCol++) {
@@ -191,14 +198,26 @@ const MinesweeperGame = (props: Props) => {
   }
 
 
-  const handleGameButtonClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-    console.log(e)
-    setTime(0)
-    setMines(BOARD_MINES)
-    setTiles(makeBoard())
-    setGameEnd(GameCondition.none)
-    setGameState(Button.newGame)
-    setGameRunning(false)
+  const handleGameButtonClick = (e: any): void => {
+    // console.log(e.target.classList)
+    if(e.target.classList[0] !== 'PAUSE') {
+      setTime(0)
+      setMines(BOARD_MINES)
+      setTiles(makeBoard())
+      setGameEnd(GameCondition.none)
+      setGameState(Button.newGame)
+      setGameRunning(false)
+    } else {
+      if(gameState === Button.pause) {
+        setGamePause(false)
+        setGameRunning(true)
+        setGameState(Button.running)
+      } else {
+        setGameState(Button.pause)
+        setGameRunning(false)
+        setGamePause(true)
+      }
+    }
   }
 
   const revealMines = (): MSTile[][] => {

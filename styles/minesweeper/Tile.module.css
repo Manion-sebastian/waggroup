@@ -33,7 +33,7 @@
 .tile:is(:hover, :focus)::after {
   border: 1px solid var(--bg-main);
   z-index: 1;
-  transform: translateY(-5%) scale(115%);
+  transform: translateY(0%) scale(115%);
   /* transition: transform 30ms linear, border 30ms linear; */
 }
 
@@ -91,7 +91,7 @@
   );
   background-position: 0%;
   background-size: 400%;
-  font-size: clamp(.2rem, 102%, 2rem);
+  font-size: clamp(.2rem, 102%, 2.2rem);
   border: 1px solid transparent;
   border-radius: 5%;
   overflow: visible;
@@ -114,12 +114,16 @@
   /* transition: all 30ms linear; */
 }
 
-.flag .bomb::after {
+.flag::after .bomb {
   content: '';
 }
 
 @media (max-width: 840px){
   .reveal, .flag {
     font-size: clamp(.2rem, 3vw, 1.5rem);
+  }
+
+  .tile:active::after {
+    transition: all 30ms linear .3s;
   }
 }
