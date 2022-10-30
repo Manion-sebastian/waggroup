@@ -7,9 +7,10 @@ type Props = {
     gameStarted : string
     newGame: any
     hasGame: boolean
+    handleVal: any
 }
 
-const StartSection = ({handleStartGame, gameStarted, newGame, hasGame}: Props) => {
+const StartSection = ({handleStartGame, gameStarted, newGame, hasGame, handleVal}: Props) => {
 
   const start = <Button type='primary' onClick={handleStartGame}>{gameStarted}</Button>
   const cont = <Button type='primary' onClick={newGame}>{gameStarted}</Button>
@@ -18,7 +19,7 @@ const StartSection = ({handleStartGame, gameStarted, newGame, hasGame}: Props) =
     
     <div className={styles.controlButtonConstraints} >
       {hasGame? cont: start}
-        <Button type='primary' >Check Game</Button>
+        <Button type='primary' onClick={handleVal} >Check Game</Button>
     </div>
   )
 }
