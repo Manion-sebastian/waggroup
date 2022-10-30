@@ -50,8 +50,7 @@ const App: React.FC = () => {
     setDropTime(1000)
     resetPlayer()
     setScore(0)
-    // RESET TO ZERO
-    setLevel(10)
+    setLevel(1)
     setRows(0)
     setGameOver(false)
   }
