@@ -17,7 +17,6 @@ const enum Button {
 type Props = {}
 
 const GameBoardButton = ({gameState, handleClick}: MSGameButton) => {
-  console.log(gameState)
   return (
     <div className={styles.buttonsWrapper}>
       <div 

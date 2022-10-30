@@ -34,9 +34,10 @@ const App: React.FC = () => {
   }
 
   const keyUp = ({ keyCode }: { keyCode: number}): void => {
+    // console.log(keyCode)
     if (!gameOver) {
       // Change the droptime speed when user releases down arrow
-      if (keyCode === 40) {
+      if (keyCode === 40 || keyCode === 83) {
         setDropTime(1000 / level + 200);
       }
     }
@@ -55,23 +56,27 @@ const App: React.FC = () => {
     setGameOver(false)
   }
 
-  const move = ({ keyCode, repeat }: { keyCode: number; repeat: boolean}): void => {
-      if (!gameOver) {
-        if (keyCode === 37) {
-          movePlayer(-1);
-        } else if (keyCode === 39) {
-          movePlayer(1);
-        } else if (keyCode === 40) {
-          if(repeat) {
-            return
-          }
-          setDropTime(30)
-        } else if (keyCode === 88) {
-          playerRotateRight(stage)
-        } else if (keyCode === 90) {
-          playerRotateLeft(stage)
+  const move = (e: React.KeyboardEvent, repeat: boolean): void => {
+    e.preventDefault()
+    // console.log(e.code)
+    
+    let keyCode = e.code
+    if (!gameOver) {
+      if (keyCode === 'ArrowLeft' || keyCode === 'KeyA') {
+        movePlayer(-1);
+      } else if (keyCode === 'ArrowRight' || keyCode === 'KeyD') {
+        movePlayer(1);
+      } else if (keyCode === 'ArrowDown' || keyCode === 'KeyS') {
+        if(repeat) {
+          return 
         }
+        setDropTime(30)
+      } else if (keyCode === 'KeyX' || keyCode === 'KeyK') {
+        playerRotateRight(stage)
+      } else if (keyCode === 'KeyZ' || keyCode === 'KeyJ') {
+        playerRotateLeft(stage)
       }
+    }
   }
 
   const moveClick = (e: any) => {

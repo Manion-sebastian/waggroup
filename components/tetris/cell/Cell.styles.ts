@@ -7,7 +7,8 @@ type Props = {
 };
 
 export const StyledCell = styled.div<Props>`
-  width: auto;
+  aspect-ratio: 1;
+  width: 100%;
   background: rgba(${props => props.color}, 0.8);
   border: ${props => (props.type === 0 ? '0px solid' : '4px solid')};
   border-bottom-color: rgba(${props => props.color}, 0.1);

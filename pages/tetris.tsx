@@ -5,9 +5,14 @@ type Props = {}
 
 const tetris = (props: Props) => {
   return (
-    <>
-      <App />
-    </>
+    <div>
+      <section>
+        <App />
+        <div>
+          HOW TO PLAY
+        </div>
+      </section>
+    </div>
 
   )
 }
