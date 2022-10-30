@@ -86,14 +86,24 @@ const handlePauseGame = () => {
 }
 
 const handleValidate = () => {
+  let correct = false
+  let count = 0
   for ( let i = 0; i < 81; i++) {
     if (currentPuzzle[i] !== '') {
       if (currentPuzzle[i] == solvedPuzzle![i]) {
-        console.log(true)
+        count += 1
+        correct = true
+      } else {
+        correct = false
       }
     } else {
       continue
     }
+  }
+  if (count === 81 && correct === true) {
+    console.log(`You solved the puzzle in ${currentTimer} Woo`) // this will be sent to the server to be stored. 
+    setHasGame(false)
+    console.log(`play again!`)
   }
 }
 
