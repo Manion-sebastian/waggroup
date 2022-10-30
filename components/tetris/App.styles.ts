@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const StyledTetrisWrapper = styled.div`
   width: 100%;
-  height: 95vh;
+  height: 100%;
   overflow: hidden;
   outline: none;
-  user-select: none;
+  background-color: rgb(60, 60, 60);
 `;
 
 export const StyledTetris = styled.div`
@@ -14,13 +14,11 @@ export const StyledTetris = styled.div`
   align-items: center;
   padding: 40px;
   margin: 0 auto;
-  user-select: none;
   
   .display {
     display: flex;
     justify-content: space-between;
     width: 380px;
     padding: 0 0 -10px 0;
-    user-select: none;
   }
 `;

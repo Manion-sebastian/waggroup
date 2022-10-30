@@ -87,6 +87,7 @@ const App: React.FC = () => {
   }
 
   const handlerSwipe = useSwipeable({
+    preventScrollOnSwipe: true,
     onSwipedRight: ({ event }) => {
       event.stopPropagation()
       if (!gameOver) {
@@ -100,22 +101,16 @@ const App: React.FC = () => {
         playerRotateLeft(stage)
       }
     },
-    // FIX THIS!!!!!!!!!!!!!!
-    onSwiping: ({ dir, event, first }) => {
+    onSwiping: ({ dir, event }) => {
       event.stopPropagation()
       if (!gameOver) {
-      if(dir === 'Down') {
-          if(first) {
-            return
+        if(dir === 'Down') {
+            setDropTime(30)
           }
-          setDropTime(30)
-        }
       }
-      
-      // onSwiping: ({ event }) => {
-      //   event.stopPropagation()
-      //   setDropTime(30)
-      // }
+    },
+    onTouchEndOrOnMouseUp: () => {
+      setDropTime(1000 / level + 200);
     }
   })
 
@@ -147,32 +142,34 @@ const App: React.FC = () => {
   }, dropTime)
 
   return (
-    <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp}  onMouseDown={moveClick}  ref={gameArea}>
-      <StyledTetris {...handlerSwipe}>
-        <div className='display'>
-            {gameOver ? (
-                <>
-                    {/* <Display gameOver={gameOver} text='Game Over!' /> */}
-                    <Display text={`Score: ${score}`} />
-                    <Display text={`Rows: ${rows}`} />
-                    <Display text={`Level: ${level}`} />
-                    <StartButton callback={handleStartGame} />
-                </>
-            ) : (
-                <>
-                    <Display text={`Score: ${score}`} />
-                    <Display text={`Rows: ${rows}`} />
-                    <Display text={`Level: ${level}`} />
-                </>
-            )}
-        </div>
-          <Stage stage={stage} />
+      <StyledTetrisWrapper role='button' tabIndex={0} onKeyDown={move} onKeyUp={keyUp}  onMouseDown={moveClick}  ref={gameArea}>
         
-        
-        
-      </StyledTetris>
-      
-    </StyledTetrisWrapper>
+        <StyledTetris {...handlerSwipe}>
+          <div className='display'>
+              {gameOver ? (
+                  <>
+                      {/* <Display gameOver={gameOver} text='Game Over!' /> */}
+                      <Display text={`Score: ${score}`} />
+                      <Display text={`Rows: ${rows}`} />
+                      <Display text={`Level: ${level}`} />
+                      <StartButton callback={handleStartGame} />
+                  </>
+              ) : (
+                  <>
+                      <Display text={`Score: ${score}`} />
+                      <Display text={`Rows: ${rows}`} />
+                      <Display text={`Level: ${level}`} />
+                  </>
+              )}
+          </div>
+            <Stage stage={stage} />
+          
+          
+          
+        </StyledTetris>
+      </StyledTetrisWrapper>
+    
+
   );
 };
 
