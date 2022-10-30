@@ -17,11 +17,6 @@ const HomePage = (props: Props) => {
 
       </div>
 
-      <div>
-        <Link href={'/minesweeper'}>Minesweeper</Link>
-        <Link href={'/sudoku'}>Sudoku</Link>
-        <Link href={'/tetris'}>Tetris</Link>
-      </div>
 
 
     </div>

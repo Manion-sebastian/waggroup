@@ -8,10 +8,7 @@ const NavBar = () => {
     <div>
         <Link href={'/'}>Home</Link>{" "} |
         {" "} <Link href={'/about'}>About</Link> {" "} |
-        {" "} <Link href={'/auth'}>Auth</Link> {" "} |
-        {" "} <Link href={'/sudokuTest'}>Sudoku</Link> {" "} |
-        {" "} <Link href={'/tetris'}>Tetris</Link> {" "} |
-        {" "} <Link href={'/minesweeper'}>minesweeper</Link> {" "} |
+        {" "} <Link href={'/auth'}>Login or Register</Link> {" "} |
         {" "} <Link href={'/profile'}>profile</Link>
     </div>
   )

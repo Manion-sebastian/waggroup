@@ -13,6 +13,7 @@ import type { BrandonGame } from '../typingBrandon'
 import HomePage from '../components/homePage'
 import MinesweeperGame from '../components/minesweeperGame'
 import SudokuGame from '../components/sudoku/sudokuGame'
+import GameLink from '../components/gameLink'
 
 
 type Props = {}
