@@ -9,12 +9,12 @@
 .bottomBar, .item {
     font-size: 40px;
     height: 50px;
-    width: 250px
+    width: 350px
 }
 
 .item {
     scroll-snap-align: start;
-    width: 400px;
+    width: 250px;
     
     
 }
