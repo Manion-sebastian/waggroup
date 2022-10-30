@@ -1,0 +1,42 @@
+.userInfoTop {
+    display: flex;
+    flex-direction: col;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.userName {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.name {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+
+.userInfoBottom {
+    display:flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.userInfoCont {
+    margin: 0 auto;
+    width: 80vw;
+
+}
+
+.profileTop {
+    padding: 30px;
+    height: 30vh;
+}
+
+.profileBot {
+    padding: 30px;
+    height: 60vh;
+    overflow-y: scroll;
+}
+
