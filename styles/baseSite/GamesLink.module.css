@@ -1,0 +1,16 @@
+.bottomBar {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 40px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    
+}
+
+.item {
+    width: 100vw;
+    scroll-snap-align: center;
+    padding: 30px;
+}
+

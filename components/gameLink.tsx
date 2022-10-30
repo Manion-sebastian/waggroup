@@ -1,14 +1,21 @@
 import React from 'react'
 import Link from 'next/link'
+import styles from '../styles/baseSite/GamesLink.module.css'
 
 type Props = {}
 
 const GameLink = (props: Props) => {
   return (
-    <div>
-        <Link href={'/minesweeper'}>Minesweeper</Link>
-        <Link href={'/sudoku'}>Sudoku</Link>
-        <Link href={'/tetris'}>Tetris</Link>
+    <div className={styles.bottomBar}>
+        
+            <Link className={styles.items} href={'/minesweeper'}>Minesweeper</Link>
+        
+        
+            <Link className={styles.items} href={'/sudoku'}>Sudoku</Link>
+        
+        
+            <Link className={styles.item} href={'/tetris'}>Tetris</Link>
+        
     </div>
   )
 }
