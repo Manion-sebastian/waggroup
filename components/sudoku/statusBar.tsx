@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import styles from '../../styles/sudoku/StatusBar.module.css'
-import { faPause } from '@fortawesome/free-solid-svg-icons'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 type Props = {
