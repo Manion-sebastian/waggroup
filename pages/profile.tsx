@@ -2,6 +2,7 @@ import React from 'react'
 import Scores from '../components/authentication/scores'
 import UserInfo from '../components/authentication/userInfo'
 import { scoresSudoku, userInfo } from '../typingSebastian'
+import styles from '../styles/baseSite/Profile.module.css'
 
 type Props = {}
 // get users -- display info here. 
@@ -42,15 +43,21 @@ const testUserScores : scoresSudoku = {
 
 const Profile = ({}: Props) => {
   return (
-    <div>
+    <div className={styles.userInfoCont}>
+        <div className={styles.profileTop}>
+            {/* userInfo */}
+            {/* either pass in userInfo, or call it inside */}
+            <UserInfo userData={testUser} />
 
-        {/* userInfo */}
-        {/* either pass in userInfo, or call it inside */}
-        <UserInfo userData={testUser} />
+        </div>
 
-        {/* scores */}
-        {/* same as above */}
-        <Scores scoreData={testUserScores} />
+        <div className={styles.profileBot}>
+            {/* scores */}
+            {/* same as above */}
+            <Scores scoreData={testUserScores} />
+
+        </div>
+
 
     </div>
   )

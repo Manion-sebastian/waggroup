@@ -1,5 +1,6 @@
 import React from 'react'
 import { scoresSudoku } from '../../typingSebastian'
+import styles from '../../styles/baseSite/Profile.module.css'
 
 type Props = {
     scoreData: scoresSudoku
@@ -11,10 +12,17 @@ const Scores = ({scoreData}: Props) => {
 
         return (
             <div
+                className={styles.userInfoTop}
                 key={score._id}
             >
-                <h1>{score.game}</h1>
-                <p>{score.score.time}</p>
+                <div>
+                    <h1 className={styles.userName}>{score.game}</h1>
+                </div>
+                <div>
+                <p className={styles.name}>date of score</p>
+                <p className={styles.name}>{score.score.time}</p>
+
+                </div>
                 
             </div>
         )

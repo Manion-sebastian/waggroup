@@ -11,13 +11,13 @@ const UserInfo = ({userData}: Props) => {
     <div>
         <div className={styles.userInfoTop}>
             <h1 className={styles.userName}>{userData.username}</h1>
-            <p className={styles.name}>{userData.name}</p>
         </div>
         <div className={styles.userInfoBottom}>
-            <p className={styles.name}>{userData.email}</p>
-            <p className={styles.name}>{userData.password}</p>
+            <p className={styles.name}>Name: {userData.name}</p>
+            <p className={styles.name}>Email: {userData.email}</p>
+           
         </div>
-
+        <button>Edit Profile</button>
     </div>
   )
 }
