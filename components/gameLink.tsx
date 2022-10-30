@@ -8,14 +8,16 @@ const GameLink = (props: Props) => {
   return (
     <div className={styles.bottomBar}>
         
-            <Link className={styles.items} href={'/minesweeper'}>Minesweeper</Link>
+          <div className={styles.item}>
+            <Link  href={'/minesweeper'}>Minesweeper</Link>
+          </div>
+          <div className={styles.item}>
+            <Link  href={'/sudoku'}>Sudoku</Link>
+          </div>
+          <div className={styles.item}>
+            <Link href={'/tetris'}>Tetris</Link>
         
-        
-            <Link className={styles.items} href={'/sudoku'}>Sudoku</Link>
-        
-        
-            <Link className={styles.item} href={'/tetris'}>Tetris</Link>
-        
+          </div>
     </div>
   )
 }

@@ -4,16 +4,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Button } from 'antd' //component
 
-// component imports
-import TestPage from '../components/testPage'
 
 // helper imports
-import type { ExpandedExample, BrandonExample } from '../typings' 
-import type { BrandonGame } from '../typingBrandon' 
 import HomePage from '../components/homePage'
-import MinesweeperGame from '../components/minesweeperGame'
-import SudokuGame from '../components/sudoku/sudokuGame'
-import GameLink from '../components/gameLink'
+
+
 
 
 type Props = {}
