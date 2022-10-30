@@ -118,11 +118,12 @@ const MinesweeperGame = (props: Props) => {
 
     if(gameEnd !== GameCondition.none) return
 
-    if(!gameRunning && e.type === 'click' && gameEnd !== GameCondition.none) {
+    if(!gameRunning && e.type === 'click' && gameEnd === GameCondition.none) {
       let isEmpty = tempTiles[row][col].value === TileValue.none
-      while(!isEmpty) {
+      let isMine = tempTiles[row][col].value === TileValue.mine
+      while(!isEmpty || isMine) {
         tempTiles = makeBoard()
-        if (tempTiles[row][col].value === TileValue.none) {
+        if (tempTiles[row][col].value === 0) {
           isEmpty = true
           tempTiles = openEmptyTiles(tempTiles, row, col)
           break
