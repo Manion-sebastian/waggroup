@@ -1,3 +1,10 @@
+.container {
+    height: calc(100vh - 46px);
+    display: flex;
+    justify-content: center;
+    
+}
+
 .aboutPhoto {
     border-radius: 100%;
 }
@@ -20,4 +27,13 @@
     flex-direction: column;
     margin: 0 auto;
     
+}
+
+.headers {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.content {
+    font-size: 15px;
 }
