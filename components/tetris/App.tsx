@@ -110,7 +110,9 @@ const App: React.FC = () => {
       }
     },
     onTouchEndOrOnMouseUp: () => {
-      setDropTime(1000 / level + 200);
+      if (!gameOver) {
+        setDropTime(1000 / level + 200);
+      }
     }
   })
 
