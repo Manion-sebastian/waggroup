@@ -34,7 +34,7 @@ const App: React.FC = () => {
   }
 
   const keyUp = ({ keyCode }: { keyCode: number}): void => {
-    console.log(keyCode)
+    // console.log(keyCode)
     if (!gameOver) {
       // Change the droptime speed when user releases down arrow
       if (keyCode === 40 || keyCode === 83) {
@@ -58,7 +58,7 @@ const App: React.FC = () => {
 
   const move = (e: React.KeyboardEvent, repeat: boolean): void => {
     e.preventDefault()
-    console.log(e.code)
+    // console.log(e.code)
     
     let keyCode = e.code
     if (!gameOver) {
