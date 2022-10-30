@@ -11,7 +11,8 @@ const NavBar = () => {
         {" "} <Link href={'/auth'}>Auth</Link> {" "} |
         {" "} <Link href={'/sudokuTest'}>Sudoku</Link> {" "} |
         {" "} <Link href={'/tetris'}>Tetris</Link> {" "} |
-        {" "} <Link href={'/minesweeper'}>minesweeper</Link>
+        {" "} <Link href={'/minesweeper'}>minesweeper</Link> {" "} |
+        {" "} <Link href={'/profile'}>profile</Link>
     </div>
   )
 }

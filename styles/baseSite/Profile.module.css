@@ -1,0 +1,30 @@
+.userInfoTop {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.userName {
+    
+    border-bottom: solid 4px black;
+    border-radius: 5px;
+}
+
+.name {
+    margin-left: 10px;
+    border-bottom: solid 4px black;
+    border-radius: 5px;
+}
+
+
+.userInfoBottom {
+    display:flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.userInfoCont {
+
+}
