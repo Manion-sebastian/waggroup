@@ -1,0 +1,39 @@
+.container {
+    height: calc(100vh - 46px);
+    display: flex;
+    justify-content: center;
+    
+}
+
+.aboutPhoto {
+    border-radius: 100%;
+}
+
+.aboutPhotoDiv {
+    margin: 0 auto;
+}
+
+.aboutLinks {
+    font-size: 19px;
+    font-weight: bold;
+    padding: 0 10px
+}
+
+.aboutWhole {
+    min-width: 375px;
+    max-width: 600px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    
+}
+
+.headers {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.content {
+    font-size: 15px;
+}

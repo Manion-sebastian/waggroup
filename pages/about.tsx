@@ -1,14 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
+import { Divider } from 'antd'
 
 import type { AboutUs } from '../typings' 
+import styles from '../styles/baseSite/About.module.css'
 
 type Props = {}
 
 const programmers = [
     {
         name: 'Brandon Wu',
-        url: 'https://media-exp1.licdn.com/dms/image/C5603AQHXoXWm6qRDzA/profile-displayphoto-shrink_400_400/0/1540778212297?e=1671667200&v=beta&t=LKaEh0LfxnGptOBTbmC1BLM_qcCadIThICC_z07iqoQ',
+        url: 'https://media-exp1.licdn.com/dms/image/D4E03AQG1Aa9OqPkwmQ/profile-displayphoto-shrink_800_800/0/1667144996437?e=1672876800&v=beta&t=-ez8ZLIGE9DwLa7T0EKbiOCCxKfCenMQSa3q78k20v0',
         blurb: "Full-Stack Developer that enjoys a freshly-brewed cup of coffee in the morning. I'm always looking to connect with others and love making humorous/unique programs with great teams. Message me at my links below and other places on the internet :)",
         github: 'https://github.com/brandon-w1205',
         linkedin: 'https://www.linkedin.com/in/brandonjwu/',
@@ -40,9 +42,10 @@ const About = (props: Props) => {
   return (
     <div>
         {programmers.map((person : AboutUs) => (
-            <div key={person.name}>
-                <div>
+            <div key={person.name} className={styles.aboutWhole}>
+                <div className={styles.aboutPhotoDiv}>
                     <Image  
+                        className={styles.aboutPhoto}
                         src={person.url}
                         alt={person.name}
                         width={200}
@@ -54,13 +57,13 @@ const About = (props: Props) => {
                     <p>
                         {person.blurb}
                     </p>
-                    <a href={person.github}>Github</a>
-                    <a href={person.linkedin}>Linkedin</a>
-                    <a href={person.portfolio}>Portfolio</a>
+                    <div>
+                        <a className={styles.aboutLinks} href={person.github}>Github</a>
+                        <a className={styles.aboutLinks} href={person.linkedin}>Linkedin</a>
+                        <a className={styles.aboutLinks} href={person.portfolio}>Portfolio</a>
 
-
+                    </div>
                 </div>
-
             </div>
         ))}
 
