@@ -3,7 +3,7 @@ import styles from '../../styles/baseSite/Auth.module.css'
 
 type Props = {}
 
-const Login = (props: Props) => {
+const LoginForm = (props: Props) => {
   return (
     <div className={styles.authForms}>
         <form action="/login" method='POST'>
@@ -21,4 +21,4 @@ const Login = (props: Props) => {
   )
 }
 
-export default Login
+export default LoginForm
