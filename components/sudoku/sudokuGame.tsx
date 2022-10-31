@@ -41,7 +41,7 @@ const SudokuGame = (props: Props) => {
     } else {
       setCurrentUser(null)
     }
-  })
+  }, [])
 
  // handle selected cell will grab the index of the cell and until another cell is checked it will be acted on.
 
