@@ -1,12 +1,12 @@
 import React from 'react'
-import RegisterPage from '../components/authentication/registerPage'
+import Registration from '../components/authentication/registration'
 
 type Props = {}
 
 const Register = (props: Props) => {
   return (
     <div>
-        <RegisterPage />
+        <Registration />
     </div>
   )
 }
