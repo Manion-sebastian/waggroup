@@ -42,16 +42,16 @@ const SudokuTest = (props: Props) => {
 
               <br />
               
-              Press "New Game" to make a new puzzle! <br />
-              Press " {pause} " to pause the timer <br />
-              Press "Check Game" when you finish to see if you won!
+              Press &quot;New Game&quot; to make a new puzzle! <br />
+              Press &quot; {pause} &quot; to pause the timer <br />
+              Press &quot;Check Game&quot; when you finish to see if you won!
             </article>
 
           </div>
 
         </div>
-      </section>
     </div>
+    
   )
 }
 

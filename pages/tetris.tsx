@@ -52,7 +52,7 @@ const tetris = (props: Props) => {
 
               <br />
               
-              Press &qot;START GAME&qot; to begin playing!
+              Press &quot;START GAME&quot; to begin playing!
             </article>
 
           </div>

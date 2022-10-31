@@ -5,11 +5,11 @@ import jwt_decode from 'jwt-decode'
 import NavBar from '../navBar'
 
 type Props = { 
-  currentUser : any
-   setCurrentUser : any
+  // currentUser : any
+  //  setCurrentUser : any
 }
 
-const LoginForm = ({currentUser, setCurrentUser}: Props) => {
+const LoginForm = ({}: Props) => {
 
   const [userNameOrEmail, setuserNameOrEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -28,14 +28,14 @@ const LoginForm = ({currentUser, setCurrentUser}: Props) => {
       
 
 			// save the token in localstorage
-			const { token } = response.data
+			const  token  = response.data
 			localStorage.setItem('jwt', token)
 
 			// decode the token
 			const decoded = jwt_decode(token)
 
 			// set the user in App's state to be the decoded token
-			setCurrentUser(decoded)
+			// setCurrentUser(decoded)
 
 		} catch (err : any) {
 			console.warn(err)

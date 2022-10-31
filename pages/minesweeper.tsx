@@ -23,9 +23,9 @@ const mineSweeperGame = (props: Props) => {
             <p className={`HOW TO PLAY ${styles.bold}`}>HOW TO PLAY</p>
 
             <article className={`INSTRUCTIONS ${styles.tutorial}`}>
-              Click on the tiles to reveal what's underneath.
+              Click on the tiles to reveal what&apos;s underneath.
               Use the revealed numbers to determine whether your next click is a number...or not.
-              Reveal all the tiles that aren't mines 💣 to win the game! 🎉
+              Reveal all the tiles that aren&apos;t mines 💣 to win the game! 🎉
 
               <br />
               <br />
@@ -46,7 +46,7 @@ const mineSweeperGame = (props: Props) => {
 
               <br />
               
-              Press &qot;New Game&qot; to begin playing!
+              Press &quot;New Game&quot; to begin playing!
             </article>
 
           </div>

@@ -7,11 +7,11 @@ import jwt_decode from 'jwt-decode'
 
 
 type Props = {
-    currentUser: any
-    setCurrentUser: any
+    // currentUser: any
+    // setCurrentUser: any
 }
 
-const Registration = ({currentUser, setCurrentUser}: Props) => {
+const Registration = ({}: Props) => {
 
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
@@ -30,10 +30,10 @@ const Registration = ({currentUser, setCurrentUser}: Props) => {
 			}
             // console.log(reqBody)
 			const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/create`, reqBody)
-			const { token } = response.data
+			const token  = response.data
 			localStorage.setItem('jwt', token)
 			const decoded = jwt_decode(token)
-			setCurrentUser(decoded)
+			// setCurrentUser(decoded)
 
 		} catch (err : any) {
             console.warn(err)
@@ -51,6 +51,11 @@ const Registration = ({currentUser, setCurrentUser}: Props) => {
 
   return (
     <div className={styles.authForms}>
+
+        <h1>Register for an Account:</h1>
+
+        <p>{msg}</p>
+
         <form onSubmit={handleSubmit}>
             <div className={styles.authLabelSection}>
                 <label className={styles.authLabel} htmlFor="name">Name:</label>
