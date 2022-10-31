@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 type Props = {
   time : number
   handlePause : any
-  paused: boolean
+  paused : boolean
 }
 
 const play = <FontAwesomeIcon icon={faPlay} />
@@ -51,13 +51,12 @@ const StatusBar = ({time, handlePause, paused}: Props) => {
 
         <div className={styles.timeCont}>
           <div className={styles.time} onClick={handlePause}>
-            {paused? play: pause }
+            {paused ? play: pause }
           </div>
           <div className={styles.time}>
             {ParseTime(time)}
           </div>
         </div>
-
 
     </div>
   )
