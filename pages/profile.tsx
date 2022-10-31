@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Scores from '../components/authentication/scores'
 import UserInfo from '../components/authentication/userInfo'
 import { scoresSudoku, userInfo } from '../typingSebastian'
 import styles from '../styles/baseSite/Profile.module.css'
 import NavBar from '../components/navBar'
+import jwt_decode from 'jwt-decode'
 
 type Props = {}
 // get users -- display info here. 
@@ -43,6 +44,16 @@ const testUserScores : scoresSudoku = {
 }
 
 const Profile = ({}: Props) => {
+
+const [currentUser, setCurrentUser] = useState<any>(null)
+useEffect(() => {
+    const  token  = localStorage.getItem('jwt')
+    if(token) {
+      setCurrentUser(jwt_decode(token))
+    } else {
+      setCurrentUser(null)
+    }
+  }, [])
   return (
     <div>
     <div className={styles.userInfoCont}>
