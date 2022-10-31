@@ -68,24 +68,45 @@ const App: React.FC = () => {
     setGameOver(false)
   }
 
-  const move = (e: React.KeyboardEvent, repeat: boolean): void => {
-    e.preventDefault()
-    // console.log(e.code)
+  // const move = (e: React.KeyboardEvent, repeat: boolean): void => {
+  //   e.preventDefault()
+  //   // console.log(e.code)
     
-    let keyCode = e.code
+  //   let keyCode = e.code
+  //   if (!gameOver) {
+  //     if (keyCode === 'ArrowLeft' || keyCode === 'KeyA') {
+  //       movePlayer(-1);
+  //     } else if (keyCode === 'ArrowRight' || keyCode === 'KeyD') {
+  //       movePlayer(1);
+  //     } else if (keyCode === 'ArrowDown' || keyCode === 'KeyS') {
+  //       if(repeat) {
+  //         return 
+  //       }
+  //       setDropTime(30)
+  //     } else if (keyCode === 'KeyX' || keyCode === 'KeyK') {
+  //       playerRotateRight(stage)
+  //     } else if (keyCode === 'KeyZ' || keyCode === 'KeyJ') {
+  //       playerRotateLeft(stage)
+  //     }
+  //   }
+  // }
+
+  const move = ({keyCode, repeat}: {keyCode: number, repeat: boolean}): void => {
+    console.log(keyCode)
+
     if (!gameOver) {
-      if (keyCode === 'ArrowLeft' || keyCode === 'KeyA') {
+      if (keyCode === 37 || keyCode === 65) {
         movePlayer(-1);
-      } else if (keyCode === 'ArrowRight' || keyCode === 'KeyD') {
+      } else if (keyCode === 39 || keyCode === 68) {
         movePlayer(1);
-      } else if (keyCode === 'ArrowDown' || keyCode === 'KeyS') {
+      } else if (keyCode === 40 || keyCode === 83) {
         if(repeat) {
           return 
         }
         setDropTime(30)
-      } else if (keyCode === 'KeyX' || keyCode === 'KeyK') {
+      } else if (keyCode === 88 || keyCode === 75) {
         playerRotateRight(stage)
-      } else if (keyCode === 'KeyZ' || keyCode === 'KeyJ') {
+      } else if (keyCode === 90 || keyCode === 74) {
         playerRotateLeft(stage)
       }
     }
