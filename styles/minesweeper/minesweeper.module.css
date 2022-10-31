@@ -19,7 +19,7 @@
   --sb-clr-2: rgb(220 220 220 / 1);
   --sb-bg: rgb(60 60 60 / .9);
   --ctnr-w: 95%;
-  --ctnr-max-w: 50rem;
+  --ctnr-max-w: 49rem;
 }
 
 .gameboardContainer {
@@ -30,9 +30,10 @@
   align-items: center;
   background: var(--bg-main);
   width: var(--ctnr-w); 
+  height: min-content;
   max-width: var(--ctnr-max-w);
-  margin-inline: auto;
   padding: 0.8vh 1.8vw 1.8vh;
+  overflow: hidden;
 }
 
 .topDisplay {
@@ -40,11 +41,17 @@
   display: flex;
   justify-content: space-between;
   font-family: 'Poiret One', sans-serif;
-  width: 100%; height: clamp(.67rem, 10vw, 5rem);
+  width: 100%; height: clamp(.67rem, 6.1vw, 5rem);
 }
 
 .msgame {
   width: 100%;
   height: 100%;
   overflow: overlay;
+}
+
+@media (max-width: 900px) {
+  .topDisplay {
+    height: clamp(.67rem, 10vw, 5rem);
+  }
 }

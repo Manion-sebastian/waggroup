@@ -58,7 +58,7 @@
   color: var(--tile);
   border: 1px solid var(--sb-bg);
   border-radius: 3%;
-  font-size: clamp(.2rem, 120%, 2rem);
+  font-size: clamp(.1rem, 87%, 2rem);
   user-select: none;
 
 }
@@ -118,7 +118,7 @@
   content: '';
 }
 
-@media (max-width: 840px){
+@media (max-width: 900px){
   .reveal, .flag {
     font-size: clamp(.2rem, 3vw, 1.5rem);
   }
