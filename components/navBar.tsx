@@ -11,7 +11,12 @@ type Props = {
 
 const NavBar = () => {
 
-  // const user = <FontAwesomeIcon icon={"fa-regular fa-user" as IconProp} />
+  const handleLogout = () => {
+    if (localStorage.getItem('jwt')) {
+      localStorage.removeItem('jwt')
+    }
+  }
+
 
   const items = [
     {label:<Link href={'/'}>Home</Link>, key:'home', icon: <HomeOutlined />},
@@ -24,6 +29,7 @@ const NavBar = () => {
     {label:'Auth', key:'auth', icon:<UserOutlined />, children: [
       {label:<Link href={'/login'}>Login</Link>, key:'login', icon:<UserOutlined />},
       {label:<Link href={'/register'}>Register</Link>, key:'register', icon:<UserOutlined />},
+      {label:<button style={{border: 'none'}} onClick={handleLogout}>Log Out</button>, key:'logout', icon:<UserOutlined />},
     ]},
     {label:<Link href={'/about'}>About</Link>, key:'about', icon: <QuestionCircleOutlined />},
   ]

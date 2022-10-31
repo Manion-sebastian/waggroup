@@ -29,12 +29,6 @@ const Home = ({} : Props) => {
     }
   }, [])
 
-  const handleLogout = () => {
-    if (localStorage.getItem('jwt')) {
-      localStorage.removeItem('jwt')
-      setCurrentUser(null)
-    }
-  }
 
   return (
     <div>
