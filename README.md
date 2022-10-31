@@ -26,12 +26,6 @@ Wag is a site boasting several games we all love, Minesweeper, Sudoku, and Tetri
 1. Run nodemon to start server
 
 
-## API, and API key instructions.
-
-
-if needed, will be added here.
-
-
 ## Tech Stack Used
 
 
@@ -53,6 +47,7 @@ if needed, will be added here.
 
 ## RESTful Routing Chart
 
+not what we actually ended up using.
 
 Home Routes
 
@@ -103,7 +98,6 @@ Desktop modals
 
 * as a user I want to be able to play some of my favorite puzzle games
 * as a user I want to be able to make an account to store my scores for these puzzle games
-* as a user I want to be able to see high scores for each game **tentative**
 * as a user I want to be able to see a home page detailing these games, and allow me to make a decision on which i should play
 * as a user I want to be able to experience these games mobile first, but also on a desktop. 
 
@@ -113,19 +107,18 @@ Desktop modals
 
 As a group we all enjoy playing puzzle games from time to time, especially on our phones. this lead us to want to create P4, a collection of our favorite things.
 
-we used Figma primarily for our scheduling and workflow tracker. The provided tools worked much better than our previous interactions with miro, and it lead to easy collaboration, and implementation. We wanted to test ourselves with this project which is why we decided to go with Typescript, and Next.js as new technologies ( update on how this worked out )
+we used Figma primarily for our scheduling and workflow tracker. The provided tools worked much better than our previous interactions with miro, and it lead to easy collaboration, and implementation. We wanted to test ourselves with this project which is why we decided to go with Typescript, and Next.js as new technologies as well as ant design.
 
-Our Git Managers were Ian, and Sebastian. Github issues were not really a problem as we kept eachother updated on changes and with figma seeing who was working where was quite easy. ( please let this be true. )
+Our Git Managers were Ian, and Sebastian. Github issues were not really a problem as we kept eachother updated on changes and with figma seeing who was working where was quite easy.
 
-For vocal and visual collaboration we used Discord primarily, our main focus during this project was to help eachother learn and grow, as well as making sure we meet our deadlines and push out an exceptional project. 
+For vocal and visual collaboration we used Discord primarily, our main focus during this project was to help eachother learn and grow.
 
-( update this with what actually went on after the project is complete. )
 
 
 ## Unsolved Problems
 
 
-Hopefully none
+We overextended with what we wanted to learn and do, and we weren't able to deliver on everything we had hoped. we learned a lot of new stuff but some design flaws made it so that we couldnt get it to the best it could be.
 
 
 ## MVP, Stretch Goals, Takeaways
@@ -133,12 +126,12 @@ Hopefully none
 
 ## MVP
 
-- [ ] a mobile first application, allowing us to play at minimum 3 games (Minesweeper, Sudoku, Tetris)
-- [ ] the games having solved versions if applicable -- the user can be informed of the answer
-- [ ] the user is able to make an account that tracks their scores
-- [ ] the user is able to delete their account if wanted
+- [x] a mobile first application, allowing us to play at minimum 3 games (Minesweeper, Sudoku, Tetris)
+- [x] the games having solved versions if applicable -- the user can be informed of the answer
+- [x] the user is able to make an account that tracks their scores
+- [x] the user is able to delete their account if wanted
 - [ ] the user can update their profile if needed
-- [ ] a visitor can play any game in the app but their score will not be tracked
+- [x] a visitor can play any game in the app but their score will not be tracked
 - [ ] proper auth
 
 ## Stretch
@@ -179,13 +172,6 @@ Hopefully none
 ### Sunday
 - Finish any mobile viewings
 - Finish desktop view
-
-
-## Takeaways
-
-what did we learn about this type of project
-
-(statement from each of us after the project is complete)
 
 
 
