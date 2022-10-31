@@ -20,16 +20,13 @@ const NavBar = () => {
       {label:<Link href={'/sudoku'}>Sudoku</Link>,key:'Sudoku', icon:<NumberOutlined />},
       {label:<Link href={'/tetris'}>Tetris</Link>,key:'Tetris', icon:<BuildOutlined />},
     ]},
-    {label:<Link href={'/login'}>Login</Link>, key:'login', icon:<UserOutlined />},
-    {label:<Link href={'/register'}>Register</Link>, key:'register', icon:<UserOutlined />},
+    {label:<Link href={'/profile'}>Profile</Link>, key:'profile', icon:<UserOutlined />},
+    {label:'Auth', key:'auth', icon:<UserOutlined />, children: [
+      {label:<Link href={'/login'}>Login</Link>, key:'login', icon:<UserOutlined />},
+      {label:<Link href={'/register'}>Register</Link>, key:'register', icon:<UserOutlined />},
+    ]},
     {label:<Link href={'/about'}>About</Link>, key:'about', icon: <QuestionCircleOutlined />},
   ]
-    // <div>
-    //     <Link href={'/'}>Home</Link>{" "} |
-    //     {" "} <Link href={'/about'}>About</Link> {" "} |
-    //     {" "} <Link href={'/auth'}>Login or Register</Link> {" "} |
-    //     {" "} <Link href={'/profile'}>profile</Link>
-    // </div>
 
   return (
     <Menu mode='horizontal' items={items} />

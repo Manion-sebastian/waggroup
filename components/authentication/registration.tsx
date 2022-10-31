@@ -7,11 +7,11 @@ import jwt_decode from 'jwt-decode'
 
 
 type Props = {
-    currentUser: any
-    setCurrentUser: any
+    // currentUser: any
+    // setCurrentUser: any
 }
 
-const Registration = ({currentUser, setCurrentUser}: Props) => {
+const Registration = ({}: Props) => {
 
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
@@ -33,7 +33,7 @@ const Registration = ({currentUser, setCurrentUser}: Props) => {
 			const { token } = response.data
 			localStorage.setItem('jwt', token)
 			const decoded = jwt_decode(token)
-			setCurrentUser(decoded)
+			// setCurrentUser(decoded)
 
 		} catch (err : any) {
             console.warn(err)
