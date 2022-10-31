@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../../styles/baseSite/Auth.module.css'
 
+
 type Props = {}
 
 const Registration = (props: Props) => {
