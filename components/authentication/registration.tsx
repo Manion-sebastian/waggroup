@@ -51,6 +51,11 @@ const Registration = ({}: Props) => {
 
   return (
     <div className={styles.authForms}>
+
+        <h1>Register for an Account:</h1>
+
+        <p>{msg}</p>
+
         <form onSubmit={handleSubmit}>
             <div className={styles.authLabelSection}>
                 <label className={styles.authLabel} htmlFor="name">Name:</label>
