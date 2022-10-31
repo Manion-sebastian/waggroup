@@ -6,6 +6,8 @@ import styles from '../../styles/sudoku/Board.module.css'
 import { makepuzzle, solvepuzzle, ratepuzzle } from 'sudoku'
 import StartSection from './startSection'
 import sudoku from 'sudoku'
+import axios from 'axios'
+import jwt_decode from 'jwt-decode'
 
 
 
@@ -21,6 +23,7 @@ const SudokuGame = (props: Props) => {
   const [currentTimer, setCurrentTimer] = useState<number>(0)
   const [paused, setPaused] = useState<boolean>(false)
   let [tranferPuzzle, setTransferPuzzle] = useState<number[] | string[]>([])
+  const [currentUser, setCurrentUser] = useState<any>(null)
 
   useEffect(() => {
     if(hasGame) {
@@ -30,6 +33,15 @@ const SudokuGame = (props: Props) => {
       return () => clearInterval(timeStart)
     }
   }, [hasGame, currentTimer])
+
+  useEffect(() => {
+    const  token  = localStorage.getItem('jwt')
+    if(token) {
+      setCurrentUser(jwt_decode(token))
+    } else {
+      setCurrentUser(null)
+    }
+  })
 
  // handle selected cell will grab the index of the cell and until another cell is checked it will be acted on.
 
@@ -101,10 +113,22 @@ const handleValidate = () => {
     }
   }
   if (count === 81 && correct === true) {
-    console.log(`You solved the puzzle in ${currentTimer} Woo`) // this will be sent to the server to be stored. 
     setHasGame(false)
-    console.log(`play again!`)
+    postScore(currentTimer)
+   
+
+
   }
+}
+
+async function postScore(time:number) {
+  const reqBody = {
+    game: 'Sudoku',
+    score: time
+  }
+
+  await axios.patch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${currentUser?.id}/score`, reqBody)
+
 }
 
 
