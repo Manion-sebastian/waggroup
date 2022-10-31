@@ -1,51 +1,47 @@
-
 .boardConstraints {
+    aspect-ratio: 1;
     display: grid;
-    grid-template-columns: repeat(9, minmax(0, 1fr));
-    width: fit-content;
-    height: fit-content;
-    margin: 10px auto;
+    grid-template-columns: repeat(9, 1fr);
+    width: 100%;
+    height: max-content;
 }
-
 
 .controlConstraints {
     display: flex;
+    width: max-content;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     padding: 15px;
     align-items: center;
-    /* border: solid yellow 4px; */
-    /* width: 80vw; */
 }
 
 .controlButton {
-    
+    aspect-ratio: 1;
+    width: calc(100% / 3.75);
     font-weight: bold;
     display: inline-flex;
-    border-radius: 10px;
+    border-radius: .6rem;
     justify-content: center;
     align-items: center;
     margin: 4px;
-    padding:18px;
+    padding: 18px;
 }
 
 .gameConstraints {
-    display:inline-flexbox;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 46px);
-    /* margin: 0 auto; */
-
+    width: clamp(87vw, 100%, 33.4rem);
+    max-width: 33.4rem;
 }
 
 .controlButtonConstraints {
-    height: 80px;
+    height: 5rem;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    /* margin: 10px; */
 }
 
 .boardConstUse {
@@ -54,7 +50,3 @@
     justify-content: center;
     align-items: center;
 }
-
-/* .controlCont {
-    
-} */

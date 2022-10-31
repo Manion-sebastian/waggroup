@@ -16,7 +16,7 @@ type Props = {}
 const SudokuTest = (props: Props) => {
   return (
     <div>
-      <section className={`MS DISPLAY ${styles.gameDisplay}`}>
+      <section className={`SUDOKU DISPLAY ${styles.gameDisplay}`}>
         <SudokuGame />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>
           <p className={`TITLE ${styles.gameTitle} ${styles.sudoku}`}>
