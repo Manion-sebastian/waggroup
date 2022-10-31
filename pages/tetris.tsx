@@ -36,7 +36,7 @@ const tetris = (props: Props) => {
 
               Touch Controls:
               <ul> 
-                <li>Move by tapping the <em>Left</em> or <em>Right</em> half of the game</li>
+                <li>Move by tapping the <em>Left</em> or <em>Right</em> half of the screen</li>
                 <li>Rotate by swipping <em>Left</em> or <em>Right</em></li>
                 <li>Pull <em>Down</em> on the game to fall faster</li>
               </ul>

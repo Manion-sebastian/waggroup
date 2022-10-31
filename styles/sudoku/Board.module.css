@@ -5,10 +5,6 @@
     width: fit-content;
     height: fit-content;
     margin: 10px auto;
-    
-    /* border: solid blue 4px; */
-    
-    
 }
 
 
@@ -59,6 +55,6 @@
     align-items: center;
 }
 
-.controlCont {
+/* .controlCont {
     
-}
+} */
