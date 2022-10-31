@@ -3,7 +3,7 @@ import styles from '../../styles/baseSite/Auth.module.css'
 import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-
+import { useRouter } from 'next/router'
 
 
 type Props = {
@@ -18,6 +18,7 @@ const Registration = ({}: Props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
+    const router = useRouter()
 
     const handleSubmit = async (e:any) => {
         e.preventDefault()
@@ -34,6 +35,8 @@ const Registration = ({}: Props) => {
 			localStorage.setItem('jwt', token)
 			const decoded = jwt_decode(token)
 			// setCurrentUser(decoded)
+
+            await router.push('/profile')
 
 		} catch (err : any) {
             console.warn(err)

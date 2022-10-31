@@ -3,6 +3,7 @@ import styles from '../../styles/baseSite/Auth.module.css'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import NavBar from '../navBar'
+import Router, { useRouter } from 'next/router'
 
 type Props = { 
   // currentUser : any
@@ -14,6 +15,7 @@ const LoginForm = ({}: Props) => {
   const [userNameOrEmail, setuserNameOrEmail] = useState('')
   const [password, setPassword] = useState('')
   const [msg, setMsg] = useState('')
+  const router = useRouter()
 
   const handleSubmit = async (e:any) => {
 		e.preventDefault()
@@ -36,6 +38,8 @@ const LoginForm = ({}: Props) => {
 
 			// set the user in App's state to be the decoded token
 			// setCurrentUser(decoded)
+
+      await router.push('/profile')
 
 		} catch (err : any) {
 			console.warn(err)
