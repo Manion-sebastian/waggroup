@@ -32,3 +32,15 @@
     
 }
 
+
+@media (min-width: 2560px) {
+  :root {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 3840px) {
+  :root {
+    font-size: 32px;
+  }
+}
