@@ -62,3 +62,25 @@
 .authInput:is(:focus, :active) {
   background: var(--wag-bdr-main);
 }
+
+@media (max-width: 900px) {
+  .authForms {
+    padding: 2em 1rem 3em;
+  }
+
+  .authForms h1 {
+    font-size: 1.6rem;
+  }
+
+  .authLabel {
+    font-size: 1.0rem;
+  }
+
+  .authInput {
+    font-size: .9rem;
+  }
+  
+  .authButton {
+    font-size: 1rem;
+  }
+}

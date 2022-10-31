@@ -39,7 +39,6 @@ const testUserScores : scoresSudoku = {
                 time: 342
             }
         },
-
     ]
 }
 
@@ -56,23 +55,22 @@ useEffect(() => {
   }, [])
   return (
     <div>
-    <div className={styles.userInfoCont}>
+      <div className={styles.userInfoCont}>
         <div className={styles.profileTop}>
-            {/* userInfo */}
-            {/* either pass in userInfo, or call it inside */}
-            <UserInfo userData={testUser} />
+          {/* userInfo */}
+          {/* either pass in userInfo, or call it inside */}
+          <UserInfo userData={testUser} />
 
         </div>
 
         <div className={styles.profileBot}>
-            {/* scores */}
-            {/* same as above */}
-            <Scores scoreData={testUserScores} />
+          {/* scores */}
+          {/* same as above */}
+          <Scores scoreData={testUserScores} />
 
         </div>
 
-
-    </div>
+      </div>
 
     </div>
   )
