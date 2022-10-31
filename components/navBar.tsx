@@ -17,7 +17,8 @@ const NavBar = () => {
       {label:<Link href={'/sudoku'}>Sudoku</Link>,key:'Sudoku', icon:<NumberOutlined />},
       {label:<Link href={'/tetris'}>Tetris</Link>,key:'Tetris', icon:<BuildOutlined />},
     ]},
-    {label:<Link href={'/auth'}>Login or Register</Link>, key:'authentication', icon:<UserOutlined />},
+    {label:<Link href={'/login'}>Login</Link>, key:'authentication', icon:<UserOutlined />},
+    {label:<Link href={'/register'}>Register</Link>, key:'authentication', icon:<UserOutlined />},
     {label:<Link href={'/about'}>About</Link>, key:'about', icon: <QuestionCircleOutlined />},
   ]
     // <div>
