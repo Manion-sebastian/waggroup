@@ -11,7 +11,6 @@ type Props = {}
 const mineSweeperGame = (props: Props) => {
   return (
     <div>
-      <NavBar />
       <section className={`MS DISPLAY ${styles.gameDisplay}`}>
         <MineSweeperGame />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>
