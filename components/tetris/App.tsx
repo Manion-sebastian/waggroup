@@ -163,7 +163,10 @@ const App: React.FC = () => {
       score: theScore
     }
 
-    await axios.patch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${currentUser?.id}/score`, reqBody)
+    if (currentUser) {
+      await axios.patch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${currentUser?.id}/score`, reqBody)
+    }
+   
   }
 
   useEffect(() => {
