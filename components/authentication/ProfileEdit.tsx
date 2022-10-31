@@ -1,6 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from '../../styles/baseSite/Auth.module.css'
-import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { useRouter } from 'next/router'
@@ -11,7 +10,7 @@ type Props = {
     // setCurrentUser: any
 }
 
-const Registration = ({}: Props) => {
+const ProfileEdit = ({}: Props) => {
 
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
@@ -19,7 +18,21 @@ const Registration = ({}: Props) => {
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
     const router = useRouter()
+    // set currentUser stuff
+    const [currentUser, setCurrentUser] = useState<any>(null)
 
+    // grab a user's info
+    useEffect(() => {
+        const  token  = localStorage.getItem('jwt')
+        if(token) {
+          setCurrentUser(jwt_decode(token))
+        } else {
+          setCurrentUser(null)
+        }
+      }, [])
+
+
+    // needs working on
     const handleSubmit = async (e:any) => {
         e.preventDefault()
         try {
@@ -30,14 +43,12 @@ const Registration = ({}: Props) => {
 				password
 			}
             // console.log(reqBody)
-			const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/create`, reqBody)
+			const response = await axios.patch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${currentUser?.id}`, reqBody)
 			const token  = response.data
 			localStorage.setItem('jwt', token)
-			const decoded = jwt_decode(token)
-			// setCurrentUser(decoded)
 
             // router push to redirect to the profile after registration
-            await router.push('/profile')
+            // await router.push('/profile')
 
 		} catch (err : any) {
             console.warn(err)
@@ -56,7 +67,7 @@ const Registration = ({}: Props) => {
   return (
     <div className={styles.authForms}>
 
-        <h1>Register for an Account:</h1>
+        <h1>Edit Account:</h1>
 
         <p>{msg}</p>
 
@@ -77,10 +88,10 @@ const Registration = ({}: Props) => {
                 <label className={styles.authLabel} htmlFor="password">Password:</label>
                 <input className={styles.authInput} name='password' id='password' type='password' required placeholder='Enter Password' value={password} onChange={e => setPassword(e.target.value)} />
             </div>
-            <button className={styles.authButton} type='submit'>Register</button>
+            <button className={styles.authButton} type='submit'>Edit</button>
         </form>
     </div>
   )
 }
 
-export default Registration
+export default ProfileEdit

@@ -21,7 +21,7 @@ const NavBar = () => {
     } else {
       setCurrentUser(null)
     }
-  }, [currentUser])
+  }, [])
 
   const handleLogout = async () => {
     if (localStorage.getItem('jwt')) {
