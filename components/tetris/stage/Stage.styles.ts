@@ -6,8 +6,8 @@ export const StyledStage = styled.div`
   grid-template-columns: repeat(${STAGE_WIDTH}, 1fr);
   grid-template-rows: repeat(${STAGE_HEIGHT}, 1fr);
   grid-gap: 1px;
-  width: 100%;
+  width: 100vw;
+  max-width: 30rem;
   background: #222;
-  // border: 1px solid #777;
   user-select: none;
 `;
