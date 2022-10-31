@@ -1,0 +1,78 @@
+/* LATO */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* PRESS START 2P */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* POIRET ONE */
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Press+Start+2P&display=swap');
+
+.gameDisplay * {
+  margin: 0;
+}
+
+.gameDisplay {
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato';
+  margin-top: 1.2rem;
+}
+
+.gameInstructions {
+  height: 100%;
+  border: 1px solid var(--wag-bdr-main);
+  border-radius: 10px;
+  margin-left: 10vw;
+  padding: 2em;
+  user-select: none;
+}
+
+.gameTitle {
+  width: 100%;
+  font-size: 10vw;
+  font-weight: 900;
+}
+
+.bold {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/* COLORS */
+.red {
+  --tetris-red: rgb(227 78 78);
+  color: var(--tetris-red);
+}
+
+.orange {
+  --tetris-red: rgb(223 173 36);
+  color: var(--tetris-red);
+}
+
+.yellow {
+  --tetris-red: rgb(223 217 36);
+  color: var(--tetris-red);
+}
+
+.green {
+  --tetris-green: rgb(48 211 56);
+  color: var(--tetris-green);
+}
+
+.blue {
+  --tetris-red: rgb(36 95 223);
+  color: var(--tetris-red);
+}
+
+.purple {
+  --tetris-purple: rgb(132 61 198);
+  color: var(--tetris-purple);
+}
+
+@media (max-width: 784px) {
+  .gameDisplay {
+    flex-direction: column;
+  }
+}

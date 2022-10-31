@@ -1,5 +1,12 @@
+@import '~antd/dist/antd.css';
+
 * {
     box-sizing: border-box
 }
 
-@import '~antd/dist/antd.css';
+:root {
+  --wag-bg-main: #f7f7f7;
+  --wag-fnt-main: #101010;
+  --wag-fnt-act: #39e;
+  --wag-bdr-main: #999;
+}
