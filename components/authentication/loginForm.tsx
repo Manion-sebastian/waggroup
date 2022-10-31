@@ -28,7 +28,7 @@ const LoginForm = ({}: Props) => {
       
 
 			// save the token in localstorage
-			const { token } = response.data
+			const  token  = response.data
 			localStorage.setItem('jwt', token)
 
 			// decode the token
