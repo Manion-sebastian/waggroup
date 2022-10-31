@@ -115,6 +115,7 @@
     align-items: center;
     font-weight: bold;
     font-size: clamp(1rem, 3.3vw, 2rem);
+    
 }
 
 .targeted {

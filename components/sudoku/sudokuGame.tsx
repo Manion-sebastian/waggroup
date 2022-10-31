@@ -8,6 +8,9 @@ import StartSection from './startSection'
 import sudoku from 'sudoku'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import { faCropSimple } from '@fortawesome/free-solid-svg-icons'
+// import { setTimeout } from 'timers'
+// import { setTimeout } from 'timers/promises'
 
 
 
@@ -15,6 +18,9 @@ type Props = {}
 
 const SudokuGame = (props: Props) => {
   const tempBoardTwo = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',]
+  const youWinBoard : any[] = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','Y','O','U','','','','','','','','','','','','','','','','W','I','N','','','','','','','','','','','','','','','','','','','','', '','','','','','','','','','',]
+  const notYetBoard : any[] = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','N','O','T','','','','','','','','','','','','','','','','Y','E','T','','','','','','','','','','','','','','','','','','','','', '','','','','','','','','','',]
+
   
   const [currentPuzzle, setCurrentPuzzle] = useState<number[] | string[]>(tempBoardTwo)
   const [hasGame, setHasGame] = useState<boolean>(false)
@@ -22,7 +28,7 @@ const SudokuGame = (props: Props) => {
   const [solvedPuzzle, setSolvedPuzzle] = useState<number[] | string[]>([])
   const [currentTimer, setCurrentTimer] = useState<number>(0)
   const [paused, setPaused] = useState<boolean>(false)
-  let [tranferPuzzle, setTransferPuzzle] = useState<number[] | string[]>([])
+  let [transferPuzzle, setTransferPuzzle] = useState<number[] | string[]>([])
   const [currentUser, setCurrentUser] = useState<any>(null)
 
   useEffect(() => {
@@ -66,6 +72,7 @@ const handleStartGame = () => {
   const fixedPuzz = changePuzzle(newPuzz)
   const fixedSolve = changePuzzle(solvedPuzz)
   setCurrentPuzzle(fixedPuzz)
+  // setCurrentPuzzle(fixedSolve)
   setSolvedPuzzle(fixedSolve)
   setHasGame(true)
   
@@ -91,7 +98,7 @@ const handlePauseGame = () => {
     setHasGame(false)
     setPaused(true)
   } else if (!hasGame) {
-    setCurrentPuzzle(tranferPuzzle)
+    setCurrentPuzzle(transferPuzzle)
     setHasGame(true)
     setPaused(false)
   }
@@ -114,11 +121,27 @@ const handleValidate = () => {
   }
   if (count === 81 && correct === true) {
     setHasGame(false)
-    postScore(currentTimer)
+    setCurrentPuzzle(youWinBoard)
+
    
 
 
+    
+  // } else if (count < 81) {
+  //   setTransferPuzzle(currentPuzzle)
+  //   setCurrentPuzzle(notYetBoard)
+    
+    
+    
+
+
   }
+}
+
+function switchBoards(currentBoard : any, changeBoard : any) {
+  setTransferPuzzle(currentBoard)
+  setCurrentPuzzle(changeBoard)
+  console.log('working switch')
 }
 
 async function postScore(time:number) {
