@@ -59,6 +59,20 @@
   margin: 0 auto 2rem;
 }
 
+/* MS */
+.MSFont {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(3.6rem, 3.6vw, 13.5rem);
+  font-weight: 300;
+  font-style: italic;
+  border: none;
+}
+
+.MINE {
+  font-weight: 900;
+  font-style: initial;
+}
+
 /* COLORS */
 .red {
   --tetris-red: rgb(227 78 78);

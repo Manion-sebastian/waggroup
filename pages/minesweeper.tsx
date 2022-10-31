@@ -1,5 +1,5 @@
 // Next
-import styles from '../styles/tetris/TetrisPage.module.css'
+import styles from '../styles/tetris/gameDisplay.module.css'
 
 // React
 import React from 'react'
@@ -10,11 +10,11 @@ type Props = {}
 const mineSweeperGame = (props: Props) => {
   return (
     <div>
-      <section className={`TETRIS DISPLAY ${styles.gameDisplay}`}>
+      <section className={`MS DISPLAY ${styles.gameDisplay}`}>
         <MineSweeperGame />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>
-          <p className={`TITLE ${styles.gameTitle}`}>
-            <span className={styles.red}>Mine</span>
+          <p className={`TITLE ${styles.gameTitle} ${styles.MSFont}`}>
+            <span className={`${styles.red} ${styles.MINE}`}>Mine</span>
             <span className=''>sweeper</span>
           </p>
 

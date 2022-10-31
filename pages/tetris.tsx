@@ -1,5 +1,5 @@
 // Next
-import styles from '../styles/tetris/TetrisPage.module.css'
+import styles from '../styles/tetris/gameDisplay.module.css'
 
 // React
 import * as React from 'react'
