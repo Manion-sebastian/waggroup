@@ -50,8 +50,9 @@ const SudokuTest = (props: Props) => {
           </div>
 
         </div>
+        
+      </section>
     </div>
-    
   )
 }
 
