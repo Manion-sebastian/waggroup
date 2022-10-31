@@ -243,13 +243,13 @@ const MinesweeperGame = (props: Props) => {
       </div>
 
       <div className={`TOP-DISPLAY ${styles.topDisplay}`}>
-        <MSTimer 
-          time={time}
-        />
-
         <MSGameButtons
           gameState={gameState}
           handleClick={handleGameButtonClick}
+        />
+                
+        <MSTimer 
+          time={time}
         />
 
         <MSMineDisplay 

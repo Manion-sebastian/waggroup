@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   font-family: 'Lato';
+  padding-inline: 0.8rem;
   margin-top: 1.2rem;
 }
 
@@ -30,7 +31,7 @@
   height: 100%;
   border: 1px solid var(--wag-bdr-main);
   border-radius: 10px;
-  margin-left: 6vw;
+  margin-left: 1rem;
   padding: 2em;
   user-select: none;
 }
@@ -104,11 +105,12 @@
   color: var(--tetris-purple);
 }
 
-@media (max-width: 784px) {
+@media (max-width: 900px) {
   .gameDisplay {
     width: max-content;
     flex-direction: column;
     padding: 1.2rem .8rem;
+    margin-inline: auto;
   }
 
   .gameDetails {
@@ -118,11 +120,11 @@
 
   .gameTitle {
     width: max-content;
-    font-size: clamp(2rem, 18vw, 9rem);
+    font-size: clamp(2rem, 18vw, 8rem);
     margin: none;
   }
 
-  .tutorial {
+  /* .tutorial {
     
-  }
+  } */
 }
