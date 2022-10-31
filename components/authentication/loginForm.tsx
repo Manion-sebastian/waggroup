@@ -39,6 +39,7 @@ const LoginForm = ({}: Props) => {
 			// set the user in App's state to be the decoded token
 			// setCurrentUser(decoded)
 
+      // router push to redirect to the profile after login
       await router.push('/profile')
 
 		} catch (err : any) {
