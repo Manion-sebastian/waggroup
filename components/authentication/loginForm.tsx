@@ -11,19 +11,21 @@ type Props = {
 
 const LoginForm = ({currentUser, setCurrentUser}: Props) => {
 
-  const [email, setEmail] = useState('')
+  const [userNameOrEmail, setuserNameOrEmail] = useState('')
   const [password, setPassword] = useState('')
   const [msg, setMsg] = useState('')
 
   const handleSubmit = async (e:any) => {
 		e.preventDefault()
 		try {
-			// post fortm data to the backend
+
+			// post form data to the backend
 			const reqBody = {
-				email, 
+				userNameOrEmail, 
 				password
 			}
-			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, reqBody)
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, reqBody)
+      
 
 			// save the token in localstorage
 			const { token } = response.data
@@ -50,30 +52,28 @@ const LoginForm = ({currentUser, setCurrentUser}: Props) => {
 
 
   return (
-    <div>
-      {/* <NavBar /> */}
-      <div className={styles.authForms}>
 
-          <h1>Login to Your Account:</h1>
+    <div className={styles.authForms}>
 
-          <p>{msg}</p>
+        <h1>Login to Your Account:</h1>
+
+        <p>{msg}</p>
 
 
-          <form onSubmit={handleSubmit}>
-            <div className={styles.authLabelSection}>
-                    <label className={styles.authLabel} htmlFor="email">Email:</label>
-                    <input className={styles.authInput} name='email' id='email' type="email" required placeholder='Enter Email'
-                    value={email} onChange={e => setEmail(e.target.value)} />
-                </div>
-                <div className={styles.authLabelSection}>
-                    <label className={styles.authLabel} htmlFor="password">Password:</label>
-                    <input className={styles.authInput} name='password' id='password' type='password' required placeholder='Enter Password' 
-                    value={password} onChange={e => setPassword(e.target.value)}
-                    />
-                </div>
-                <button className={styles.authButton} type='submit'>Login</button>
-          </form>
-      </div>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.authLabelSection}>
+                  <label className={styles.authLabel} htmlFor="userNameOrEmail">Username/Email:</label>
+                  <input className={styles.authInput} name='userNameOrEmail' id='userNameOrEmail' type="userNameOrEmail" required placeholder='Enter a username or email'
+                  value={userNameOrEmail} onChange={e => setuserNameOrEmail(e.target.value)} />
+              </div>
+              <div className={styles.authLabelSection}>
+                  <label className={styles.authLabel} htmlFor="password">Password:</label>
+                  <input className={styles.authInput} name='password' id='password' type='password' required placeholder='Enter Password' 
+                  value={password} onChange={e => setPassword(e.target.value)}
+                  />
+              </div>
+              <button className={styles.authButton} type='submit'>Login</button>
+        </form>
     </div>
   )
 }

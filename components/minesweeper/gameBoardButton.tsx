@@ -5,6 +5,12 @@ import styles from '../../styles/minesweeper/GameBoardButtons.module.css'
 // React
 import React from 'react'
 
+// Font Awesome
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+const play = <FontAwesomeIcon icon={faPlay} />
+
 const enum Button {
   newGame = 'New Game',
   running = 'Running',
@@ -26,17 +32,23 @@ const GameBoardButton = ({gameState, handleClick}: MSGameButton) => {
       >
         {
           gameState === Button.listening ?
-          Button.running + gameState :
-          gameState
+            Button.running + gameState
+            :
+            gameState
         }
       </div>
       
       <div 
-      className={`PAUSE ${styles.pause}`}
-      defaultValue='pause'
-      onClick={handleClick} 
+        className={`PAUSE ${styles.pause}`}
+        defaultValue='pause'
+        onClick={handleClick} 
       >
-        | |
+        {
+          gameState === Button.pause ?
+            play
+            :
+            '| |'
+        }
       </div>
     </div>
   )
