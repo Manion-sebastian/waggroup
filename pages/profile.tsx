@@ -3,6 +3,7 @@ import Scores from '../components/authentication/scores'
 import UserInfo from '../components/authentication/userInfo'
 import { scoresSudoku, userInfo } from '../typingSebastian'
 import styles from '../styles/baseSite/Profile.module.css'
+import NavBar from '../components/navBar'
 
 type Props = {}
 // get users -- display info here. 
@@ -43,6 +44,8 @@ const testUserScores : scoresSudoku = {
 
 const Profile = ({}: Props) => {
   return (
+    <div>
+    <NavBar />
     <div className={styles.userInfoCont}>
         <div className={styles.profileTop}>
             {/* userInfo */}
@@ -58,6 +61,8 @@ const Profile = ({}: Props) => {
 
         </div>
 
+
+    </div>
 
     </div>
   )

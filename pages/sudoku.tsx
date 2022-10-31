@@ -3,6 +3,7 @@ import styles from '../styles/tetris/gameDisplay.module.css'
 
 // React
 import React from 'react'
+import NavBar from '../components/navBar'
 import SudokuGame from '../components/sudoku/sudokuGame'
 
 // Font Awesome
@@ -16,7 +17,7 @@ type Props = {}
 const SudokuTest = (props: Props) => {
   return (
     <div>
-      <section className={`MS DISPLAY ${styles.gameDisplay}`}>
+        <NavBar />
         <SudokuGame />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>
           <p className={`TITLE ${styles.gameTitle} ${styles.sudoku}`}>

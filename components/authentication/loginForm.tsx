@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/baseSite/Auth.module.css'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import NavBar from '../navBar'
 
 type Props = { 
   currentUser : any
@@ -51,6 +52,7 @@ const LoginForm = ({currentUser, setCurrentUser}: Props) => {
 
 
   return (
+
     <div className={styles.authForms}>
 
         <h1>Login to Your Account:</h1>
