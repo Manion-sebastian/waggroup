@@ -30,7 +30,7 @@ const ProfileDelete = ({}: Props) => {
     const deleteFunction = async () => {
         try {
 			await axios.delete(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${currentUser?.id}`)
-            
+      router.push('/')
            
 
 		} catch (err : any) {
@@ -46,7 +46,7 @@ const ProfileDelete = ({}: Props) => {
     deleteFunction()
 
     // router push to redirect to the profile after deletion
-    router.push('/')
+    
 
 }
 
