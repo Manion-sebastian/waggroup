@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createStage, isColliding } from './gameHelpers'
 import { useSwipeable } from 'react-swipeable';
 
@@ -12,6 +12,8 @@ import { useGameStatus } from './hooks/useGameStatus';
 import Stage from './stage/Stage'
 import Display from './display/Display'
 import StartButton from './startbutton/StartButton'
+import jwt_decode from 'jwt-decode'
+import axios from 'axios'
 
 
 // Styles
@@ -26,6 +28,16 @@ const App: React.FC = () => {
   const { player, updatePlayerPos, resetPlayer, playerRotateRight, playerRotateLeft } = usePlayer()
   const { stage, setStage, rowsCleared } = useStage(player, resetPlayer)
   const { score, setScore, rows, setRows, level, setLevel } = useGameStatus(rowsCleared)
+  const [currentUser, setCurrentUser] = useState<any>(null)
+
+  useEffect(() => {
+    const  token  = localStorage.getItem('jwt')
+    if(token) {
+      setCurrentUser(jwt_decode(token))
+    } else {
+      setCurrentUser(null)
+    }
+  }, [])
 
   const movePlayer = (dir: number) => {
     if (!isColliding(player, stage, { x: dir, y: 0 })) {
@@ -138,11 +150,25 @@ const App: React.FC = () => {
         console.log("Game Over")
         setGameOver(true)
         setDropTime(null)
+        // postScore(score)
       }
       updatePlayerPos({ x: 0, y: 0, collided: true})
     }
     
   }
+
+  async function postScore(theScore: number) {
+    const reqBody = {
+      game: 'Tetris',
+      score: theScore
+    }
+
+    await axios.patch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${currentUser?.id}/score`, reqBody)
+  }
+
+  useEffect(() => {
+    if(gameOver) postScore(score)
+  }, [gameOver])
 
   useInterval(() => {
     drop()
