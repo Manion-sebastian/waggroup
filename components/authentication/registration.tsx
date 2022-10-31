@@ -29,7 +29,7 @@ const Registration = ({currentUser, setCurrentUser}: Props) => {
 				password
 			}
             // console.log(reqBody)
-			// const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, reqBody)
+			const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/create`, reqBody)
 			const { token } = response.data
 			localStorage.setItem('jwt', token)
 			const decoded = jwt_decode(token)
