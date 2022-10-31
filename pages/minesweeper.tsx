@@ -4,12 +4,14 @@ import styles from '../styles/tetris/gameDisplay.module.css'
 // React
 import React from 'react'
 import MineSweeperGame from '../components/minesweeperGame'
+import NavBar from '../components/navBar'
 
 type Props = {}
 
 const mineSweeperGame = (props: Props) => {
   return (
     <div>
+      <NavBar />
       <section className={`MS DISPLAY ${styles.gameDisplay}`}>
         <MineSweeperGame />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>
@@ -47,7 +49,7 @@ const mineSweeperGame = (props: Props) => {
 
               <br />
               
-              Press "New Game" to begin playing!
+              Press &qot;New Game&qot; to begin playing!
             </article>
 
           </div>

@@ -4,12 +4,14 @@ import styles from '../styles/tetris/gameDisplay.module.css'
 // React
 import * as React from 'react'
 import App from '../components/tetris/App'
+import NavBar from '../components/navBar'
 
 type Props = {}
 
 const tetris = (props: Props) => {
   return (
     <div>
+      <NavBar />
       <section className={`TETRIS DISPLAY ${styles.gameDisplay}`}>
         <App />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>
@@ -51,7 +53,7 @@ const tetris = (props: Props) => {
 
               <br />
               
-              Press "START GAME" to begin playing!
+              Press &qot;START GAME&qot; to begin playing!
             </article>
 
           </div>

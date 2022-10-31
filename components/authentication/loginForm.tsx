@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/baseSite/Auth.module.css'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import NavBar from '../navBar'
 
 type Props = { 
   currentUser : any
@@ -49,27 +50,30 @@ const LoginForm = ({currentUser, setCurrentUser}: Props) => {
 
 
   return (
-    <div className={styles.authForms}>
+    <div>
+      {/* <NavBar /> */}
+      <div className={styles.authForms}>
 
-        <h1>Login to Your Account:</h1>
+          <h1>Login to Your Account:</h1>
 
-        <p>{msg}</p>
+          <p>{msg}</p>
 
 
-        <form onSubmit={handleSubmit}>
-          <div className={styles.authLabelSection}>
-                  <label className={styles.authLabel} htmlFor="email">Email:</label>
-                  <input className={styles.authInput} name='email' id='email' type="email" required placeholder='Enter Email'
-                  value={email} onChange={e => setEmail(e.target.value)} />
-              </div>
-              <div className={styles.authLabelSection}>
-                  <label className={styles.authLabel} htmlFor="password">Password:</label>
-                  <input className={styles.authInput} name='password' id='password' type='password' required placeholder='Enter Password' 
-                  value={password} onChange={e => setPassword(e.target.value)}
-                  />
-              </div>
-              <button className={styles.authButton} type='submit'>Login</button>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.authLabelSection}>
+                    <label className={styles.authLabel} htmlFor="email">Email:</label>
+                    <input className={styles.authInput} name='email' id='email' type="email" required placeholder='Enter Email'
+                    value={email} onChange={e => setEmail(e.target.value)} />
+                </div>
+                <div className={styles.authLabelSection}>
+                    <label className={styles.authLabel} htmlFor="password">Password:</label>
+                    <input className={styles.authInput} name='password' id='password' type='password' required placeholder='Enter Password' 
+                    value={password} onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+                <button className={styles.authButton} type='submit'>Login</button>
+          </form>
+      </div>
     </div>
   )
 }

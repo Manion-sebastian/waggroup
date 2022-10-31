@@ -1,4 +1,5 @@
 import React from 'react'
+import NavBar from '../components/navBar'
 import SudokuGame from '../components/sudoku/sudokuGame'
 
 type Props = {}
@@ -6,6 +7,7 @@ type Props = {}
 const SudokuTest = (props: Props) => {
   return (
     <div>
+        <NavBar />
         <SudokuGame />
     </div>
   )

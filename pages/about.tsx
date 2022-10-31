@@ -4,6 +4,7 @@ import { Divider } from 'antd'
 
 import type { AboutUs } from '../typings' 
 import styles from '../styles/baseSite/About.module.css'
+import NavBar from '../components/navBar'
 
 type Props = {}
 
@@ -41,6 +42,7 @@ const programmers = [
 const About = (props: Props) => {
   return (
     <div>
+        <NavBar />
         {programmers.map((person : AboutUs) => (
             <div key={person.name} className={styles.aboutWhole}>
                 <div className={styles.aboutPhotoDiv}>
