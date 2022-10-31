@@ -45,12 +45,12 @@ const About = (props: Props) => {
         {programmers.map((person : AboutUs) => (
             <div key={person.name} className={styles.aboutWhole}>
                 <div className={styles.aboutPhotoDiv}>
-                    <Image  
+                    <img  
                         className={styles.aboutPhoto}
                         src={person.url}
                         alt={person.name}
-                        width={200}
-                        height={200}
+                        // width={200}
+                        // height={200}
                     />
                     <h1>{person.name}</h1>
                 </div>
