@@ -18,26 +18,59 @@
   margin-top: 1.2rem;
 }
 
-.gameInstructions {
+.gameDisplay :first-child {
+  position: relative;
+}
+
+.gameDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
   height: 100%;
   border: 1px solid var(--wag-bdr-main);
   border-radius: 10px;
-  margin-left: 10vw;
+  margin-left: 6vw;
   padding: 2em;
   user-select: none;
 }
 
 .gameTitle {
   width: 100%;
-  font-size: 10vw;
+  font-size: clamp(4.5rem, 4.5vw, 16rem);
   font-weight: 900;
+  text-align: center;
+}
+
+.tutorial {
+  font-size: 1rem;
+  width: 20rem;
+  text-align: justify;
 }
 
 .bold {
+  width: max-content;
   font-size: 2rem;
-  font-weight: 700;
-  text-decoration: underline;
+  font-weight: 300;
+  font-style: italic;
+  border-bottom: 1px solid var(--wag-bdr-main);
   text-align: center;
+  white-space: nowrap;
+  margin: 0 auto 2rem;
+}
+
+/* MS */
+.MSFont {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(3.6rem, 3.6vw, 13.5rem);
+  font-weight: 300;
+  font-style: italic;
+  border: none;
+}
+
+.MINE {
+  font-weight: 900;
+  font-style: initial;
 }
 
 /* COLORS */
@@ -73,6 +106,23 @@
 
 @media (max-width: 784px) {
   .gameDisplay {
+    width: max-content;
     flex-direction: column;
+    padding: 1.2rem .8rem;
+  }
+
+  .gameDetails {
+    width: 100%;
+    margin: 1.2rem auto;
+  }
+
+  .gameTitle {
+    width: max-content;
+    font-size: clamp(2rem, 18vw, 9rem);
+    margin: none;
+  }
+
+  .tutorial {
+    
   }
 }

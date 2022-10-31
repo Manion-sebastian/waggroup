@@ -20,7 +20,7 @@ export const StyledStartButton = styled.button`
   transition: all 80ms ease-out;
   
   :hover {
-    background: #5fdf8f;
+    background: rgb(110 247 247);
     color: #101010;
     box-shadow: 0 0 .25rem rgb(60 60 60 / .3);
   }
