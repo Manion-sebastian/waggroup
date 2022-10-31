@@ -23,17 +23,23 @@ const HomePage = (props: Props) => {
         <Collapse expandIconPosition='end' bordered={false} accordion={true}>
           <Panel className={styles.headers} header={"Minesweeper"} key='1'>
             <p className={styles.content}>
-              Click on the squares to ...
+              Click on the tiles to reveal what's underneath. <br />
+              Use the revealed numbers to determine whether your next click is a number...or not. <br />
+              Reveal all the tiles that aren't mines 💣 to win the game! 🎉
             </p>
           </Panel>
           <Panel className={styles.headers} header={"Sudoku"} key='2'>
           <p className={styles.content}>
-            A standard game of Sudoku, Click on cells to select it, and then click a button to insert the number into the cell.
+            Fill each cell with a number between 1 - 9. <br />
+            You cannot use the same digit if it exists in the same row, column or box. <br />
+            Fill all 81 cells as fast as possible for the highest score.
           </p>
           </Panel>
           <Panel className={styles.headers} header={"Tetris"} key='3'>
           <p className={styles.content}>
-            A standard game of Tetris
+            Move the falling Tetronimos to the bottom of the screen. <br />
+            Clear blocks by filling rows and play for longer. <br />
+            Stay alive for as long as possible to get the high score.
           </p>
           </Panel>
         </Collapse>
