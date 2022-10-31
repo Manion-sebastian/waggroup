@@ -68,7 +68,7 @@ const LoginForm = ({}: Props) => {
         <form onSubmit={handleSubmit}>
           <div className={styles.authLabelSection}>
                   <label className={styles.authLabel} htmlFor="userNameOrEmail">Username/Email:</label>
-                  <input className={styles.authInput} name='userNameOrEmail' id='userNameOrEmail' type="userNameOrEmail" required placeholder='Enter a username or email'
+                  <input className={styles.authInput} name='userNameOrEmail' id='userNameOrEmail' type="userNameOrEmail" required placeholder='Enter username/email'
                   value={userNameOrEmail} onChange={e => setuserNameOrEmail(e.target.value)} />
               </div>
               <div className={styles.authLabelSection}>
