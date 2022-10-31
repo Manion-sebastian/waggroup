@@ -22,32 +22,31 @@ const mineSweeperGame = (props: Props) => {
             <p className={`HOW TO PLAY ${styles.bold}`}>HOW TO PLAY</p>
 
             <article className={`INSTRUCTIONS ${styles.tutorial}`}>
-              Move the falling Tetronimos to the bottom of the screen.
-              Clear blocks by filling rows and play for longer.
-              Stay alive for as long as possible to get the high score.
+              Click on the tiles to reveal what's underneath.
+              Use the revealed numbers to determine whether your next click is a number...or not.
+              Reveal all the tiles that aren't mines 💣 to win the game! 🎉
 
               <br />
               <br />
 
               Touch Controls:
               <ul> 
-                <li>Move by tapping the <em>Left</em> or <em>Right</em> half of the game</li>
-                <li>Rotate by swipping <em>Left</em> or <em>Right</em></li>
-                <li>Pull <em>Down</em> on the game to fall faster</li>
+                <li>Tap a tile to reveal its value</li>
+                <li>Tap and <em>hold</em> to flag an untapped tile</li>
               </ul>
               
               <br />
 
               Keyboard Controls:
               <ul> 
-                <li>Move with the A/D or ⬅/➡ keys</li>
-                <li>Rotate with the J/K or Z/X keys</li>
-                <li>Use the S or ⬇ keys to fall faster</li>
+                <li>Left Click a tile to reveal its value</li>
+                <li>Right Click to flag an untapped tile</li>
               </ul>
 
               <br />
               
-              Press "New Game" to begin playing!
+              Press "New Game" to begin playing! <br />
+              Press "| |" to pause and unpause the game
             </article>
 
           </div>
