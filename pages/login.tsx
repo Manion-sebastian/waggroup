@@ -7,7 +7,6 @@ type Props = {}
 const Login = (props: Props) => {
   return (
     <div>
-        <NavBar />
         <LoginForm />
     </div>
   )

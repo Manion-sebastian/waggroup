@@ -42,7 +42,6 @@ const programmers = [
 const About = (props: Props) => {
   return (
     <div>
-        <NavBar />
         {programmers.map((person : AboutUs) => (
             <div key={person.name} className={styles.aboutWhole}>
                 <div className={styles.aboutPhotoDiv}>

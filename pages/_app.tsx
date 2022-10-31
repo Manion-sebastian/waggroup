@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <NavBar />   
       <Component {...pageProps} />
     </>
   )

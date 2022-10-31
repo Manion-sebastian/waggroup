@@ -11,7 +11,6 @@ type Props = {}
 const tetris = (props: Props) => {
   return (
     <div>
-      <NavBar />
       <section className={`TETRIS DISPLAY ${styles.gameDisplay}`}>
         <App />
         <div className={`INSTRUCTIONS WRAPPER ${styles.gameDetails}`}>

@@ -7,7 +7,6 @@ type Props = {}
 const SudokuTest = (props: Props) => {
   return (
     <div>
-        <NavBar />
         <SudokuGame />
     </div>
   )

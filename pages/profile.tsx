@@ -45,7 +45,6 @@ const testUserScores : scoresSudoku = {
 const Profile = ({}: Props) => {
   return (
     <div>
-    <NavBar />
     <div className={styles.userInfoCont}>
         <div className={styles.profileTop}>
             {/* userInfo */}

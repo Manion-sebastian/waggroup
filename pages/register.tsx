@@ -7,7 +7,6 @@ type Props = {}
 const Register = (props: Props) => {
   return (
     <div>
-        <NavBar />
         <Registration />
     </div>
   )
